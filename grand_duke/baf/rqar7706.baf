@@ -1,0 +1,10 @@
+// Elfsong 2nd floor
+IF
+    Global("rqGDGrandDukeQuest","GLOBAL",1)
+    Global("rqGDRepreSpawn","AR7706",0) // Elfsong 2nd floor
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDRepreSpawn","AR7706",1) // Elfsong 2nd floor
+        CreateCreature("rqrepr10",[415.591],0) // Ioviis
+        Continue()
+END

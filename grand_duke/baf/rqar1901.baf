@@ -1,0 +1,12 @@
+// Lighthouse
+IF
+    Dead("cefald01")  // Faldorn
+    Global("GrovePoisoned","GLOBAL",1)
+    Global("rqGDBG2DruidReinforce","AR1901",0)
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDBG2DruidReinforce","AR1901",1) // Druid Grove
+        CreateCreatureObjectEffect("rqadher1","SPDIMNDR",Player1)
+        CreateCreatureObjectEffect("rqadher2","SPDIMNDR",Player1)
+        Continue()
+END

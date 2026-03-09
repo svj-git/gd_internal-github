@@ -1,0 +1,104 @@
+// Southwest Baldur's Gate
+IF
+    InMyArea(Player1)
+    Global("rqGDKrivySpawn","AR8000",0) // Southwest Baldur's Gate
+    Global("rqGDGoodPathStep4","GLOBAL",1)
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDKrivySpawn","AR8000",1) // Southwest Baldur's Gate
+        CreateCreatureObjectOffScreen("rqkrivy",Player1,0,0,0) // Krivy
+        Continue()
+END
+// Trest for Flaming Fist assault
+IF
+    Global("rqGDTrestSpawn","AR8000",0) // Southwest Baldur's Gate
+    Global("rqGDEvilPathStep2","GLOBAL",1)
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDTrestSpawn","AR8000",1) // Southwest Baldur's Gate
+        CreateCreature("rqtrest",[1968.669],0) // Trest
+        Continue()
+END
+
+// NeutralPath ------------------------- Teleporting boots safeguard
+IF
+    GlobalGT("rqGDVotes","GLOBAL",7)
+    Alignment(Player1,MASK_GENEUTRAL)
+    Global("rqGDMessengerN1Spawn","AR8000",0) // Southwest Baldur's Gate
+    Global("rqGDNeutralPathStep1","GLOBAL",0)
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDMessengerN1Spawn","AR8000",1) // Southwest Baldur's Gate
+        SetGlobal("rqGDNeutralPath","GLOBAL",1)
+        SetGlobal("rqGDNeutralPathStep1","GLOBAL",1)
+        CreateCreatureObjectOffScreen("rqcoura1",Player1,0,0,0) // Messenger
+        Continue()
+END
+
+IF
+    Global("rqGDLerovSpawn","AR8000",0) // Southwest Baldur's Gate
+    Global("rqGDNeutralPathStep2","GLOBAL",1)
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDLerovSpawn","AR8000",1) // Southwest Baldur's Gate
+        Wait(2)
+        CreateCreatureObjectOffScreen("rqlerov",Player1,0,0,0) // Lerov
+        ActionOverride("rqlerov",StartDialogueNoSet(Player1))
+        Continue()
+END
+
+// Good Path ------------------------------  Teleporting boots safeguard
+IF
+    GlobalGT("rqGDVotes","GLOBAL",7)
+    Alignment(Player1,MASK_GOOD)
+    Global("rqGDCourGoodSpawn","AR8000",0) // Southwest Baldur's Gate
+    Global("rqGDGoodPathStep1","GLOBAL",0)
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDCourGoodSpawn","AR8000",1) // Southwest Baldur's Gate
+        SetGlobal("rqGDGoodPathStep1","GLOBAL",1)
+        SetGlobal("rqGDGoodPath","GLOBAL",1)
+        CreateCreatureObjectOffScreen("rqcourb1",Player1,0,0,0) // Messenger
+        Continue()
+END
+
+IF
+    Global("rqGDLerovSpawnG","AR8000",0) // Southwest Baldur's Gate
+    Global("rqGDGoodPathStep2","GLOBAL",1)
+    !InMyArea("rqcourb1")
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDLerovSpawnG","AR8000",1) // Southwest Baldur's Gate
+        Wait(2)
+        CreateCreatureObjectOffScreen("rqlerovg",Player1,0,0,0) // Lerov
+        ActionOverride("rqlerovg",StartDialogueNoSet(Player1))
+        Continue()
+END
+
+IF
+    Global("rqGDEvilPathStep2","GLOBAL",1)
+    Global("rqGDSpawnFist","AR8000",0)
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDSpawnFist","AR8000",1)
+        CreateCreature("rqlerus",[1489.1341],S)  // Lerus
+        CreateCreature("rqstyr",[1825.1488],S)  // Styr
+        CreateCreature("rqmaxmil",[1571.1332],S)  // Maxmillion
+        ActionOverride("rqlerus",MoveToPoint([1487.1421]))
+        ActionOverride("rqstyr",MoveToPoint([1561.1493]))
+        ActionOverride("rqmaxmil",MoveToPoint([1598.1376]))
+        Continue()
+END
+
+IF
+    GlobalGT("rqGDEvilPathStep2","GLOBAL",2)
+    Exists("rqlerus")
+    Exists("rqstyr")
+    Exists("rqmaxmil")
+THEN
+    RESPONSE #100
+        ActionOverride("rqlerus",EscapeArea())
+        ActionOverride("rqstyr",EscapeArea())
+        ActionOverride("rqmaxmil",EscapeArea())
+        Continue()
+END

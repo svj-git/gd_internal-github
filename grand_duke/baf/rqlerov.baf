@@ -1,0 +1,9 @@
+// Anton override script
+IF
+    See([PC])
+    Allegiance(Myself,NEUTRAL)
+    Global("rqGDNeutralPathStep2","GLOBAL",3)
+THEN
+    RESPONSE #100
+        Enemy()
+END

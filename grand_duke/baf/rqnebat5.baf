@@ -1,0 +1,8 @@
+// Nemean Battle Script
+IF
+    Global("rqGDNeutralSt5Battle","GLOBAL",1)
+    Allegiance(Myself,NEUTRAL)
+THEN
+    RESPONSE #100
+        Enemy()
+END

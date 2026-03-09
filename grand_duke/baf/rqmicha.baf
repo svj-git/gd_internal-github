@@ -1,0 +1,33 @@
+// Michaël
+IF
+    Global("rqGDUsePoison","LOCALS",0)
+    See(NearestEnemyOf(Myself))
+    !Dead("rqmicha")
+THEN
+    RESPONSE #100
+        SetGlobalTimer("rqGDWarChantTimer","LOCALS",16)
+        SetGlobal("rqGDUsePoison","LOCALS",1)
+        DisplayStringHead(Myself,~Din ha-ne'evadim!~)  // Din ha-ne'evadim!
+        ReallyForceSpellRES("SPPR411",NearestEnemyOf(Myself)) // Poison
+END
+
+IF
+    GlobalTimerExpired("rqGDWarChantTimer","LOCALS")
+    !Dead("rqmicha")
+    Global("rqGDUsePoison","LOCALS",1)
+THEN
+    RESPONSE #100
+        SetGlobalTimer("rqGDWarChantTimer","LOCALS",16)
+        SetGlobal("rqGDUsePoison","LOCALS",0)
+        DisplayStringHead(Myself,~Din ha-ne'evadim!~)  // Din ha-ne'evadim!
+        ReallyForceSpellRES("SPPR411",NearestEnemyOf(Myself)) // Poison
+END
+
+IF
+    HPPercentLT(Myself,5)
+    Global("rqGDDeath2","LOCALS",0)
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDDeath2","LOCALS",1)
+        DisplayStringHead(Myself,~Echad elohim imach.~)
+END

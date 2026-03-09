@@ -1,0 +1,20 @@
+// Nemean Evil Script
+IF
+    Global("rqGDEvilPathStep3","GLOBAL",1)
+    See([PC])
+    Allegiance(Myself,NEUTRAL)
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDEvilPathStep3","GLOBAL",2)
+        StartDialogueNoSet([PC])
+        DisplayStringHead(Myself,~Kill <PRO_HIMHER>! Kill <PRO_HIMHER> now!~) // Kill <PRO_HIMHER>! Kill <PRO_HIMHER> now!
+        Enemy()
+        ActionOverride("rqfig9a1",Enemy())
+        ActionOverride("rqfig9b1",Enemy())
+        ActionOverride("rqthi8a1",Enemy())
+        ActionOverride("rqthi8b1",Enemy())
+        ActionOverride("rqfigc1",Enemy())
+        ActionOverride("rqfigc2",Enemy())
+        ActionOverride("rqfigc3",Enemy())
+        ActionOverride("rqcled1",Enemy())
+END

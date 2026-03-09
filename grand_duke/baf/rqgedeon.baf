@@ -1,0 +1,33 @@
+// Gedeon
+IF
+    Global("rqGDUsePoison","LOCALS",0)
+    See(NearestEnemyOf(Myself))
+    !Dead("rqgedeon")
+THEN
+    RESPONSE #100
+        SetGlobalTimer("rqGDWarChantTimer","LOCALS",22)
+        SetGlobal("rqGDUsePoison","LOCALS",1)
+        DisplayStringHead(Myself,~Koach le-avadav!~)  // Koach le-avadav!
+        ReallyForceSpellRES("SPWI213",NearestEnemyOf(Myself)) // Stinking Cloud
+END
+
+IF
+    GlobalTimerExpired("rqGDWarChantTimer","LOCALS")
+    !Dead("rqgedeon")
+    Global("rqGDUsePoison","LOCALS",1)
+THEN
+    RESPONSE #100
+        SetGlobalTimer("rqGDWarChantTimer","LOCALS",22)
+        SetGlobal("rqGDUsePoison","LOCALS",0)
+        DisplayStringHead(Myself,~Koach le-avadav!~)  // Koach le-avadav!
+        ReallyForceSpellRES("SPWI213",NearestEnemyOf(Myself)) // Stinking Cloud
+END
+
+IF
+    HPPercentLT(Myself,5)
+    Global("rqGDDeath2","LOCALS",0)
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDDeath2","LOCALS",1)
+        DisplayStringHead(Myself,~Echad elohim imach.~)
+END

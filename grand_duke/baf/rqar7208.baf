@@ -1,0 +1,67 @@
+// Ducal Palace
+
+// Remove BGT Belt After killing Sarevok
+IF
+    Exists("BELTBRD")  // Belt
+    Global("ENDOFBG1","GLOBAL",1)
+    Global("rqGDBeltPalaceControl","GLOBAL",2)
+THEN
+    RESPONSE #100
+        ActionOverride("BELTBRD",EscapeArea())
+        ActionOverride("FlamingFist10",EscapeArea())
+        Continue()
+END
+
+IF
+    Exists("belt")  // Belt
+    Global("ENDOFBG1","GLOBAL",1)
+THEN
+    RESPONSE #100
+        ActionOverride("belt",EscapeArea())
+        ActionOverride("FlamingFist10",EscapeArea())
+        Continue()
+END
+// Good path meeting with Belt
+IF
+    !Exists("rqbelt")  // Belt
+    Global("rqGDGoodPathStep5","GLOBAL",1)
+    Global("rqGDBeltSpawn","AR7208",0)
+THEN
+    RESPONSE #100
+        CreateCreature("rqbelt",[735.371],S)  // Belt
+        CreateCreature("rqenfist",[920.485],S)  // Belt
+        SetGlobal("rqGDBeltSpawn","AR7208",1)
+        Continue()
+END
+// Zelmira Spawn
+IF
+    Global("ENDOFBG1","GLOBAL",1)
+    Inparty("rqrhiv") // Rhiviq
+    Global("rqGDZelmiraSpawn","AR7208",0)
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDZelmiraSpawn","AR7208",1)
+        CreateCreature("rqzelm",[464.743],S)  // Zelmira
+        CreateCreature("rqzelg1",[428.628],S)  // Nightshade of Shar
+        CreateCreature("rqzelg2",[471.774],S)  // Nightshade of Shar
+        CreateCreature("rqzelg3",[510.725],S)  // Nightshade of Shar
+        CreateCreature("rqzelg4",[453.602],S)  // Nightshade of Shar
+        Continue()
+END
+// Alvier
+IF
+    OR (3)
+        Global("rqGDGoodPath","GLOBAL",1)
+        Global("rqGDEvilPath","GLOBAL",1)
+        Global("rqGDNeutralPath","GLOBAL",1)
+    !Exists("rqalvier")  // Alvier
+    !Exists("rqbelt") // Belt
+    Global("rqGDBeltPalaceControl","GLOBAL",2)
+    GlobalGT("rqGDVotes","GLOBAL",7)
+    Global("rqGDAlvierSpawn","AR7208",0)
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDAlvierSpawn","AR7208",1)
+        CreateCreature("rqalvier",[856.401],SSW)  // Alvier
+        Continue()
+END

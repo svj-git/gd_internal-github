@@ -1,0 +1,42 @@
+// Undercellar
+IF
+    Global("rqGDNeutralPathStep4","GLOBAL",1)
+    Global("rqGDLezgynSpawn","AR7212",0) // Undercellar
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDLezgynSpawn","AR7212",1) // Undercellar
+        CreateCreature("rqcofist",[1488.892],0) // Lezgyn Hawk
+        Continue()
+END
+
+IF
+    Global("rqGDGoodPathStep6","GLOBAL",1)
+    Global("rqGDKrivySpawn","AR7212",0) // Undercellar
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDKrivySpawn","AR7212",1) // Undercellar
+        CreateCreature("rqkrivy",[1655.1596],0) // Krivy
+        CreateCreature("rqenfist",[1820.1425],0) // Flaming Fist Enforcer
+        Continue()
+END
+
+IF
+    Global("rqGDGoodPathStep6","GLOBAL",1)
+    Global("rqGDFistExitGuards","AR7212",0) // Undercellar
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDFistExitGuards","AR7212",1) // Undercellar
+        CreateCreature("rqfisth1",[342.382],SW)
+        CreateCreature("rqfisth1",[424.310],SSW)
+        CreateCreature("rqfisth1",[413.363],SSW)
+        CreateCreature("rqfisth1",[2186.333],S)
+        CreateCreature("rqfisth1",[2207.367],S)
+        CreateCreature("rqfisth1",[2250.391],S)
+        CreateCreature("rqfisth1",[419.1582],NE)
+        CreateCreature("rqfisth1",[428.1659],NE)
+        CreateCreature("rqfisth1",[433.1619],NE)
+        CreateCreature("rqfisth1",[2082.1608],NW)
+        CreateCreature("rqfisth1",[2228.1581],NW)
+        CreateCreature("rqfisth1",[2190.1582],NW)
+        Continue()
+END

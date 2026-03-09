@@ -1,0 +1,33 @@
+// Avaram
+IF
+    Global("rqGDUsePoisonAVA","LOCALS",0)
+    See(NearestEnemyOf(Myself))
+    !Dead("rqavaram")
+THEN
+    RESPONSE #100
+        SetGlobalTimer("rqGDWarChantTimerAVA","LOCALS",24)
+        SetGlobal("rqGDUsePoisonAVA","LOCALS",1)
+        DisplayStringHead(Myself,~Bechira la'az!~)  // Bechira la'az!
+        ReallyForceSpellRES("SPPR610",NearestEnemyOf(Myself)) // Dolorous Decay
+END
+
+IF
+    GlobalTimerExpired("rqGDWarChantTimerAVA","LOCALS")
+    !Dead("rqavaram")
+    Global("rqGDUsePoisonAVA","LOCALS",1)
+THEN
+    RESPONSE #100
+        SetGlobalTimer("rqGDWarChantTimerAVA","LOCALS",24)
+        SetGlobal("rqGDUsePoisonAVA","LOCALS",0)
+        DisplayStringHead(Myself,~Bechira la'az!~)  // Bechira la'az!
+        ReallyForceSpellRES("SPPR610",NearestEnemyOf(Myself)) // Dolorous Decay
+END
+
+IF
+    HPPercentLT(Myself,5)
+    Global("rqGDDeath2","LOCALS",0)
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDDeath2","LOCALS",1)
+        DisplayStringHead(Myself,~Echad elohim imach.~)
+END

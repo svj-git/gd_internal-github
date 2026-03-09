@@ -1,0 +1,11 @@
+// Joses override script
+IF
+    See([PC])
+    Allegiance(Myself,NEUTRAL)
+    !ActuallyInCombat()
+    Dead("rqanton2")
+    AreaCheck("AR0404")
+THEN
+    RESPONSE #100
+        StartDialogueNoSet([PC])
+END

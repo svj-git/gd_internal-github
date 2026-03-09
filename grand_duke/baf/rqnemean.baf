@@ -1,0 +1,21 @@
+// Nemean Good Script
+IF
+    Global("rqGDNeutralPathStep2","GLOBAL",2)
+    See([PC])
+    Allegiance(Myself,NEUTRAL)
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDNeutralPathStep2","GLOBAL",3)
+        //StartDialogueNoSet([PC])
+        DisplayStringHead(Myself,~Kill <PRO_HIMHER>! Kill <PRO_HIMHER> now!~) // Kill <PRO_HIMHER>! Kill <PRO_HIMHER> now!
+        Enemy()
+        ActionOverride("rqfig9a1",Enemy())
+        ActionOverride("rqfig9b1",Enemy())
+        ActionOverride("rqthi8a1",Enemy())
+        ActionOverride("rqthi8b1",Enemy())
+        ActionOverride("rqfigc1",Enemy())
+        ActionOverride("rqfigc2",Enemy())
+        ActionOverride("rqfigc3",Enemy())
+        ActionOverride("rqcled1",Enemy())
+        ActionOverride("rqlerov",Enemy())
+END

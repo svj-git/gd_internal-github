@@ -1,0 +1,10 @@
+// Drakon Tavern
+IF
+    Global("rqGDGrandDukeQuest","GLOBAL",1)
+    Global("rqGDRepreSpawn","AR7720",0) // Drakon Tavern
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDRepreSpawn","AR7720",1) // Drakon Tavern
+        CreateCreature("rqrepr1",[382.666],N) // Talvin of Gelfiven
+        Continue()
+END

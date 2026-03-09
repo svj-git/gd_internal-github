@@ -1,0 +1,49 @@
+// Iacob
+IF
+    NumTimesTalkedTo(0)
+    See([PC])
+THEN
+    RESPONSE #100
+        StartDialogueNoSet([PC])
+END
+
+
+IF
+    Global("rqGDUsePoison","LOCALS",0)
+    See(NearestEnemyOf(Myself))
+    !Dead("rqiacob")
+    //!Dead(Myself)
+THEN
+    RESPONSE #100
+        SetGlobalTimer("rqGDWarChantTimer","LOCALS",19)
+        SetGlobal("rqGDUsePoison","LOCALS",1)
+        DisplayStringHead(Myself,~Ba'al ha-mashal!~)  // Ba'al ha-mashal!
+        ReallyForceSpellRES("SPWI211",NearestEnemyOf(Myself)) // Melf's Acid Arrow
+END
+
+IF
+    GlobalTimerExpired("rqGDWarChantTimer","LOCALS")
+    //!Dead(Myself)
+    !Dead("rqiacob")
+    Global("rqGDUsePoison","LOCALS",1)
+THEN
+    RESPONSE #100
+        SetGlobalTimer("rqGDWarChantTimer","LOCALS",19)
+        SetGlobal("rqGDUsePoison","LOCALS",0)
+        DisplayStringHead(Myself,~Ba'al ha-mashal!~)  // Ba'al ha-mashal!
+        ReallyForceSpellRES("SPWI211",NearestEnemyOf(Myself)) // Melf's Acid Arrow
+END
+
+IF
+    HPPercentLT(Myself,5)
+    Global("rqGDDeath2","LOCALS",0)
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDDeath2","LOCALS",1)
+        DisplayStringHead(Myself,~Echad elohim imach.~)
+END
+
+/*
+Death
+Echad elohim imach...
+*/

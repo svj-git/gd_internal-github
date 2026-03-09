@@ -1,0 +1,16 @@
+// Flaming Fist Citadel
+IF
+    Global("rqGDFistSpawn","AR7608",0) // Flaming Fist Citadel
+    Global("rqGDEvilPathStep2","GLOBAL",2)
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDFistSpawn","AR7608",1) // Flaming Fist Citadel
+        CreateCreature("rqfistf1",[325.227],S)  // Flaming Fist Mercenary
+        CreateCreature("rqfistf2",[333.490],NW)  // Flaming Fist Mercenary
+        CreateCreature("rqfistf3",[550.321],S)  // Flaming Fist Mercenary
+        CreateCreature("rqfistk1",[134.360],NNW)  // Flaming Fist Mercenary
+        CreateCreature("rqfistk2",[226.229],SEE)  // Flaming Fist Archer
+        CreateCreature("rqfistk3",[232.279],N)  // Flaming Fist Captain
+        CreateCreature("rqkerb",[539.403],SSW)  // Kerboven
+        Continue()
+END

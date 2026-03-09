@@ -1,0 +1,16 @@
+// Gnoll Stronghold Brokkrs treasure spawn gnolls
+IF
+    Global("rqGDBrokkrTreasure","GLOBAL",1)
+    Global("rqGDGnollsSpawn","AR4100",0)
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDGnollsSpawn","AR4100",1)
+        CreateCreature("GNLSLA01",[3091.73],5) // Gnoll Slasher
+        CreateCreature("GNLSLA01",[3074.132],5) // Gnoll Slasher
+        CreateCreature("GNLSLA01",[2996.37],5) // Gnoll Slasher
+        CreateCreature("rqgnoll1",[2932.208],5) // Gnoll Chieftain
+        CreateCreature("GNOLL02",[2918.73],5) // Gnoll
+        CreateCreature("GNOLL01",[3129.24],5) // Gnoll
+        CreateCreature("GNOLL3",[2869.21],5) // Gnoll
+        Continue()
+END

@@ -1,0 +1,18 @@
+// Progunnos override script
+IF
+    Global("rqGDBrokkrTreasure","GLOBAL",5)
+    See([PC])
+THEN
+    RESPONSE #100
+        StartDialogueNoSet([PC])
+END
+
+IF
+    Global("rqGDBrokkrTreasure","GLOBAL",6)
+    Dead("rqnemar")
+    !ActuallyInCombat()
+THEN
+    RESPONSE #100
+        StartDialogueNoSet("rqbro")
+END
+

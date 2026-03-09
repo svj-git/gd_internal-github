@@ -1,0 +1,73 @@
+// Elfsong 1st floor
+IF
+    Global("rqGDKrivySpawnSeq","GLOBAL",1)
+    Global("rqGDKrivysMenSpawn","AR7705",0) // Elfsong 1st floor
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDKrivysMenSpawn","AR7705",1) // Elfsong 1st floor
+        CreateCreature("rqiachin",[848.360],0) // Iachino
+        CreateCreature("rqlerov",[794.335],0) // Lerov
+        Continue()
+END
+
+IF
+    OR (3)
+        Global("rqGDEvilPath","GLOBAL",1)
+        Global("rqGDNeutralPath","GLOBAL",1)
+        Global("rqGDGoodPath","GLOBAL",1)
+    !InMyArea(Player1)
+THEN
+    RESPONSE #100
+        ActionOverride("rqiachin",EscapeArea())
+        ActionOverride("rqlerov",EscapeArea())
+        Continue()
+END
+
+IF
+   // OR (2)
+        InMyArea("rqlerovg")
+   //     InMyArea("rqlerovn")
+THEN
+    RESPONSE #100
+        ActionOverride("rqlerov",DestroySelf())
+        Continue()
+END
+
+IF
+    GlobalGT("rqGDVotes","GLOBAL",7)
+    Global("rqGDBeltPalaceControl","GLOBAL",1)
+THEN
+        RESPONSE #100
+        SetGlobal("rqGDBeltPalaceControl","GLOBAL",2)
+        Continue()
+END
+
+// Lerov leave for ambush
+IF
+    GlobalGT("rqGDVotes","GLOBAL",7)
+    Alignment(Player1,MASK_EVIL)
+    InMyArea("rqlerov") // Lerov
+THEN
+    RESPONSE #100
+        ActionOverride("rqlerov",EscapeAreaObject("Door7800"))
+        Continue()
+END
+
+IF
+    Global("rqGDGrandDukeQuest","GLOBAL",10)
+    Global("rqGDKrivyRejectedSpawn","AR7705",0) // Elfsong 1st floor
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDKrivyRejectedSpawn","AR7705",1) // Elfsong 1st floor
+        CreateCreature("rqkrivy",[873.379],0) // Krivy
+        Continue()
+END
+// Create Test Merchant ----- TEST -----
+IF
+    Global("rqGDMerchElfsong","AR7705",0) // Elfsong 1st floor
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDMerchElfsong","AR7705",1) // Elfsong 1st floor
+        CreateCreature("rqmerc09",[675.771],0) // Merchant
+        Continue()
+END

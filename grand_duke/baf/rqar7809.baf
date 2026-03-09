@@ -1,0 +1,16 @@
+// Shop of Silence
+IF
+    Global("rqGDEvilPathStep1","GLOBAL",1)
+    Global("rqGDRepreSpawn","AR7809",0) // Shop of Silence
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDRepreSpawn","AR7809",1) // Shop of Silence
+        CreateCreature("rqpal1a",[543.291],0) // Sir Courtenay
+        CreateCreature("rqpal2a",[388.298],0) // Knight
+        CreateCreature("rqpal3a",[367.336],0) // Knight
+        CreateCreature("rqpal4a",[356.396],0) // Knight
+        CreateCreature("rqpal5a",[420.447],0) // Knight
+        CreateCreature("rqcle1a",[301.510],0) // Aerthemas
+        CreateCreature("rqlerov",[578.239],0) // Lerov
+        Continue()
+END

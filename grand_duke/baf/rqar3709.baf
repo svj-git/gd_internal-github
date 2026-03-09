@@ -1,0 +1,9 @@
+// Belching Dragon
+IF
+    Global("rqGDcreatefith","AR3709",0)
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDcreatefith","AR3709",1)
+        CreateCreature("rqfith",[592.389],4) // Brokkr
+        Continue()
+END

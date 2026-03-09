@@ -1,0 +1,8 @@
+// Ruth
+IF
+    NumTimesTalkedTo(0)
+    See("rqbro")
+THEN
+    RESPONSE #100
+        StartDialogueNoSet("rqbro")
+END

@@ -1,0 +1,620 @@
+Golden horse increase wisdom of mages
+
+GDCRE DECYPHERING
+rq fig is fighter 9 is level letter say c is encounter number 1 is type of variant if necessary
+
+re-check Malzoth & Brokkr Murders quest line
+
+Use EFF as Curse
+Devour Brain 32089
+Fix immunities icon and text from Rolles 5.0 some are missing
+
+Hard Todo after release: -----
+Thieves in Thieves guild not turning hostile reliably
+groth turning against talked perhaps some petrify?
+
+— Viconia
+
+—
+# Golden Horse new version
+Rod of CHarisma Unusable by good
+rqitwan Fix Bug Allegiance("rq7clf1",ENEMY)  // Deathstalker Sixtarch
+Mercenaries: Invoker Skald Enchanter Illusionist Necromancer Berserkers
+rqpotn rework add letter to Thacer
+Ilhunien robe lesser restoration >> Neutralize Poison
+Improved unidentified description poleaxes
+Ihragan maybe change to gray
+Sofn Hindra maybe change to gray
+
+
+
+? Lerovs Journal explaining why he did what he did.
+
+SetGlobal("BG_AttackedThieves","GLOBAL",1)
+SetGlobal("rqGDZZEnding","GLOBAL",1)
+
+
+Z:\home\rtech\games\bg1\prefix\drive_c\GOG Games\Baldur's Gate
+
+Wand of Auxiliary Spells
+Baalzebul Rejuvenator
+Wand of Refuge
+
+Throwing Axe +3 rqaxe01.itm
+Kagain
+
+Arrows +1 rqquiv01.itm
+Fighter/Thief
+
+Bag of bullets +1 rqquiv02.itm
+Viconia
+
+Throwing Dagger +1 rqdagg01.itm
+Edwin
+Diviner
+
+Ghosts Punch +1 rqstaf01.itm
+Me
+
+--- BG 2 ---
+
+Throwing Axe +2 rqaxe01.itm
+Berserkers
+3x
+
+Crimson Dart +3
+Revan
+
+Bag of bullets +1 rqquiv02.itm
+Viconia
+
+Throwing Dagger +1 rqdagg01.itm
+Edwin Enchanter Necromancer
+3x
+
+Phantom Staff +5
+FMC
+
+Arrows +1 rqquiv01.itm Spear?
+Skald
+
+Phantom Staff +1 rqstaf01.itm
+Me
+
+Brokkr
+Revan
+Rethrecus
+Viconia
+Edwin
+Sarevok?
+Skald
+
+Sling +4 Arla's Dragonbane
+-
+Sling +3 'Arla's Dragonbane'
+Sling of Seeking +2
+-----
+Enhanced Shield of Balduran
+-
+Reflection Shield +1
+Shield of the Lost +2
+-----
+Gauntlets of Grandmastery
+-
+Gauntlets of Weapon Skill
+Gauntlets of Weapon Expertise
+Bracers of Blinding Strike
+Bracers of Defense AC 6
+-----
+Necklace of Time Stability
+-
+Amulet of Spell Warding
+Kaligun's Amulet of Magic Resistance
+-----
+Enhanced Amulet of Power
+-
+Amulet of Power
+Amulet of 5 % Magic Resistance
+-----
+Battle Axe +4 Ice and Fire
+-
+Battle Axe Stonefire +3
+Battle Axe Frostreaver +3
+Hangard's Axe +2
+-----
+Enhanced Girdle of Fortitude
+-
+Girdle of Fortitude
+-----
+Destroyer +4
+-
+Sword of Chaos +2
+Lilarcor +3
+Cursed Berserking Sword +3
+-----
+Cloak of Perfection
+-
+Greenstone Amulet
+-----
+Universal Thrower +5
+-
+War Hammer +1, +4 vs. Giantkin
+War Hammer +2 Ashideena
+-----
+Throwing Dagger Silent Death
+-
+Stiletto of Demarchess +2
+Boomerang Dagger +2
+Pixie Prick +3
+Neb's Nasty Cutter
+-----
+Sword of Freedom +5 - on your choice long, or short sword
+-
+Scimitar of Speed +2 Belm
+Arbane's Sword +2
+Ilbratha +1
+Adjatha the Drinker +2
+------------------------------------------------------------------------------------------------
+Scaly Armour Two Dragons
+-
+Belt of Inertial Barrier
+------------------------------------------------------------------------------------------------
+Improved Gloves of Healing
+-
+Gloves of Healing
+------------------------------------------------------------------------------------------------
+Mace of Disruption +3
+-
+Mace of Disruption +1
+Mace Ardulia's Fall +1
+------------------------------------------------------------------------------------------------
+Amulet of Ilmater
+-
+Periapt of Proof against Poison
+Necklace of Form Stability
+Amulet of Spell Warding
+-----
+Ring of Elemental Mastery
+-
+Ring of Air Control
+Ring of Earth Control
+Ring of Fire Control
+-----
+Gloves of the Master Thief
+-
+Gloves of Pick Pocketing
+Bracers of Defense AC 4
+Ring of Danger Sense
+Ring of Lock Picks
+-----
+ Girdle of Glory
+-
+Golden Girdle (aka Golden Girdle of Urnst)
+Girdle of Bluntness (aka Destroyer of the Hills)
+Girdle of Piercing (Elves' Bane)
+
+Ruad
+-
+Cloak of Non-Detection
+Crimson Dart +3
+Fire Tooth +3
+Bracers of Dexterity
+|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+| Requires: Crimson Dart +3		       |
+|	    Fire Tooth +3		       |
+|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+| Requires: Shadow Dragon Scales                                      |
+|           Cloak of Non-Detection                                    |
+| Makes: Cloak of the Shadow                                          |
+|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+| Requires: Bracers of Dexterity                                      |
+| Makes: Gauntlets of Assassination                                   |
+
+
+VARIABLE MAP
+rqGDVotes tracks 7 needed to advance to secondary path
+
+depending on alignment you three different paths
+
+These three variable will have just 0 1 values its use it will have just indicator quality
+rqGDGoodPath
+rqGDNeutralPath
+rqGDEvilPath
+
+Tracks Which Mission is active
+rqGDEvilPathStep1
+rqGDGoodPathStep1
+rqGDNeutralPathStep1
+
+OPTIONAL Tracks substeps of Mission1
+rqGDEvilPathSubStep1A
+rqGDGoodPathSubStep1A
+rqGDNeutralPathSubStep1A
+
+OPTIONAL BattleTrigger GLOBAL
+rqGDEvilPathBattleStep1
+rqGDGoodPathBattleStep1
+rqGDNeutralPathBattleStep1
+
+FLAMWIZ spawn hostile fists search bcs
+FLAMSCO
+
+
+Krivy is former Shadow Thief and wants to get revenge on his former guild.
+Krivy appears when you get 7 votes. His goal is to use you for destruction of Shadow Thieves after your election.
+Belt and Liia Jannath guard captain assassins after you.
+dexterity book on final boss should also add letter explaining why he did not use it unable to identify
+// before having prerequisite amount of votes
+CreateCreature("rqbofist",[838.624],0) // Bounty Officer
+
+neutral rqGDNeutralPath 1
+rqGDNeutralPathStep1
+    Belt sends letter of ultimatum to you
+    CreateCreature("rqcoura1",[1660.2551],0) // East Baldur's Gate     Outside of Elfsong
+    Find Krivy journal 8 hour delay before Belt appears
+    Area: AR7800
+    Global Map
+    rqletbe1
+    rqGDVotes GT > 7
+    rqGDNeutralPathStep1 0>1 Spawn Messenger
+    rqGDNeutralPathStep1 1>2 Update Journal
+    rqGDNeutralPathStep2 0>1 End of dialog with messenger
+rqGDNeutralPathStep2
+    Lerov will try to lead you into ambush by pretending to lead you to Krivy
+    Iachino escapes Elfsong
+    CreateCreatureObjectOffScreen("rqlerov",Player1,0,0,0)
+    Area: AR7200 - AR8200 all bg city areas
+    rqGDNeutralPathStep2 1>2 spawn lerov + Nemean
+    rqGDNeutralPathStep2 2>3 spawn Nemean
+    rqGDNeutralPathStep2 3>4 talk to Lerov
+    rqGDNeutralPathStep3 1>2 activate step 3
+rqGDNeutralPathStep3 bg1 city
+    Assassin ambush Nemean Nemean + Fighters 2x + Thieves 2x Nemeans letter will have Belts spy (Lerov) as man who asked Neman act as assasination
+    Ambush Near Sorcerous Sundrides
+    CreateCreature("rqlerov",[328.1889],0)
+    CreateCreature("rqnemean",[328.1889],0)
+    CreateCreature("rqfig9a1",[336.1922],0)
+    CreateCreature("rqfig9b1",[332.1834],0)
+    CreateCreature("rqthi8a1",[371.1849],0)
+    CreateCreature("rqthi8b1",[298.1810],0)
+    Area: AR7800 East bg city
+    rqGDNeutralPathStep3 1>2 spawn nemean
+    rqGDNeutralPathStep3 2+ check if nemean and lerov are dead
+    rqGDNeutralPathStep4 0>1 + check dead lerov nemean Krivy step active + c
+rqGDNeutralPathStep4
+    krivy appears and talks to you explains that Lerov was traitor asks you to convert (is Lerov handler) flaming fist officer. tells you to meet in Blade and Stars
+    CreateCreatureObjectOffScreen("rqkrivy",Player1,0,0,0) // Krivy
+    CreateCreature("rqcofist",[1488.847],0) // Lezgyn Hawk AR7212 Undercellar
+    Area: AR7200 - AR8200 all bg city areas
+    rqGDNeutralPathStep4 1>2 spawn Lezgyn
+    rqGDNeutralPathStep4 2>3 talk to Lezgyn and succed????
+    rqGDNeutralPathStep4 2>10 talk to lezgyn and fail???
+    rqGDNeutralPathStep5 0>1 activate step 5
+rqGDNeutralPathStep5
+    Courier found me you Flaming spawns fist will try to attack you. You can kill them or be arrested and appear in Flaming Fist citadel,
+    one of the fists will have note from Lerov indicating that Krivy favorite inn is Blade and Stars or Blushing Mermaid
+    Blade and Stars outside waiting for you rqnefist rqfist1a etc...
+    Area: AR7206 Blade and stars 2nd floor
+    rqGDNeutralPathStep5 1>2 Spawn courier of Krivy AR7206
+    rqGDNeutralPathStep5 2>3 Talk to courier of Krivy AR7206
+    rqGDNeutralPathStep5 3>4 Flaming Fist spawns outside Blushing Mermaid AR7400
+    rqGDNeutralPathStep5 4>5 +death checks Fist ambush defeated spawn Krivy
+    rqGDNeutralPathStep6 0>1 got captured! activate step6
+rqGDNeutralPathStep6
+    Krivy will release you and will try to convince you to go after Shadow Thief Guild. You can refuse or leave.
+    rqenfist.d expells charname from BALDURS GATE
+    Area: AR8000 SW,AR7800 .E.
+    rqGDNeutralPathStep6 2>3 spawn thief reinforcements
+    rqGDNeutralPathStep6 3>4 move to BG2
+
+good rqGDGoodPath 1 Lerov wants to protect himself so he wants you to find Krivy accomplices
+rqGDGoodPathStep1
+    Belt sends letter of ultimatum to you you can talk to Alvier if you choose to betray Krivy
+    CreateCreature("rqcoura3",[1660.2551],0)
+    Find Krivy journal
+    Alvier Belt courier
+    Area: AR7800 East BG1
+    rqGDVotes GT > 7
+    rqGDGoodPathStep1 0>1 spawn messenger
+    rqGDGoodPathStep1 1>2 end dialog
+    rqGDGoodPathStep2 0>1 enable next move
+rqGDGoodPathStep2
+    Lerov will try to convince you to join Belts forces he will lead you into Nemeans ambush and dies.
+    Assassin ambush. Killing Lerov will lead Nemean to write in his journal that Trest is Belts man (Flaming Fist spy for Krivy) Trest informs Krivy of your inquiries Nemean will have letter from
+    Lerovs Journal Trest works for Krivy
+    Assassins will kill Lerov before long
+    Area: AR7200 - AR8200 all bg city areas
+    Area: AR7800 Nemean ambush spawn area
+    CreateCreature("rqlerov",[328.1889],0)
+    CreateCreature("rqnemean",[328.1889],0)
+    CreateCreature("rqfig9a1",[336.1922],0)
+    CreateCreature("rqfig9b1",[332.1834],0)
+    CreateCreature("rqthi8a1",[371.1849],0)
+    CreateCreature("rqthi8b1",[298.1810],0)
+    Find Flaming Fist mercenary named Trest
+    rqGDGoodPathStep2 1>2 spawn Lerov in all bg areas
+    rqGDGoodPathStep2 2>3 talk to Lerov
+    rqGDGoodPathStep2 3>4 spawn Nemean spawn Nemean in AR7800
+    rqGDGoodPathStep2 4>5 Nemean attacks Lerov
+    rqGDGoodPathStep2 5>6 Lerov Dies
+    rqGDGoodPathStep2 6>7 Nemean attacks you after brief dialogue
+    rqGDGoodPathStep3 0>1 enable next move
+rqGDGoodPathStep3
+    Go to Flaming Fist HQ and convince Fist to find Krivy for you since Belt wants Krivy dead
+    CreateCreature("rqtrest",[1026.774],0) // Trest AR7607 // Flaming Fist Citadel
+    Area: AR7607 Flaming Fist citadel
+    rqGDGoodPathStep3 1>2 After speaking to Trest
+    rqGDGoodPathStep4 0>1 Enable next move
+rqGDGoodPathStep4
+    Krivy warns you about Nemean He will try to talk you into attacking Thieves guild which are people responsible for Nemean Lerov was Belts spy
+    Krivy will try to talk you into going after Thieves Guild You can do that or you can talk to Belt
+    Iachino is dead Lerov a traitor only one thing can recover from this failure is to destroy thieves guild
+    CreateCreatureObjectOffScreen("rqkrivy",Player1,0,0,0) // Krivy
+    Area: AR7800 East
+    rqGDGoodPathStep4 1>2 Krivy Spawn
+    rqGDGoodPathStep4 2>3 After Krivy talk
+    rqGDGoodPathStep4 2>3 Thieves guild spawns and assault
+    rqGDGoodPathStep4 3>10 Rejected attacking Alatos
+    rqGDGoodPathStep5 0>1 enable next move
+rqGDGoodPathStep5
+    Walk to Ducal palace and talk to Belt he will accuse you in being in league with Krivy. And state Krivy motive.
+    CreateCreature("rqbelt",[735.371],7)  // Belt
+    Area: AR7208 Ducal Palace
+    rqGDGoodPathStep5 1>2 spawn belt
+    rqGDGoodPathStep5 2>3 talk to belt
+    rqGDGoodPathStep5 2>10 spawn ending fist
+    rqGDGoodPathStep6 0>1 enable next move
+rqGDGoodPathStep6
+    Belt will send you after Krivy. (you can refuse) belt will expel you from city. You can go after Krivy and kill him. Krivy was really afraid you would kill him so thats why he avoided meeting with you. Also he had probably figured out that Belt has spies. Krivy never told you what His real goal was always to kill off thieves guild of behalf of someone
+    Iachino is dead killed by belt
+    CreateCreatureObjectOffScreen("rqendfis",Player1,0,0,0)
+    rqendfis.d expells charname from BALDURS GATE
+    Area: AR7212 Undercellar
+    rqGDGoodPathStep6 1>2 spawn to Krivy
+    rqGDGoodPathStep6 2>3 talk to Krivy suqsequent battle
+    rqGDGoodPathStep6 3>4 spawn ending fist
+
+
+evil rqGDEvilPath 1
+rqGDEvilPathStep1 rqpalad
+    Paladins Arrive deal with them Lerov is not present
+    Lerov joins ambush against you.
+    Shop of Silence AR7809 + Blade and Stars
+    Messenger will spawn in Blade and Stars
+    CreateCreature("rqlerov",[336.388],0)
+    CreateCreature("rqpala",[336.388],0)
+    CreateCreature("rqpala",[304.401],0)
+    CreateCreature("rqpala",[350.426],0)
+    CreateCreature("rqpala",[391.457],0)
+    CreateCreature("rqpala",[276.472],0)
+    CreateCreature("rqpala",[301.510],0)
+    Krivy will tell you to meet him in blade and stars
+    Area: AR7809 shop of silence
+    Area: AR7206 blade and stars 2nf floor
+    rqGDVotes GT > 7
+    rqGDEvilPathStep1 0>1 Spawn Krivy AR7800
+    rqGDEvilPathStep1 1+ Dead Check
+    rqGDEvilPathStep2 0>1 Enable next move
+rqGDEvilPathStep2
+    Assault on Flaming fist headquarters Trest helps you. Kerboven
+    Area: AR7607
+    CreateCreature("rqfist1a",[1026.774],0)   // Flaming Fist Citadel AR7607
+    rqGDEvilPathStep2 1>2 Spawn Krivy AR7206 Spawn Trest
+    rqGDEvilPathStep2 2>3 Talk to Trest
+    rqGDEvilPathStep2 3+ Death Check
+    rqGDEvilPathStep3 0>1 Spawn Messenger orders you to rest and wait for instructions
+rqGDEvilPathStep3
+    Thief ambush Nemean. Move to Blade and Stars to meet with Krivy
+    rqnemean rqfig rqthi
+    CreateCreatureObjectOffScreen("rqnemean",Player1,0,0,0)
+    Area: AR7200 8200 all bg city areas
+    rqGDEvilPathStep3 1>2 Spawn Nemean
+    rqGDEvilPathStep3 2>3 Nemean attacks
+rqGDEvilPathStep4
+    Courier finds you and tells you that Krivy is in Elfsong Krivy sends you against shadow thieves
+    rqcourb1 rqiachin
+    rqletkr2.itm
+    Area: AR7206 blade and stars 2nf floor
+    rqGDEvilPathStep4 0>1 speaking to messenger
+rqGDEvilPathStep5
+    Kill Shadow Thieves in their Lair.
+    CreateCreature("rqthi8a3",[1026.774],0)
+    Area: AR7250 AR7251 AR7252 AR7248 AR7253 Thieves Guild
+    rqGDEvilPathStep5 0>1 spawns thief reinforcements
+    rqGDEvilPathStep5 1 + death checks spawns Shadow thief ambush
+rqGDEvilPathStep6
+    Shadow Thief ambush. transfer
+    rq shadow thief ambush
+    CreateCreature("rqthi8a3",[1026.774],0)
+    rqGDEvilPathStep6 0>1 transfer to Amn
+
+AR7800 East Baldurs Gates
+
+Elfsong AR7705
+CreateCreature("rqkrivy",[873.379],0)
+CreateCreature("rqiachin",[848.360],0)
+CreateCreature("rqlerov",[794.335],0)
+
+Drakon AR7720 Talvin of Gelfiven
+CreateCreature("rqrepr1",[382.666],0) // Talvin of Gelfiven
+
+Keexie AR7254 Gemerkan
+CreateCreature("rqrepr2",[337.479],0) // Gemerkan
+
+Blade and Stars AR7206 Melwis
+CreateCreature("rqrepr3",[239.257],0) // Melwis
+
+Three old kegs AR7219 Gvalas
+CreateCreature("rqrepr4",[906.716],0) // Gvalas
+
+Blushing Mermaid AR7214 Temur of Droliegen
+CreateCreature("rqrepr5",[1173.800],0) // Temur of Droliegen
+
+Splurging Sturgeon AR7203 Turpin of Milgerin, Ivylla Donnerstrom, Remelsen
+CreateCreature("rqrepr6",[524.259],0) // Turpin of Milgerin
+CreateCreature("rqrepr7",[476.245],0) // Ivylla Donnerstrom
+CreateCreature("rqrepr8",[457.318],0) // Remelsen
+
+Low Lantern AR7233 Nestor
+CreateCreature("rqrepr9",[550.465],0) // Nestor
+
+Elfsong AR7705 Ioviis
+CreateCreature("rqrepr10",[415.591],0) // Ioviis
+
+Trest Flaming Fist Citadel AR8000
+CreateCreature("rqtrest",[1729.457],0) // Trest
+
+~Talvin of Gelfiven Drakon Tavern, Central Baldur's Gate
+Gemerkan Keexie Tavern, East Baldur's Gate
+Melwis Blade and Stars, Southeast Baldur's Gate
+Gvalas Three Old Kegs, North Baldur's Gate
+Temur of Droliegen Blushing Mermaid, Northeast Baldur's Gate
+Turpin of Milgerin, Ivylla Donnerstrom, Remelsen
+All three are in Splurging Sturgeon, Northeast Baldur's Gate
+Nestor Low Lantern, South Baldur's Gate
+Ioviis Elfsong Tavern 2nd floor, East Baldur's Gate
+
+rqendfis.d expells charname from BALDURS GATE
+
+
+
+
+IF ~~ THEN BEGIN
+    SAY ~~
+    IF ~~ THEN REPLY ~~ GOTO
+END
+
+Specialists of None
+Human	Fighter	Cleric
+Human	Fighter	Mage
+Human	Fighter	Thief
+
+Human Dual class
+Berserker >>		Thief
+Wizardslayer >>		Thief
+Kensai >>		Thief
+Berserker >>		Mage
+Berserker >>		Cleric
+
+Human single class dual classable to Cleric
+S	Necromancer		Cleric
+B	Conjurer >>		Cleric
+
+D	Transmuter >>		Cleric
+D	Invoker >>		Cleric
+D	Enchanter >>		Cleric
+
+Human
+Fighter/Necromancer
+
+Dwarf
+Fighter / Thief
+Berserker
+
+Elf
+Wild Mage
+Sorcerer
+Enchanter
+
+Gnome
+Illusionist/Thief
+Illusionist
+Illusionist/Cleric
+
+Human
+Skald
+Jester
+
+Rethrecus FMC
+m/t	revan
+c	viconia
+conju	edwin
+berz	mercenary
+fig/thi	mercenary
+
+Specialists of None
+Dwarwen
+Fighter/Thief
+Berserkers
+Human
+Skald
+Jester
+
+# File to process
+INPUT_FILE="rqtest.d"
+
+# Use awk to process the file and output matching lines
+awk '
+/^[[:space:]]*SAY ~[^~]+~/ {
+    # Print the line if it matches the pattern
+    print $0
+}
+' "$INPUT_FILE"
+
+
+#!/bin/bash
+
+# File to process
+INPUT_FILE="rqtest.d"
+
+# Use awk to process the file and extract text inside tildes
+awk '
+/^[[:space:]]*SAY ~[^~]+~/ {
+    # Extract the text between tildes
+    match($0, /~([^~]+)~/, arr)
+    if (arr[1] != "") {
+        # Print the extracted text
+        print arr[1]
+    }
+}
+' "$INPUT_FILE"
+
+# SAY only and check if something exits
+
+#!/bin/bash
+
+# File to process
+INPUT_FILE="rqtest.d"
+
+# Backup the original file
+if cp "$INPUT_FILE" "$INPUT_FILE.bak"; then
+    echo "Backup created: $INPUT_FILE.bak"
+else
+    echo "Error: Failed to create backup."
+    exit 1
+fi
+
+# Use awk to process the file and append extracted text
+awk '
+/^[[:space:]]*SAY ~[^~]+~/ {
+    # Check if the line already contains "//"
+    if (!/ \/\//) {
+        # Extract the text between tildes
+        match($0, /~([^~]+)~/, arr)
+        if (arr[1] != "") {
+            # Append the extracted text with "//" prefix
+            $0 = $0 " //" arr[1]
+        }
+    }
+}
+{ print }
+' "$INPUT_FILE" > temp && mv temp "$INPUT_FILE"
+
+# Check if the operation was successful
+if [ $? -eq 0 ]; then
+    echo "Processing complete. Changes have been made directly to $INPUT_FILE."
+else
+    echo "Error: Processing failed. Restoring original file from backup."
+    mv "$INPUT_FILE.bak" "$INPUT_FILE"
+fi
+
+
+Write script which would copy file rqtest.d to new file rqtest.d.tmp. There it would search entire file for pattern EreaseJournalEntry(~ and capture everything until newliine character: into variable which is then written after last character into same line from which it was captured. prefixed by '//' Remove any trailing or prefix spaces and tabs from variable.
+EraseJournalEntry(~Duke of Baldur's Gate: Nestor >> // Duke of Baldur's Gate: Nestor
+
+Second line is empty.
+Third line contains text which is to be captured into variable until ending ~ and pasted as '//' comment at the end of the line after last character.
+Before:
+Kill Wyvern for a vote that is new to me. Either way, I am going to get the Wyvern's head and bring it to Iachino.~)%
+After:
+Kill Wyvern for a vote that is new to me. Either way, I am going to get the Wyvern's head and bring it to Iachino.~)% // Kill Wyvern for a vote that is new to me. Either way, I am going to get the Wyvern's head and bring it to Iachino.

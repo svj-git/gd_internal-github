@@ -1,0 +1,9 @@
+// Trest
+IF
+    Global("rqGDEvilFiCitadel","GLOBAL",3)
+    See([PC])
+    Allegiance(Myself,NEUTRAL)
+THEN
+    RESPONSE #100
+        StartDialogueNoSet([PC])
+END

@@ -1,0 +1,12 @@
+// Lighthouse
+IF
+    Global("rqGDRepreJob2","GLOBAL",1)
+    Global("rqGDRepreJob2Spawn","AR9500",0) // Lighthouse
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDRepreJob2Spawn","AR9500",1) // Lighthouse
+        CreateCreature("rqsirine",[2138.2246],0) // Diseased Sirine
+        CreateCreature("SIRINE_A",[2198.2208],0) // Sirine
+        CreateCreature("SIRINE_A",[2175.2287],0) // Sirine
+        Continue()
+END

@@ -1,0 +1,11 @@
+// Reman
+
+IF
+    GlobalTimerExpired("rqGDWarChantTimer","LOCALS")
+    !Dead("rqreman")
+    Global("rqGDEnchanting","GLOBAL",1)
+THEN
+    RESPONSE #100
+        SetGlobalTimer("rqGDWarChantTimer","LOCALS",24)
+        CreateVisualEffect("spcrtwpn",[444.444])
+END

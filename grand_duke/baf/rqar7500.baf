@@ -1,0 +1,16 @@
+// Farmlands
+IF
+    Global("rqGDRepreJob5","GLOBAL",1)
+    Global("rqGDRepreJob5Spawn","AR7500",0) // Farmlands
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDRepreJob5Spawn","AR7500",1) // Farmlands
+        CreateCreature("rqomagi1",[1508.3622],0) // Bolad
+        CreateCreature("OGREMA",[1508.3640],0) // Ogre Magi
+        CreateCreature("OGREBERZ",[1626.3550],0) // Ogre Berserker
+        CreateCreature("OGREBERZ",[1331.3742],0) // Ogre Berserker
+        CreateCreature("OGREBERZ",[1340.3483],0) // Ogre Berserker
+        CreateCreature("OGREBERZ",[1343.3318],0) // Ogre Berserker
+        CreateCreature("OGREBERZ",[1318.3677],0) // Ogre Berserker
+        Continue()
+END

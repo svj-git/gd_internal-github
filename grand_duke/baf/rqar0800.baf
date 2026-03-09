@@ -1,0 +1,16 @@
+// Graveyard District Athkatla
+IF
+    LevelGT(Player1,9)
+    Global("rqGDBrokkrAmbush","AR0800",0) // Graveyard District
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDBrokkrAmbush","AR0800",1) // Graveyard District
+        CreateCreature("rqiacob",[1009.1774],SE)  // Iacobchon
+        CreateCreature("rqavaram",[921.1763],SE)  // Avaram
+        CreateCreature("rqmicha",[842.1838],S)  // Michaael
+        CreateCreature("rqiosias",[799.1811],S)  // Iochisias
+        CreateCreature("rqgedeon",[833.1735],S)  // Gedeon
+        CreateCreature("rqdaniel",[784.1850],S)  // Damiell
+        CreateCreature("rqelias",[886.1771],S)  // Eschiasson
+        Continue()
+END

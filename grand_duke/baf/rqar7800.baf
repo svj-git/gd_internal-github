@@ -1,0 +1,178 @@
+// East Baldur's Gate AR7800
+
+// NeutralPath -------------------------
+IF
+    GlobalGT("rqGDVotes","GLOBAL",7)
+    Alignment(Player1,MASK_GENEUTRAL)
+    Global("rqGDMessengerN1Spawn","AR7800",0) // East Baldur's Gate
+    Global("rqGDNeutralPathStep1","GLOBAL",0)
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDMessengerN1Spawn","AR7800",1) // East Baldur's Gate
+        SetGlobal("rqGDNeutralPath","GLOBAL",1)
+        SetGlobal("rqGDNeutralPathStep1","GLOBAL",1)
+        CreateCreature("rqcoura1",[1660.2551],N) // Messenger
+        Continue()
+END
+
+IF
+    !Exists("rqlerov")
+    Global("rqGDLerovSpawn","AR7800",0) // East Baldur's Gate
+    Global("rqGDNeutralPathStep2","GLOBAL",1)
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDLerovSpawn","AR7800",1) // East Baldur's Gate
+        Wait(2)
+        CreateCreature("rqlerov",[1816.2355],S) // Lerov
+        ActionOverride("rqlerov",StartDialogueNoSet(Player1))
+        Continue()
+END
+
+IF
+    Global("rqGDLerovNemeanSpawn","AR7800",0) // East Baldur's Gate
+    Global("rqGDNeutralPathStep2","GLOBAL",1)
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDLerovNemeanSpawn","AR7800",1) // East Baldur's Gate
+        CreateCreature("rqnemean",[328.1889],0) // Nemean
+        CreateCreature("rqfig9a1",[336.1922],0) // Fighter
+        CreateCreature("rqfig9b1",[332.1834],0) // Fighter
+        CreateCreature("rqthi8a1",[371.1849],0) // Thief
+        CreateCreature("rqthi8b1",[298.1810],0) // Thief
+        CreateCreature("rqfigc1",[285.1919],0) // Archer
+        CreateCreature("rqfigc2",[363.1868],0) // Archer
+        CreateCreature("rqfigc3",[264.1948],0) // Archer
+        CreateCreature("rqcled1",[291.1871],0) // Cleric
+        CreateCreature("rqlerov",[328.1889],0) // Lerov
+        Continue()
+END
+// Neutral path spawn Krivy
+IF
+    Global("rqGDKrivySpawn","AR7800",0) // East Baldur's Gate
+    Global("rqGDNeutralPathStep2","GLOBAL",3)
+    Dead("rqlerov")
+    Dead("rqnemean")
+    Dead("rqfig9a1")
+    Dead("rqfig9b1")
+    Dead("rqthi8a1")
+    Dead("rqthi8b1")
+    Dead("rqfigc1")
+    Dead("rqfigc2")
+    Dead("rqfigc3")
+    Dead("rqcled1")
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDKrivySpawn","AR7800",1) // East Baldur's Gate
+        SetGlobal("rqGDNeutralPathStep2","GLOBAL",4)
+        SetGlobal("rqGDNeutralPathStep3","GLOBAL",1)
+        CreateCreatureObjectOffScreen("rqkrivy",Player1,0,0,0) // Krivy
+        Continue()
+END
+
+// Good Path ------------------------------------------------------------------------------
+IF
+    GlobalGT("rqGDVotes","GLOBAL",7)
+    Alignment(Player1,MASK_GOOD)
+    Global("rqGDCourGoodSpawn","AR7800",0) // East Baldur's Gate
+    Global("rqGDGoodPathStep1","GLOBAL",0)
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDCourGoodSpawn","AR7800",1) // East Baldur's Gate
+        SetGlobal("rqGDGoodPathStep1","GLOBAL",1)
+        SetGlobal("rqGDGoodPath","GLOBAL",1)
+        CreateCreature("rqcourb1",[1660.2551],N) // Messenger
+        Continue()
+END
+
+IF
+    Global("rqGDLerovSpawnG","AR7800",0) // East Baldur's Gate
+    Global("rqGDGoodPathStep2","GLOBAL",1)
+    !InMyArea("rqcourb1")
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDLerovSpawnG","AR7800",1) // East Baldur's Gate
+        Wait(1)
+        CreateCreature("rqlerovg",[1816.2355],S) // Lerov
+        ActionOverride("rqlerovg",StartDialogueNoSet(Player1))
+        Continue()
+END
+
+IF
+    Global("rqGDLerovNemeanSpawn","AR7800",0) // East Baldur's Gate
+    Global("rqGDGoodPathStep2","GLOBAL",2)
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDLerovNemeanSpawn","AR7800",1) // East Baldur's Gate
+        CreateCreature("rqnemeag",[328.1889],0) // Nemean
+        CreateCreature("rqfig9a1",[336.1922],0) // Fighter
+        CreateCreature("rqfig9b1",[332.1834],0) // Fighter
+        CreateCreature("rqthi8a1",[371.1849],0) // Thief
+        CreateCreature("rqthi8b1",[298.1810],0) // Thief
+        CreateCreature("rqfigc1",[285.1919],0) // Archer
+        CreateCreature("rqfigc2",[363.1868],0) // Archer
+        CreateCreature("rqfigc3",[264.1948],0) // Archer
+        CreateCreature("rqcled1",[291.1871],0) // Cleric
+        Continue()
+END
+
+// Evil path stage 2 start -------------------------
+IF
+    GlobalGT("rqGDVotes","GLOBAL",7)
+    Global("rqGDMessengerE1Spawn","AR7800",0) // East Baldur's Gate
+    Alignment(Player1,MASK_EVIL)
+    !Global("rqGDNeutralPath","GLOBAL",1)
+    !Global("rqGDGoodPath","GLOBAL",1)
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDEvilPath","GLOBAL",1)
+        SetGlobal("rqGDMessengerE1Spawn","AR7800",1) // East Baldur's Gate
+        CreateCreature("rqkrivy",[1660.2551],0) // Krivy
+        Continue()
+END
+
+IF
+    PartyHasItem("rqnemjou")
+    Dead("rqlerovg")
+    Dead("rqnemeag")
+    Dead("rqfig9a1")
+    Dead("rqfig9b1")
+    Dead("rqthi8a1")
+    Dead("rqthi8b1")
+    Dead("rqfigc1")
+    Dead("rqfigc2")
+    Dead("rqfigc3")
+    Dead("rqcled1")
+    Global("rqGDGoodPathStep2","GLOBAL",4)
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDGoodPathStep2","GLOBAL",5)
+        SetGlobal("rqGDGoodPathStep3","GLOBAL",1)
+        AddJournalEntry(~Duke of Baldur's Gate:
+
+        Looks like my would-be assassin is wanted by the Flaming Fist. I should probably pay a visit to Trest in the Flaming Fist Citadel so I could unravel who stands against me.~,QUEST)
+        Continue()
+END
+
+// Good Path ------------------------------  Teleporting boots safeguard
+IF
+    InMyArea(Player1)
+    Global("rqGDKrivySpawn","AR8000",0) // Southwest Baldur's Gate
+    Global("rqGDGoodPathStep4","GLOBAL",1)
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDKrivySpawn","AR8000",1) // Southwest Baldur's Gate
+        CreateCreatureObjectOffScreen("rqkrivy",Player1,0,0,0) // Krivy
+        Continue()
+END
+
+// Good Path ------------------------------  Teleporting boots safeguard
+IF
+    InMyArea(Player1)
+    Exists("NIKLOS")
+    Global("rqGDThiefReinforce","GLOBAL",1)
+    Allegiance("NIKLOS",NEUTRAL)
+THEN
+    RESPONSE #100
+        ActionOverride("NIKLOS",Enemy())
+        Continue()
+END

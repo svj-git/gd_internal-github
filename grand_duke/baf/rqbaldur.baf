@@ -1,0 +1,193 @@
+// baldur.bcs Global file
+
+// Evil Shadow Thieves Rhiviq
+IF
+    Alignment(Player1,MASK_EVIL)
+    InParty("rqrhiv")
+    !AreaCheck("AR7205")
+    !AreaCheck("AR7206")
+    !AreaCheck("AR7207")
+    !AreaCheck("AR7248")
+    !AreaCheck("AR7250")
+    !AreaCheck("AR7251")
+    !AreaCheck("AR7252")
+    !AreaCheck("AR7253")
+    !AreaCheck("AR7212")
+    !AreaCheck("AR7209")
+    !AreaCheck("AR7208")
+    !AreaCheck("AR7211")
+    !AreaCheck("AR7210")
+    !AreaCheck("AR7324")
+    !AreaCheck("AR7325")
+    !AreaCheck("AR7326")
+    !AreaCheck("AR7607")
+    !AreaCheck("AR7607")
+    !AreaCheck("AR7608")
+    !AreaCheck("ARAM00")
+    Global("rqGDGrandDukeCh2","GLOBAL",0)
+    !Exists("rqenfist")  // Flaming Fist Enforcer
+    !Exists("rqthi8d1")  // Spestyl
+    Global("rqGDZZEnding","GLOBAL",1)
+    Global("MeetOldenFriends","GLOBAL",0)
+THEN
+    RESPONSE #100
+        CreateCreatureObjectDoor("rqthi8d1",Player1,0,0,0)  // Spestyl
+        CreateCreatureObjectDoor("rqzelm",Player1,0,0,0)  // Zelmira
+        CreateCreatureObjectDoor("rqzelg1",Player1,0,0,0)  // Nightshade of Shar
+        CreateCreatureObjectDoor("rqzelg2",Player1,0,0,0)  // Nightshade of Shar
+        CreateCreatureObjectDoor("rqthi8d2",Player1,0,0,0) // Shadow Thief
+        CreateCreatureObjectDoor("rqthi8d3",Player1,0,0,0) // Shadow Thief
+        CreateCreatureObjectDoor("rqthi8d3",Player1,0,0,0) // Shadow Thief
+        CreateCreatureObjectDoor("rqthi8d4",Player1,0,0,0) // Shadow Thief
+        CreateCreatureObjectDoor("rqthi8d4",Player1,0,0,0) // Shadow Thief
+        CreateCreatureObjectDoor("rqthi8d4",Player1,0,0,0) // Shadow Thief
+        CreateCreatureObjectDoor("rqthi8d4",Player1,0,0,0) // Shadow Thief
+        ActionOverride("rqthi8d1",StartDialogNoSet(Player1))
+        SetGlobal("rqGDZZEnding","GLOBAL",2)
+        Continue()
+END
+// Good/Neutral Fist Rhiviq
+IF
+    OR (2)
+        Alignment(Player1,MASK_GENEUTRAL)
+        Alignment(Player1,MASK_GOOD)
+    InParty("rqrhiv")
+    !AreaCheck("AR7205")
+    !AreaCheck("AR7206")
+    !AreaCheck("AR7207")
+    !AreaCheck("AR7248")
+    !AreaCheck("AR7250")
+    !AreaCheck("AR7251")
+    !AreaCheck("AR7252")
+    !AreaCheck("AR7253")
+    !AreaCheck("AR7212")
+    !AreaCheck("AR7209")
+    !AreaCheck("AR7208")
+    !AreaCheck("AR7211")
+    !AreaCheck("AR7210")
+    !AreaCheck("AR7324")
+    !AreaCheck("AR7325")
+    !AreaCheck("AR7326")
+    !AreaCheck("AR7607")
+    !AreaCheck("AR7607")
+    !AreaCheck("AR7608")
+    !AreaCheck("ARAM00")
+    Global("rqGDGrandDukeCh2","GLOBAL",0)
+    !Exists("rqenfist")  // Flaming Fist Enforcer
+    !Exists("rqthi8d1")  // Spestyl
+    Global("rqGDZZEnding","GLOBAL",1)
+    Global("MeetOldenFriends","GLOBAL",0)
+THEN
+    RESPONSE #100
+        CreateCreatureObjectDoor("rqzelm",Player1,0,0,0)  // Zelmira
+        CreateCreatureObjectDoor("rqzelg1",Player1,0,0,0)  // Nightshade of Shar
+        CreateCreatureObjectDoor("rqzelg2",Player1,0,0,0)  // Nightshade of Shar
+        CreateCreatureObjectDoor("rqenfist",Player1,0,0,0) // Flaming Fist Enforcer
+        CreateCreatureObjectDoor("rqfistl1",Player1,0,0,0) // Flaming Fist Mercenary
+        CreateCreatureObjectDoor("rqfistl1",Player1,0,0,0) // Flaming Fist Mercenary
+        CreateCreatureObjectDoor("rqfistl2",Player1,0,0,0) // Flaming Fist Scout
+        CreateCreatureObjectDoor("rqfistl2",Player1,0,0,0) // Flaming Fist Scout
+        CreateCreatureObjectDoor("rqfistl3",Player1,0,0,0) // Flaming Fist Battle Wizard
+        CreateCreatureObjectDoor("rqfistl3",Player1,0,0,0) // Flaming Fist Battle Wizard
+        ActionOverride("rqzelm",StartDialogNoSet(Player1))
+        SetGlobal("rqGDZZEnding","GLOBAL",2)
+        Continue()
+END
+// Good/Neutral Fist !Rhiviq
+IF
+    OR (2)
+        Alignment(Player1,MASK_GENEUTRAL)
+        Alignment(Player1,MASK_GOOD)
+    !InParty("rqrhiv")
+    !AreaCheck("AR7205")
+    !AreaCheck("AR7206")
+    !AreaCheck("AR7207")
+    !AreaCheck("AR7248")
+    !AreaCheck("AR7250")
+    !AreaCheck("AR7251")
+    !AreaCheck("AR7252")
+    !AreaCheck("AR7253")
+    !AreaCheck("AR7212")
+    !AreaCheck("AR7209")
+    !AreaCheck("AR7208")
+    !AreaCheck("AR7211")
+    !AreaCheck("AR7210")
+    !AreaCheck("AR7324")
+    !AreaCheck("AR7325")
+    !AreaCheck("AR7326")
+    !AreaCheck("AR7607")
+    !AreaCheck("AR7607")
+    !AreaCheck("AR7608")
+    !AreaCheck("ARAM00")
+    Global("rqGDGrandDukeCh2","GLOBAL",0)
+    !Exists("rqenfist")  // Flaming Fist Enforcer
+    !Exists("rqthi8d1")  // Spestyl
+    Global("rqGDZZEnding","GLOBAL",1)
+    Global("MeetOldenFriends","GLOBAL",0)
+THEN
+    RESPONSE #100
+        CreateCreatureObjectDoor("rqenfist",Player1,0,0,0) // Flaming Fist Enforcer
+        CreateCreatureObjectDoor("rqfistl1",Player1,0,0,0) // Flaming Fist Mercenary
+        CreateCreatureObjectDoor("rqfistl1",Player1,0,0,0) // Flaming Fist Mercenary
+        CreateCreatureObjectDoor("rqfistl2",Player1,0,0,0) // Flaming Fist Scout
+        CreateCreatureObjectDoor("rqfistl2",Player1,0,0,0) // Flaming Fist Scout
+        CreateCreatureObjectDoor("rqfistl3",Player1,0,0,0) // Flaming Fist Battle Wizard
+        CreateCreatureObjectDoor("rqfistl3",Player1,0,0,0) // Flaming Fist Battle Wizard
+        ActionOverride("rqenfist",StartDialogNoSet(Player1))
+        SetGlobal("rqGDZZEnding","GLOBAL",2)
+        Continue()
+END
+// Evil Shadow Thieves !Rhiviq
+IF
+    Alignment(Player1,MASK_EVIL)
+    !InParty("rqrhiv")
+    !AreaCheck("AR7205")
+    !AreaCheck("AR7206")
+    !AreaCheck("AR7207")
+    !AreaCheck("AR7248")
+    !AreaCheck("AR7250")
+    !AreaCheck("AR7251")
+    !AreaCheck("AR7252")
+    !AreaCheck("AR7253")
+    !AreaCheck("AR7212")
+    !AreaCheck("AR7209")
+    !AreaCheck("AR7208")
+    !AreaCheck("AR7211")
+    !AreaCheck("AR7210")
+    !AreaCheck("AR7324")
+    !AreaCheck("AR7325")
+    !AreaCheck("AR7326")
+    !AreaCheck("AR7607")
+    !AreaCheck("AR7607")
+    !AreaCheck("AR7608")
+    !AreaCheck("ARAM00")
+    Global("rqGDGrandDukeCh2","GLOBAL",0)
+    !Exists("rqenfist")  // Flaming Fist Enforcer
+    !Exists("rqthi8d1")  // Spestyl
+    Global("rqGDZZEnding","GLOBAL",1)
+    Global("MeetOldenFriends","GLOBAL",0)
+THEN
+    RESPONSE #100
+        CreateCreatureObjectDoor("rqthi8d1",Player1,0,0,0) // Spestyl
+        CreateCreatureObjectDoor("rqthi8d2",Player1,0,0,0) // Shadow Thief
+        CreateCreatureObjectDoor("rqthi8d3",Player1,0,0,0) // Shadow Thief
+        CreateCreatureObjectDoor("rqthi8d3",Player1,0,0,0) // Shadow Thief
+        CreateCreatureObjectDoor("rqthi8d4",Player1,0,0,0) // Shadow Thief
+        CreateCreatureObjectDoor("rqthi8d4",Player1,0,0,0) // Shadow Thief
+        CreateCreatureObjectDoor("rqthi8d4",Player1,0,0,0) // Shadow Thief
+        CreateCreatureObjectDoor("rqthi8d4",Player1,0,0,0) // Shadow Thief
+        ActionOverride("rqthi8d1",StartDialogNoSet(Player1))
+        SetGlobal("rqGDZZEnding","GLOBAL",2)
+        Continue()
+END
+// Rhiviq Insurance
+IF
+    Global("MeetOldenFriends","GLOBAL",100)
+    InParty("rqrhiv")
+THEN
+    RESPONSE #100
+        SetGlobal("rqRhiviqJoined","LOCALS",0)
+        LeaveParty()
+        ActionOverride("rqrhiv",ForceSpell(Myself,DRYAD_TELEPORT))
+        Continue()
+END

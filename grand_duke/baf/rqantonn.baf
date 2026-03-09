@@ -1,0 +1,30 @@
+// Anton override script Neutral Aligned with Anton
+IF
+    !ActuallyInCombat()
+    See([PC])
+    Allegiance(Myself,NEUTRAL)
+    Dead("rqjoses2")
+    Dead("rqabiyah")
+THEN
+    RESPONSE #100
+        StartDialogueNoSet([PC])
+END
+
+IF
+    Allegiance(Myself,NEUTRAL)
+    !Dead("rqabiyah")
+    See("rqabiyah")
+THEN
+    RESPONSE #100
+        Attack("rqabiyah")
+END
+
+IF
+    Allegiance(Myself,NEUTRAL)
+    !Dead("rqjoses2")
+    See("rqjoses2")
+THEN
+    RESPONSE #100
+        Attack("rqjoses2")
+END
+

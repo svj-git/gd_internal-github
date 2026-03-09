@@ -1,0 +1,8 @@
+// Iachino initdlg
+IF
+    See([PC])
+    See("rqbro")
+THEN
+    RESPONSE #100
+       StartDialogueNoSet([PC])
+END

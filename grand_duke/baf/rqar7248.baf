@@ -1,0 +1,14 @@
+// Thieves Guild AR7248
+IF
+    Global("rqGDThiefReinforceSpawn","AR7248",0) // Thieves Guild
+    Global("rqGDThiefReinforce","GLOBAL",1)
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDThiefReinforceSpawn","AR7248",1) // Thieves Guild
+        CreateCreature("rqfig9c1",[209.219],0) // Fighter
+        CreateCreature("rqfig9c1",[334.330],0) // Fighter
+        CreateCreature("rqarc7c1",[176.155],0) // Archer
+        CreateCreature("rqthi8c1",[127.286],0) // Thief
+        CreateCreature("rqthi8c2",[156.242],0) // Thief
+        Continue()
+END

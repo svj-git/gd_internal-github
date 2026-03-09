@@ -1,0 +1,22 @@
+// Sewers 0404
+IF
+    Global("rqGDBG2BrokMurderers","GLOBAL",4)
+    Global("rqGDBG2BurSewerFinale","AR0404",0) // Slums
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDBG2BurSewerFinale","AR0404",1) // Slums
+        CreateCreatureDoor("rqabiyah",[464.1143],N) // Abiyah
+        CreateCreatureDoor("rqjoses",[624.1130],N) // Joses
+        CreateCreature("rqanton",[728.979],S) // Anton
+        ApplySpellRES("rqinvis","rqanton")  // Anton
+        CreateVisualEffectObject("SPDIMNDR",Player1)
+        CreateVisualEffectObject("SPDIMNDR",Player2)
+        CreateVisualEffectObject("SPDIMNDR",Player3)
+        CreateVisualEffectObject("SPDIMNDR",Player4)
+        CreateVisualEffectObject("SPDIMNDR",Player5)
+        CreateVisualEffectObject("SPDIMNDR",Player6)
+        Continue()
+END
+
+//ActionOverride("rqabiyah",LeaveAreaLUA("AR0404","",[578.872],4))
+//ActionOverride("rqjoses",LeaveAreaLUA("AR0404","",[657.924],4))

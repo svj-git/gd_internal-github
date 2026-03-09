@@ -1,0 +1,20 @@
+// Mithrest Inn
+IF
+    Global("rqGDBG2BrokkrSpawn","AR0704",0)
+    !InParty("rqbro")
+    !InMyArea("rqbro")
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDBG2BrokkrSpawn","AR0704",1)
+        CreateCreature("rqfith9",[566.302],13) // Brokkr
+        Continue()
+END
+
+IF
+    Global("rqGDBG2SpawnMerch02","AR0704",0)
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDBG2SpawnMerch02","AR0704",1)
+        CreateCreature("rqmerc02",[468.371],S) // Merchant
+        Continue()
+END

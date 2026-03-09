@@ -1,0 +1,10 @@
+// Three Old Kegs
+IF
+    Global("rqGDGrandDukeQuest","GLOBAL",1)
+    Global("rqGDRepreSpawn","AR7219",0) // Three Old Kegs
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDRepreSpawn","AR7219",1) // Three Old Kegs
+        CreateCreature("rqrepr4",[906.716],4) // Gvalas
+        Continue()
+END

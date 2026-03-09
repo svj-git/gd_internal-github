@@ -1,0 +1,17 @@
+// Peldvale
+IF
+    Global("rqGDBrokkrTreasure2","GLOBAL",2)
+    Global("rqGDSpawnRuth","AR8900",0) // Peldvale
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDSpawnRuth","AR8900",1) // Peldvale
+        CreateCreature("rqruth",[4066.428],W) // Ruth
+        CreateCreature("rqlevg1",[3777.508],W) // Ruth Kinsman
+        CreateCreature("rqlevg2",[3889.487],W) // Ruth Kinsman
+        CreateCreature("rqlevg3",[3854.451],W) // Ruth Kinsman
+        CreateCreature("rqlevg4",[3916.451],SW) // Ruth Kinsman
+        CreateCreature("rqlevg5",[3865.561],W) // Ruth Kinsman
+        CreateCreature("rqlevg6",[3883.319],SW) // Ruth Kinsman
+        CreateCreature("rqlev7cl",[4054.483 ],W) // Dwarven Cleric
+        Continue()
+END

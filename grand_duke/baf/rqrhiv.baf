@@ -1,0 +1,72 @@
+// Rhiviq Override Script
+
+// East Baldurs Gate
+IF
+    Global("rqGDRhiviqRevenge","GLOBAL",1)
+    AreaCheck("AR7800")
+    See([PC])
+THEN
+    RESPONSE #100
+        StartDialogueNoSet(Player1)
+END
+
+// Northwest Baldur's Gate House
+IF
+    Global("rqGDRhiviqRevenge","GLOBAL",2)
+    AreaCheck("AR7200")
+THEN
+    RESPONSE #100
+        StartDialogueNoSet(Player1)
+        SetGlobal("rqGDRhiviqRevenge","GLOBAL",3)
+END
+
+// Northwest Baldur's Gate House
+IF
+    Global("rqGDRhiviqRevenge","GLOBAL",3)
+    AreaCheck("AR7255")
+THEN
+    RESPONSE #100
+        StartDialogueNoSet("rqmalik")
+END
+
+IF
+    Global("rqGDRhiviqRevenge","GLOBAL",4)
+    !AreaCheck("AR7255")
+    !AreaCheck("AR7256")
+THEN
+    RESPONSE #100
+        StartDialogueNoSet(Player1)
+END
+
+IF
+    OR (4)
+        Global("Goodsh","GLOBAL",1)
+        Global("Evilsh","GLOBAL",1)
+        Global("KillDaughter","GLOBAL",1)
+        Dead("SHANDAL2")
+    !AreaCheck("ARU008")
+    !AreaCheck("ARU009")
+    !AreaCheck("ARU010")
+    Global("rqGDRhiviqHeadache","GLOBAL",0)
+THEN
+    RESPONSE #100
+        SetGlobalTimer("rqRhiviqHeadache","GLOBAL",TWO_DAYS)
+        SetGlobal("rqGDRhiviqHeadache","GLOBAL",1)
+END
+
+IF
+    OR (4)
+        Global("Goodsh","GLOBAL",1)
+        Global("Evilsh","GLOBAL",1)
+        Global("KillDaughter","GLOBAL",1)
+        Dead("SHANDAL2")
+    !AreaCheck("ARU008")
+    !AreaCheck("ARU009")
+    !AreaCheck("ARU010")
+    GlobalTimerExpired("rqRhiviqHeadache","GLOBAL")
+    Global("rqGDRhiviqHeadache","GLOBAL",1)
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDRhiviqHeadache","GLOBAL",2)
+        StartDialogueNoSet(Player1)
+END

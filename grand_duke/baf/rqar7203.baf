@@ -1,0 +1,12 @@
+// Splurging Sturgeon
+IF
+    Global("rqGDGrandDukeQuest","GLOBAL",1)
+    Global("rqGDRepreSpawn","AR7203",0) // Splurging Sturgeon
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDRepreSpawn","AR7203",1) // Splurging Sturgeon
+        CreateCreature("rqrepr6",[524.259],0) // Turpin of Milgerin
+        CreateCreature("rqrepr7",[476.245],0) // Ivylla Donnerstrom
+        CreateCreature("rqrepr8",[457.318],0) // Remelsen
+        Continue()
+END

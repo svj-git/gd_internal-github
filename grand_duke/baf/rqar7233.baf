@@ -1,0 +1,20 @@
+// Low Lantern d1
+IF
+    Global("rqGDGrandDukeQuest","GLOBAL",1)
+    Global("rqGDRepreSpawn","AR7233",0) // Low Lantern
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDRepreSpawn","AR7233",1) // Low Lantern
+        CreateCreature("rqrepr9",[550.465],3) // Nestor
+        Continue()
+END
+// Reprejob3
+IF
+    Global("rqGDRepreJob3","GLOBAL",1)
+    Global("rqGDRepre3Spawn","AR7233",0) // Low Lantern
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDRepre3Spawn","AR7233",1) // Low Lantern
+        CreateCreature("rqmerch",[817.745],9) // Merchelen
+        Continue()
+END

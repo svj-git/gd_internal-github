@@ -1,0 +1,10 @@
+// Blushing Mermaind L2
+IF
+    Global("rqGDBrokkrTreasure","GLOBAL",4)
+    Global("rqGDTorlSpawn","AR7215",0) // Blushing Mermaind L2
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDTorlSpawn","AR7215",1) // Blushing Mermaind L2
+        CreateCreature("rqtorl",[414.276],0) // Torl Bonechewer
+        Continue()
+END

@@ -1,0 +1,19 @@
+// Friedly Arm Inn L1
+IF
+    Global("rqGDcreatemadi","AR6801",0)
+    Alignment(Player1,MASK_EVIL)
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDcreatemadi","AR6801",1)
+        CreateCreature("rqrhiv",[658.1016],9) // Rhiviq
+        Continue()
+END
+
+IF
+    Global("rqGDMerchantSpawn","AR6801",0)
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDMerchantSpawn","AR6801",1)
+        CreateCreature("rqmerc01",[1097.620],0) // Merchant
+        Continue()
+END

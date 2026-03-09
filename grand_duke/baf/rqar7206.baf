@@ -1,0 +1,40 @@
+// Blade and Stars
+IF
+    Global("rqGDGrandDukeQuest","GLOBAL",1)
+    Global("rqGDRepreSpawn","AR7206",0) // Blade and Stars
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDRepreSpawn","AR7206",1) // Blade and Stars
+        CreateCreature("rqrepr3",[239.257],0) // Melwis
+        Continue()
+END
+
+IF
+    Global("rqGDNeutralPathStep4","GLOBAL",2)
+    Global("rqGDCourierSpawn","AR7206",0) // Blade and Stars
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDCourierSpawn","AR7206",1) // Blade and Stars
+        CreateCreature("rqcoura2",[402.257],0) // Messenger
+        Continue()
+END
+
+IF
+    Global("rqGDEvilPathStep1","GLOBAL",2)
+    Global("rqGDKrivySpawn","AR7206",0) // Blade and Stars
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDKrivySpawn","AR7206",1) // Blade and Stars
+        CreateCreature("rqkrivy",[262.293],0) // Krivy
+        Continue()
+END
+
+IF
+    Global("rqGDEvilPathStep3","GLOBAL",2)
+    Global("rqGDKrivySpawn2","AR7206",0) // Blade and Stars
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDKrivySpawn2","AR7206",1) // Blade and Stars
+        CreateCreature("rqkrivy",[262.293],0) // Krivy
+        Continue()
+END

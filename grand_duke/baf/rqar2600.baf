@@ -1,0 +1,17 @@
+// Council of Six building
+IF
+    Global("rqGDBG2BrokSpying","GLOBAL",1)
+    Global("rqGDBG2SpawnDrow","AR2600",0) // Forest of Tethyr
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDBG2SpawnDrow","AR2600",1) // Forest of Tethyr
+        CreateCreature("rqdwiz01",[3737.3281],N)
+        CreateCreature("rqdpri01",[3642.3325],N)
+        CreateCreature("rqdwar01",[3633.3443],S)
+        CreateCreature("rqdwar02",[3589.3346],S)
+        CreateCreature("rqdwar03",[3848.3337],S)
+        CreateCreature("rqdass01",[3924.3344],S)
+        CreateCreature("rqdass02",[3524.3339],S)
+        CreateCreature("rqdken01",[3838.3472],S)
+        Continue()
+END

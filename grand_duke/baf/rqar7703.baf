@@ -1,0 +1,10 @@
+// Sorcerous Sundrides
+IF
+    Global("rqGDAzramSpawn","AR7703",0)
+    Global("rqGDBrokkrTreasure","GLOBAL",8)
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDAzramSpawn","AR7703",1)
+        CreateCreature("rqazram",[871.617],5) // Azrammar
+        Continue()
+END

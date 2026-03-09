@@ -1,0 +1,49 @@
+// Nemean Good Script
+IF
+    Dead("rqlerovg")
+    Global("rqGDGoodPathStep2","GLOBAL",2)
+THEN
+    RESPONSE #100
+        DisplayStringHead(Myself,~His face in dirt almost made me smile.~) // His face in dirt almost made me smile.
+        SetGlobal("rqGDGoodPathStep2","GLOBAL",3)
+END
+
+IF
+    Dead("rqlerovg")
+    Global("rqGDGoodPathStep2","GLOBAL",3)
+    See([PC])
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDGoodPathStep2","GLOBAL",4)
+        Enemy()
+        ActionOverride("rqfig9a1",Enemy())
+        ActionOverride("rqfig9b1",Enemy())
+        ActionOverride("rqthi8a1",Enemy())
+        ActionOverride("rqthi8b1",Enemy())
+        ActionOverride("rqfigc1",Enemy())
+        ActionOverride("rqfigc2",Enemy())
+        ActionOverride("rqfigc3",Enemy())
+        ActionOverride("rqcled1",Enemy())
+        DisplayStringHead(Myself,~There <PRO_HESHE> is!~) // There <PRO_HESHE> is!
+END
+
+IF
+    !Dead("rqlerovg")
+    See("rqlerovg")
+    Global("rqGDGoodPathStep2","GLOBAL",2)
+    Global("rqGDLerovAttack","AR7800",0) // East Baldur's Gate
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDLerovAttack","AR7800",1) // East Baldur's Gate
+        ActionOverride("rqnemeag",Attack("rqlerovg"))
+        ActionOverride("rqfig9a1",Attack("rqlerovg"))
+        ActionOverride("rqfig9b1",Attack("rqlerovg"))
+        ActionOverride("rqthi8a1",Attack("rqlerovg"))
+        ActionOverride("rqthi8b1",Attack("rqlerovg"))
+        ActionOverride("rqfigc1",Attack("rqlerovg"))
+        ActionOverride("rqfigc2",Attack("rqlerovg"))
+        ActionOverride("rqfigc3",Attack("rqlerovg"))
+        ActionOverride("rqcled1",Attack("rqlerovg"))
+        Wait(2)
+        ActionOverride("rqlerovg",Attack("rqnemeag"))
+END

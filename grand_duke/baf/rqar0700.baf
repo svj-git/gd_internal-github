@@ -1,0 +1,22 @@
+// Waukeens Promenade
+
+IF
+    Inparty("rqbro")
+    GlobalGT("Chapter","GLOBAL",5)
+    Global("rqGDBG2SpawnBrokCourier","AR0700",0) // Waukeens Promenade
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDBG2SpawnBrokCourier","AR0700",1) // Waukeens Promenade
+        CreateCreatureOffScreen("rqcourbr",S)
+        Continue()
+END
+
+IF
+    InParty("rqbro")
+    Global("rqGDBrokkrInvestigation","AR0700",0) // Waukeens Promenade
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDBrokkrInvestigation","AR0700",1) // Waukeens Promenade
+        CreateCreature("rqtegwyn",[928.690],SE) // Tegwyn
+        Continue()
+END

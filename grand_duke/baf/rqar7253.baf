@@ -1,0 +1,24 @@
+// Thieves Guild AR7253
+IF
+    Global("rqGDThiefGoReinforceSpawn","AR7253",0) // Thieves Guild
+    Global("rqGDThiefReinforce","GLOBAL",1)
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDThiefGoReinforceSpawn","AR7253",1) // Thieves Guild
+        CreateCreature("rqfig9c1",[387.421],0) // Fighter
+        CreateCreature("rqfig9c1",[496.470],0) // Fighter
+        CreateCreature("rqfig9c1",[936.502],0) // Fighter
+        CreateCreature("rqfig9c1",[781.525],0) // Fighter
+        CreateCreature("rqarc7c1",[758.351],0) // Archer
+        CreateCreature("rqarc7c1",[1057.722],0) // Archer
+        CreateCreature("rqthi8c1",[193.510],0) // Thief
+        CreateCreature("rqthi8c1",[991.797],0) // Thief
+        CreateCreature("rqthi8c2",[307.631],0) // Thief
+        CreateCreature("rqthi8c2",[550.645],0) // Thief
+        CreateCreature("rqthi8c3",[647.642],0) // Thief
+        CreateCreature("rqthi8c3",[1133.565],0) // Thief
+        CreateCreature("rqcle7c1",[623.212],0) // Cleric
+        CreateCreature("rqthi8c4",[652.384],0) // Remy Hawk
+        CreateCreature("rqmag8c1",[655.351],0) // Mage
+        Continue()
+END

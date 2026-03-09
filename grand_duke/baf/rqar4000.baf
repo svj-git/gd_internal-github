@@ -1,0 +1,15 @@
+// Forest of Tethyr
+
+IF
+    InMyArea("rqbro")
+    !Dead("rqbro")
+    !PartyHasItem("rqproof6")
+    Global("rqGDBG2SuldanBrokMaps","AR4000",0)
+    Global("rqGDBG2BrokSpying","GLOBAL",2)
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDBG2SuldanBrokMaps","AR4000",1)
+        SetGlobal("rqGDBG2BrokSpying","GLOBAL",3)
+        GiveItemCreate("rqproof6","rqbro",0,0,0)
+        Continue()
+END

@@ -1,0 +1,33 @@
+// Eliasson
+IF
+    Global("rqGDUsePoison","LOCALS",0)
+    See(NearestEnemyOf(Myself))
+    !Dead("rqelias")
+THEN
+    RESPONSE #100
+        SetGlobalTimer("rqGDWarChantTimer","LOCALS",24)
+        SetGlobal("rqGDUsePoison","LOCALS",1)
+        DisplayStringHead(Myself,~Goreret ha-cherav!~)  // Goreret ha-cherav!
+        ReallyForceSpellRES("SPIN568",NearestEnemyOf(Myself)) // Mimic Poison
+END
+
+IF
+    GlobalTimerExpired("rqGDWarChantTimer","LOCALS")
+    !Dead("rqelias")
+    Global("rqGDUsePoison","LOCALS",1)
+THEN
+    RESPONSE #100
+        SetGlobalTimer("rqGDWarChantTimer","LOCALS",24)
+        SetGlobal("rqGDUsePoison","LOCALS",0)
+        DisplayStringHead(Myself,~Goreret ha-cherav!~)  // Goreret ha-cherav!
+        ReallyForceSpellRES("SPIN568",NearestEnemyOf(Myself)) // Mimic Poison
+END
+
+IF
+    HPPercentLT(Myself,5)
+    Global("rqGDDeath2","LOCALS",0)
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDDeath2","LOCALS",1)
+        DisplayStringHead(Myself,~Echad elohim imach.~)
+END

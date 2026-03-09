@@ -1,0 +1,15 @@
+// Friedly Arm Inn L2
+IF
+    Global("rqGDBrokkrTreasure","GLOBAL",5)
+    Global("rqGDProgunnosSpawn","AR6802",0) // Friedly Arm Inn L2
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDProgunnosSpawn","AR6802",1) // Friedly Arm Inn L2
+        CreateCreature("rqprog",[886.528],3) // Progunnos
+        CreateCreature("rqnemar",[853.534],10) // Nemaricus
+        CreateCreature("rqfig9a1",[811.566],7) // Fighter
+        CreateCreature("rqthi8a1",[869.578],7) // Fighter
+        CreateCreature("rqthi8b1",[987.578],7) // Thief
+        CreateCreature("rqfig9b1",[985.526],7) // Thief
+        Continue()
+END

@@ -1,0 +1,10 @@
+// Keexie
+IF
+    Global("rqGDGrandDukeQuest","GLOBAL",1)
+    Global("rqGDRepreSpawn","AR7254",0) // Keexie
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDRepreSpawn","AR7254",1) // Keexie
+        CreateCreature("rqrepr2",[337.479],0) // Gemerkan
+        Continue()
+END

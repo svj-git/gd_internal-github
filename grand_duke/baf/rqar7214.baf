@@ -1,0 +1,10 @@
+// Blushing Mermaid
+IF
+    Global("rqGDGrandDukeQuest","GLOBAL",1)
+    Global("rqGDRepreSpawn","AR7214",0) // Blushing Mermaid
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDRepreSpawn","AR7214",1) // Blushing Mermaid
+        CreateCreature("rqrepr5",[1173.800],4) // Temur of Droliegen
+        Continue()
+END

@@ -1,0 +1,80 @@
+// North Baldur's Gate
+IF
+    Global("Chapter","GLOBAL",8)
+    Dead("Sarevok")
+    Global("rqGDKrivySpawn","AR7300",0) // North Baldur's Gate
+    Global("rqGDKrivySpawnSeq","GLOBAL",0)
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDKrivySpawn","AR7300",1) // North Baldur's Gate
+        CreateCreature("rqkrivy",[1843.2940],0) // Krivy
+        SetGlobal("rqGDKrivySpawnSeq","GLOBAL",1)
+        Continue()
+END
+
+// NeutralPath ------------------------- Teleporting boots safeguard
+IF
+    GlobalGT("rqGDVotes","GLOBAL",7)
+    Alignment(Player1,MASK_GENEUTRAL)
+    Global("rqGDMessengerN1Spawn","AR7300",0) // North Baldur's Gate
+    Global("rqGDNeutralPathStep1","GLOBAL",0)
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDMessengerN1Spawn","AR7300",1) // North Baldur's Gate
+        SetGlobal("rqGDNeutralPath","GLOBAL",1)
+        SetGlobal("rqGDNeutralPathStep1","GLOBAL",1)
+        CreateCreatureObjectOffScreen("rqcoura1",Player1,0,0,0) // Messenger
+        Continue()
+END
+
+IF
+    Global("rqGDLerovSpawn","AR7300",0) // North Baldur's Gate
+
+    Global("rqGDNeutralPathStep2","GLOBAL",1)
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDLerovSpawn","AR7300",1) // North Baldur's Gate
+        Wait(2)
+        CreateCreatureObjectOffScreen("rqlerov",Player1,0,0,0) // Lerov
+        ActionOverride("rqlerov",StartDialogueNoSet(Player1))
+        Continue()
+END
+
+// Good Path ------------------------------  Teleporting boots safeguard
+IF
+    GlobalGT("rqGDVotes","GLOBAL",7)
+    Alignment(Player1,MASK_GOOD)
+    Global("rqGDCourGoodSpawn","AR7300",0) // North Baldur's Gate
+    Global("rqGDGoodPathStep1","GLOBAL",0)
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDCourGoodSpawn","AR7300",1) // North Baldur's Gate
+        SetGlobal("rqGDGoodPathStep1","GLOBAL",1)
+        SetGlobal("rqGDGoodPath","GLOBAL",1)
+        CreateCreatureObjectOffScreen("rqcourb1",Player1,0,0,0) // Messenger
+        Continue()
+END
+
+IF
+    Global("rqGDLerovSpawnG","AR7300",0) // North Baldur's Gate
+    Global("rqGDGoodPathStep2","GLOBAL",1)
+    !InMyArea("rqcourb1")
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDLerovSpawnG","AR7300",1) // North Baldur's Gate
+        Wait(2)
+        CreateCreatureObjectOffScreen("rqlerovg",Player1,0,0,0) // Lerov
+        ActionOverride("rqlerovg",StartDialogueNoSet(Player1))
+        Continue()
+END
+// Good Path ------------------------------  Teleporting boots safeguard
+IF
+    InMyArea(Player1)
+    Global("rqGDKrivySpawn","AR8000",0) // Southwest Baldur's Gate
+    Global("rqGDGoodPathStep4","GLOBAL",1)
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDKrivySpawn","AR8000",1) // Southwest Baldur's Gate
+        CreateCreatureObjectOffScreen("rqkrivy",Player1,0,0,0) // Krivy
+        Continue()
+END

@@ -1,0 +1,13 @@
+// L2 Floor of House in northwest district
+IF
+    Global("rqGDRhiviqRevenge","GLOBAL",3)
+    Global("rqGDRhiviqParentsSpawn","AR7255",0) // L2 Floor of House in northwest district
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDRhiviqParentsSpawn","AR7255",1) // L2 Floor of House in northwest district
+        CreateCreature("rqmalik",[395.329],0) // Malik
+        CreateCreature("rqaisha",[449.294],0) // Aisha
+        CreateCreature("rqfig9a1",[525.366],0) // Fighter
+        CreateCreature("rqthi8b1",[421.476],0) // Thief
+        Continue()
+END

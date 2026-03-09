@@ -1,0 +1,1169 @@
+BEGIN ~rqreman~
+
+IF ~NumTimesTalkedTo(0)~ THEN BEGIN IntroReman
+    SAY ~Greetings! My old self is called Remanfurgus Dobruch. You look like a well-off adventurer, yes, you do. Yes, you must be commissioning enchanting work from me. Yes, yes, yes, commission one. One.~
+    IF ~~ THEN REPLY ~What sort of enchantment do you do?~ GOTO InterestedReman
+    IF ~~ THEN REPLY ~Enchantment we shall speak about it later. Farewell.~ EXIT
+    IF ~~ THEN REPLY ~I have no time for you, crazy gnome.~ EXIT
+END
+
+IF ~~ THEN BEGIN InterestedReman
+    SAY ~Yes, I knew it! Gold, gold, gold for my enchanting service, yes, yes, yes. Us old... I mean, my artisans can make copies of magical equipment, rich adventurer, and my old self will enchant them so that they will be perfect copies, indistinguishable even to their creators.~
+    IF ~~ THEN REPLY ~What you say is interesting. What do I need to know?~ GOTO NeedToKnow
+    IF ~~ THEN REPLY ~I have no time for you, crazy gnome.~ EXIT
+END
+
+IF ~~ THEN BEGIN NeedToKnow
+    SAY ~You give me an item to copy, my old self will make a replica and send it to the craftsman. Once the craftsman finishes the replica and my old self has it in my hands, then the wonder begins! Crating in my hands! And the copy of the original comes to this WORLD! (Necessary to return the original and copy.) You will possess one original and one copy of said item, yes, yes, yes. All this for a commission of gold, depending on the difficulty of the task. Yes, yes... yes?~
+    IF ~CheckStatGT(LastTalkedToBy,14,WIS)~ THEN REPLY ~This might be an elaborate trick. I do not trust you.~ GOTO TrickFake
+    IF ~~ THEN REPLY ~Okay, gnome, I want to make a copy of something.~ GOTO MainThing
+    IF ~~ THEN REPLY ~On the other hand, I have no time for this right now. Farewell.~ EXIT
+END
+
+IF ~~ THEN BEGIN TrickFake
+    SAY ~No, no, no, I am no trickster, no, no, no. You believe maybe one first enchantment for free, yes, yes, yes?~
+    IF ~~ THEN REPLY ~For free, you say? Show me what you can do then.~ GOTO MainThingFree
+END
+
+IF ~~ THEN BEGIN OtherItems
+    SAY ~Ahhh, no... I... um, you know which ones do you want to make copies. And I cannot interfere with... that process? That is not the correct word... but you know that. Have you arrived at clarity? Yes, yes, yes?~
+    IF ~~ THEN REPLY ~Nevermind then, I want you to copy something for me.~ GOTO MainThing
+    IF ~~ THEN REPLY ~I guess that means that I am leaving.~ EXIT
+END
+
+IF ~~ THEN BEGIN MainThingFree
+    SAY ~Proof of sincerity is required and I and my old self can provide.~
+    IF ~PartyHasItem("BRAC03")~ THEN REPLY ~I could use a second pair of Bracers of Defense AC 6.~ GOTO BracersBRAC03
+    IF ~PartyHasItem("BRAC09")~ THEN REPLY ~I might have use for a second pair of Gauntlets of Weapon Skill.~ GOTO GauntletsBRAC09
+    IF ~PartyHasItem("BRAC10")~ THEN REPLY ~Gauntlets of Weapon Expertise are items I could use.~ GOTO GauntletsBRAC10
+    IF ~PartyHasItem("BRAC07")~ THEN REPLY ~Gauntlets of Dexterity,I think I have need for one more need pair of these bracers.~ GOTO GauntletsBRAC07
+    IF ~PartyHasItem("BRAC16")~ THEN REPLY ~Bracers of Blinding Strike are my choice for duplication.~ GOTO BracersBRAC16
+    IF ~PartyHasItem("BRAC03")~ THEN REPLY ~I could use a second pair of Bracers of Defense AC 6.~ GOTO BracersBRAC03
+    IF ~PartyHasItem("BRAC14")~ THEN REPLY ~We could use more Bracers of Defense AC 4.~ GOTO BracersBRAC14
+    IF ~PartyHasItem("BRAC17")~ THEN REPLY ~Our thieving enterprise could use Gloves of Pickpocketing.~ GOTO GlovesBRAC17
+    IF ~PartyHasItem("BRAC20")~ THEN REPLY ~These Gloves of Healing from the Order of Radiant Heart,can they be copied?~ GOTO GlovesBRAC20
+    IF ~PartyHasItem("BELT02")~ THEN REPLY ~I do not have enough girdles, and the Golden Girdle seems like the best candidate.~ GOTO GirdleBELT02
+    IF ~PartyHasItem("BELT03")~ THEN REPLY ~Getting another Girdle of Bluntness is my desire, gnome.~ GOTO GirdleBELT03
+    IF ~PartyHasItem("BELT04")~ THEN REPLY ~Girdle of Piercing,I do wish to acquire another one.~ GOTO GirdleBELT04
+    IF ~PartyHasItem("BELT09")~ THEN REPLY ~I have a need for toughness. Can you make me another Girdle of Fortitude?~ GOTO GirdleBELT09
+    IF ~PartyHasItem("BELT10")~ THEN REPLY ~Dragons and spellcasters are my main opponents, so I would like another Belt of Inertial Barrier.~ GOTO BeltBELT10
+    IF ~PartyHasItem("RING28")~ THEN REPLY ~I will make use of another Ring of Air Control.~ GOTO RingRING28
+    IF ~PartyHasItem("RING29")~ THEN REPLY ~Ring of Earth Control catches my interest,make a copy of that ring.~ GOTO RingRING29
+    IF ~PartyHasItem("RING27")~ THEN REPLY ~Ring of Fire Control ignites my desire to acquire a second copy.~ GOTO RingRING27
+    IF ~PartyHasItem("RING36")~ THEN REPLY ~Yes, I could make use of a second Ring of Danger Sense.~ GOTO RingRING36
+    IF ~PartyHasItem("RING35")~ THEN REPLY ~Hmmm, Ring of Lock Picks has me interested in another copy.~ GOTO RingRING35
+    IF ~PartyHasItem("CLCK06")~ THEN REPLY ~I think yet another Cloak of Non-Detection will be interesting to me.~ GOTO CloakCLCK06
+//    IF ~~ THEN REPLY ~Periapt of Proof against Poison~ GOTO
+//    IF ~~ THEN REPLY ~Necklace of Form Stability~ GOTO
+//    IF ~~ THEN REPLY ~Amulet of Spell Warding~ GOTO
+//    IF ~~ THEN REPLY ~Greenstone Amulet~ GOTO
+//    IF ~~ THEN REPLY ~Amulet of Spell Warding~ GOTO
+//    IF ~~ THEN REPLY ~Kaligun's Amulet of Magic Resistance~ GOTO
+//    IF ~~ THEN REPLY ~Amulet of 5 % Magic Resistance~ GOTO
+    IF ~~ THEN REPLY ~I do not wish to make any copy.~ EXIT
+END
+
+
+
+IF ~Global("rqGDEnchanting","GLOBAL",0) NumTimesTalkedToGT(0)~ THEN BEGIN MainThing
+    SAY ~Copies copies that what you are here for yes? Yes yes yes? Gold gold gold for me that is... Yes?~
+    IF ~~ THEN REPLY ~I have other magical equipment to duplicate. Can you help me?~ GOTO OtherItems
+    IF ~PartyHasItem("BRAC03")~ THEN REPLY ~I could use a second pair of Bracers of Defense AC 6.~ GOTO BracersBRAC03
+    IF ~PartyHasItem("BRAC07")~ THEN REPLY ~Gauntlets of Dexterity,no one has more need for a second pair of these bracers.~ GOTO GauntletsBRAC07
+    IF ~PartyHasItem("BRAC09")~ THEN REPLY ~I might have use for a second pair of Gauntlets of Weapon Skill.~ GOTO GauntletsBRAC09
+    IF ~PartyHasItem("BRAC10")~ THEN REPLY ~Gauntlets of Weapon Expertise are an item I could use.~ GOTO GauntletsBRAC10
+    IF ~PartyHasItem("BRAC14")~ THEN REPLY ~We could use more Bracers of Defense AC 4.~ GOTO BracersBRAC14
+    IF ~PartyHasItem("BRAC16")~ THEN REPLY ~Bracers of Blinding Strike are my choice for duplication.~ GOTO BracersBRAC16
+    IF ~PartyHasItem("BRAC17")~ THEN REPLY ~Our thieving enterprise could use Gloves of Pick Pocketing.~ GOTO GlovesBRAC17
+    IF ~PartyHasItem("BRAC20")~ THEN REPLY ~These Gloves of Healing from the Order of Radiant Heart,can they be copied?~ GOTO GlovesBRAC20
+    IF ~PartyHasItem("BELT02")~ THEN REPLY ~I do not have enough girdles; the Golden Girdle seems like the best candidate.~ GOTO GirdleBELT02
+    IF ~PartyHasItem("BELT03")~ THEN REPLY ~Getting another Girdle of Bluntness is my desire, gnome.~ GOTO GirdleBELT03
+    IF ~PartyHasItem("BELT04")~ THEN REPLY ~Girdle of Piercing,I do wish to acquire another one.~ GOTO GirdleBELT04
+    IF ~PartyHasItem("BELT09")~ THEN REPLY ~I have a need for toughness. Can you make me another Girdle of Fortitude?~ GOTO GirdleBELT09
+    IF ~PartyHasItem("BELT10")~ THEN REPLY ~Dragons and spellcasters are my main opponents, so I would like another Belt of Inertial Barrier.~ GOTO BeltBELT10
+    IF ~PartyHasItem("RING27")~ THEN REPLY ~Ring of Fire Control ignites my desire to acquire a second copy.~ GOTO RingRING27
+    IF ~PartyHasItem("RING28")~ THEN REPLY ~I will make use of another Ring of Air Control.~ GOTO RingRING28
+    IF ~PartyHasItem("RING29")~ THEN REPLY ~Ring of Earth Control catches my interest,make a copy of that ring.~ GOTO RingRING29
+    IF ~PartyHasItem("RING35")~ THEN REPLY ~Hmmm, Ring of Lock Picks has me interested in another copy.~ GOTO RingRING35
+    IF ~PartyHasItem("RING36")~ THEN REPLY ~Yes, I could make use of a second Ring of Danger Sense.~ GOTO RingRING36
+    IF ~PartyHasItem("CLCK06")~ THEN REPLY ~I think yet another Cloak of Non-Detection will be interesting to me.~ GOTO CloakCLCK06
+    IF ~PartyHasItem("SLNG05")~ THEN REPLY ~This +3 Arla Dragonbane sling,can you make a copy of it?~ GOTO slingSLNG05
+    IF ~PartyHasItem("SLNG07")~ THEN REPLY ~I have this +2 Sling of Seeking,can you make a copy of it?~ GOTO SlingSLNG07
+    IF ~PartyHasItem("SHLD24")~ THEN REPLY ~I own a Reflection Shield +1,can you make a copy of it?~ GOTO ShieldSHLD24
+    IF ~PartyHasItem("SHLD26")~ THEN REPLY ~I wish for you to make another Shield of the Lost +2.~ GOTO ShieldSHLD26
+    IF ~PartyHasItem("AX1H08")~ THEN REPLY ~I have need of more ranged weapons like Hangard's Axe +2. Can you make a copy of this axe?~ GOTO AxeAX1H08
+    IF ~PartyHasItem("AX1H12")~ THEN REPLY ~This fiery Battle Axe, Stonefire +3, sparks my interest for another copy.~ GOTO AxeAX1H12
+    IF ~PartyHasItem("AX1H13")~ THEN REPLY ~I want a second Battle Axe, Frostreaver +3.~ GOTO AxeAX1H13
+    IF ~PartyHasItem("SW2H03")~ THEN REPLY ~Could you make a copy of the Cursed Berserking Sword +3? I could use it as a gift for someone.~ GOTO BerserkingSW2H03
+    IF ~PartyHasItem("SW2H14")~ THEN REPLY ~I'm unsure if this can be done, but can you make a copy of Lilarcor +3?~ GOTO LilarcorSW2H14
+    IF ~PartyHasItem("SW2H16")~ THEN REPLY ~Can you make a copy of Sarevok's Sword of Chaos +2?~ GOTO SwordSW2H16
+    IF ~PartyHasItem("HAMM03")~ THEN REPLY ~This electric War Hammer +2, Ashideena, caught my eye, can you make a copy of it?~ GOTO HammerHAMM03
+    IF ~PartyHasItem("HAMM04")~ THEN REPLY ~I require a War Hammer +1, +4 vs. Giantkin.~ GOTO HammerHAMM04
+    IF ~PartyHasItem("DAGG11")~ THEN REPLY ~Throwing daggers,Boomerang Dagger +2.~ GOTO DaggerDAGG11
+    IF ~PartyHasItem("DAGG13")~ THEN REPLY ~Can you fulfill my request for another Pixie Prick +3 dagger?~ GOTO PrickDAGG13
+    IF ~PartyHasItem("DAGG17")~ THEN REPLY ~Could you make another Stiletto of Demarchess +2?~ GOTO StilettoDAGG17
+    IF ~PartyHasItem("NEBDAG")~ THEN REPLY ~Neb's Nasty Cutter is a weapon I obtained from the nasty murderer Neb. Could you make another one?~ GOTO CutterNEBDAG
+    IF ~PartyHasItem("SW1H26")~ THEN REPLY ~Is it possible to make another copy of Ilbratha +1?~ GOTO IlbrathaSW1H26
+    IF ~PartyHasItem("SW1H27")~ THEN REPLY ~I am thinking that another copy of Arbane's Sword +2 should grace my collection.~ GOTO SwordSW1H27
+    IF ~PartyHasItem("SW1H30")~ THEN REPLY ~Make a copy of the Scimitar of Speed +2, Belm.~ GOTO ScimitarSW1H30
+    IF ~PartyHasItem("SW1H35")~ THEN REPLY ~I should get another copy of Adjatha the Drinker +2.~ GOTO AdjathaSW1H35
+    IF ~PartyHasItem("SW1H36")~ THEN REPLY ~You should make me a another copy of Namarra +2 dear enchanter.~ GOTO NamarraSW1H36
+    IF ~PartyHasItem("BLUN12")~ THEN REPLY ~Mister gnome, I think this might be too difficult for you, but could you make me another copy of Mace of Disruption +1?~ GOTO MaceBLUN12
+    IF ~PartyHasItem("BLUN20")~ THEN REPLY ~Create a duplicate of Ardulia's Fall +1 mace.~ GOTO MaceBLUN20
+    IF ~~ THEN REPLY ~I do not wish to make any copies.~ EXIT
+END
+
+// Brac03
+IF ~~ THEN BEGIN BracersBRAC03
+    SAY ~For my old self, it will be 3000 gold, and in 2 days, you could return here to claim your commission. Oh, and don't forget to bring another 1500 gold for the finished product to cover my expenses. You interested, yes, yes, yes?~
+    IF ~PartyGoldGT(2999)~ THEN REPLY ~Here is your gold, and I'll hold you to your promise to deliver my order in two days.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",1)
+            TakePartyGold(3000)
+            SetGlobalTimer("rqGDBRAC03copy","GLOBAL",TWO_DAYS)
+            TakePartyItem("BRAC03")~
+        EXIT
+    IF ~~ THEN REPLY ~I do not have enough gold for this, so perhaps I will return later.~ EXIT
+END
+
+IF ~GlobalTimerExpired("rqGDBRAC03copy","GLOBAL")
+    Global("rqGDEnchanting","GLOBAL",1)
+    HasItem("BRAC03",Myself)~
+    THEN BEGIN BracersBRAC03Done
+    SAY ~I've finished your commission. Now you pay my old self the rest of the gold... Oh yes, 1500 gold for my enchanting services.~
+    IF ~PartyGoldGT(1499)~ THEN REPLY ~Here is your gold as agreed for my item.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",0)
+            TakePartyGold(1500)
+            GiveItem("BRAC03",LastTalkedToBy)
+            GiveItemCreate("BRAC03",LastTalkedToBy,1,0,0)~
+        EXIT
+    IF ~PartyGoldLT(1500)~ THEN REPLY ~I do not have enough gold for this, so perhaps I will return later.~ EXIT
+END
+
+// Brac07
+IF ~~ THEN BEGIN GauntletsBRAC07
+    SAY ~For my old self, it will be 5000 gold, and in 2 days, you could return here to claim your commission. Oh, and don't forget to bring another 2500 gold for the finished product to cover my expenses. You interested, yes, yes, yes?~
+    IF ~PartyGoldGT(4999)~ THEN REPLY ~Here is your gold, and I'll hold you to your promise to deliver my order in two days.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",1)
+            TakePartyGold(5000)
+            SetGlobalTimer("rqGDBRAC07copy","GLOBAL",TWO_DAYS)
+            TakePartyItem("BRAC07")~
+        EXIT
+    IF ~~ THEN REPLY ~I do not have enough gold for this, so perhaps I will return later.~ EXIT
+END
+
+IF ~GlobalTimerExpired("rqGDBRAC07copy","GLOBAL")
+    Global("rqGDEnchanting","GLOBAL",1)
+    HasItem("BRAC07",Myself)~ THEN BEGIN BracersBRAC07Done
+    SAY ~I've finished your commission. Now you pay my old self the rest of the gold... Oh yes, 2500 gold for my enchanting services.~
+    IF ~PartyGoldGT(2499)~ THEN REPLY ~Here is gold for finishing my artifact.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",0)
+            TakePartyGold(2500)
+            GiveItem("BRAC07",LastTalkedToBy)
+            GiveItemCreate("BRAC07",LastTalkedToBy,1,0,0)~
+        EXIT
+    IF ~PartyGoldLT(2500)~ THEN REPLY ~I do not have enough gold for this, so perhaps I will return later.~ EXIT
+END
+
+// Brac09
+IF ~~ THEN BEGIN GauntletsBRAC09
+    SAY ~For my old self, it will be 4000 gold, and in 2 days, you could return here to claim your commission. Oh, and don't forget to bring another 4000 gold for the finished product to cover my expenses. You interested, yes, yes, yes?~
+    IF ~PartyGoldGT(3999)~ THEN REPLY ~Here is your gold, and I'll hold you to your promise to deliver my order in two days.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",1)
+            TakePartyGold(4000)
+            SetGlobalTimer("rqGDBRAC09copy","GLOBAL",TWO_DAYS)
+            TakePartyItem("BRAC09")~
+        EXIT
+    IF ~~ THEN REPLY ~I do not have enough gold for this, so perhaps I will return later.~ EXIT
+END
+
+IF ~GlobalTimerExpired("rqGDBRAC09copy","GLOBAL")
+    Global("rqGDEnchanting","GLOBAL",1)
+    HasItem("BRAC09",Myself)~ THEN BEGIN GauntletsBRAC09Done
+    SAY ~I've finished your commission. Now you pay my old self the rest of the gold... Oh yes, 2000 gold for my enchanting services.~
+    IF ~PartyGoldGT(1999)~ THEN REPLY ~Here is gold for finishing my artifact.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",0)
+            TakePartyGold(2000)
+            GiveItem("BRAC09",LastTalkedToBy)
+            GiveItemCreate("BRAC09",LastTalkedToBy,1,0,0)~
+        EXIT
+    IF ~PartyGoldLT(2000)~ THEN REPLY ~I will return with gold you require.~ EXIT
+END
+
+// Brac10
+IF ~~ THEN BEGIN GauntletsBRAC10
+    SAY ~For my old self, it will be 6000 gold, and in 2 days, you could return here to claim your commission. Oh, and don't forget to bring another 3000 gold for the finished product to cover my expenses. You interested, yes, yes, yes?~
+    IF ~PartyGoldGT(5999)~ THEN REPLY ~Here is your gold, and I'll hold you to your promise to deliver my order in two days.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",1)
+            TakePartyGold(6000)
+            TakePartyItem("BRAC10")
+            SetGlobalTimer("rqGDBRAC10copy","GLOBAL",TWO_DAYS)~
+        EXIT
+    IF ~~ THEN REPLY ~I do not have enough gold for this, so perhaps I will return later.~ EXIT
+END
+
+IF ~GlobalTimerExpired("rqGDBRAC10copy","GLOBAL")
+    Global("rqGDEnchanting","GLOBAL",1)
+    HasItem("BRAC10",Myself)~ THEN BEGIN GauntletsBRAC10Done
+    SAY ~I've finished your commission. Now you pay my old self the rest of the gold... Oh yes, 3000 gold for my enchanting services.~
+    IF ~PartyGoldGT(2999)~ THEN REPLY ~Here is gold for finishing my artifact.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",0)
+            TakePartyGold(3000)
+            GiveItem("BRAC10",LastTalkedToBy)
+            GiveItemCreate("BRAC10",LastTalkedToBy,1,0,0)~
+        EXIT
+    IF ~PartyGoldLT(3000)~ THEN REPLY ~I will return with gold you require.~ EXIT
+END
+
+// Brac14
+IF ~~ THEN BEGIN BracersBRAC14
+    SAY ~For my old self, it will be 5000 gold, and in 2 days, you could return here to claim your commission. Oh, and don't forget to bring another 2500 gold for the finished product to cover my expenses. You interested, yes, yes, yes?~
+    IF ~PartyGoldGT(4999)~ THEN REPLY ~Here is your gold, and I'll hold you to your promise to deliver my order in two days.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",1)
+            TakePartyGold(5000)
+            TakePartyItem("BRAC14")
+            SetGlobalTimer("rqGDBRAC14copy","GLOBAL",TWO_DAYS)~
+        EXIT
+    IF ~~ THEN REPLY ~I do not have enough gold for this, so perhaps I will return later.~ EXIT
+END
+
+IF ~GlobalTimerExpired("rqGDBRAC14copy","GLOBAL")
+    Global("rqGDEnchanting","GLOBAL",1)
+    HasItem("BRAC14",Myself)~ THEN BEGIN GauntletsBRAC14Done
+    SAY ~I've finished your commission. Now you pay my old self the rest of the gold... Oh yes, 2500 gold for my enchanting services.~
+    IF ~PartyGoldGT(2499)~ THEN REPLY ~Here is gold for finishing my artifact.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",0)
+            TakePartyGold(2500)
+            GiveItem("BRAC14",LastTalkedToBy)
+            GiveItemCreate("BRAC14",LastTalkedToBy,1,0,0)~
+        EXIT
+    IF ~PartyGoldLT(2500)~ THEN REPLY ~I will return with gold you require.~ EXIT
+END
+
+// Brac16
+IF ~~ THEN BEGIN BracersBRAC16
+    SAY ~For my old self, it will be 7000 gold, and in 2 days, you could return here to claim your commission. Oh, and don't forget to bring another 3500 gold for the finished product to cover my expenses. You interested, yes, yes, yes?~
+    IF ~PartyGoldGT(6999)~ THEN REPLY ~Here is your gold, and I'll hold you to your promise to deliver my order in two days.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",1)
+            TakePartyGold(7000)
+            TakePartyItem("BRAC16")
+            SetGlobalTimer("rqGDBRAC16copy","GLOBAL",ONE_ROUND)~
+        EXIT
+    IF ~~ THEN REPLY ~I do not have enough gold for this, so perhaps I will return later.~ EXIT
+END
+
+IF ~GlobalTimerExpired("rqGDBRAC16copy","GLOBAL")
+    Global("rqGDEnchanting","GLOBAL",1)
+    HasItem("BRAC16",Myself)~ THEN BEGIN GauntletsBRAC16Done
+    SAY ~I've finished your commission. Now you pay my old self the rest of the gold... Oh yes, 3500 gold for my enchanting services.~
+    IF ~PartyGoldGT(3499)~ THEN REPLY ~Here is gold for finishing my artifact.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",0)
+            TakePartyGold(3500)
+            GiveItem("BRAC16",LastTalkedToBy)
+            GiveItemCreate("BRAC16",LastTalkedToBy,1,0,0)~
+        EXIT
+    IF ~PartyGoldLT(3500)~ THEN REPLY ~I will return with gold you require.~ EXIT
+END
+
+// Brac17
+IF ~~ THEN BEGIN GlovesBRAC17
+    SAY ~For my old self, it will be 5000 gold, and in 2 days, you could return here to claim your commission. Oh, and don't forget to bring another 2500 gold for the finished product to cover my expenses. You interested, yes, yes, yes?~
+    IF ~PartyGoldGT(4999)~ THEN REPLY ~Here is your gold, and I'll hold you to your promise to deliver my order in two days.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",1)
+            TakePartyGold(5000)
+            TakePartyItem("BRAC17")
+            SetGlobalTimer("rqGDBRAC17copy","GLOBAL",TWO_DAYS)~
+        EXIT
+    IF ~~ THEN REPLY ~I do not have enough gold for this, so perhaps I will return later.~ EXIT
+END
+
+IF ~GlobalTimerExpired("rqGDBRAC17copy","GLOBAL")
+    Global("rqGDEnchanting","GLOBAL",1)
+    HasItem("BRAC17",Myself)~ THEN BEGIN GauntletsBRAC17Done
+    SAY ~I've finished your commission. Now you pay my old self the rest of the gold... Oh yes, 2500 gold for my enchanting services.~
+    IF ~PartyGoldGT(2499)~ THEN REPLY ~Here is gold for finishing my artifact.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",0)
+            TakePartyGold(2500)
+            GiveItem("BRAC17",LastTalkedToBy)
+            GiveItemCreate("BRAC17",LastTalkedToBy,1,0,0)~
+        EXIT
+    IF ~PartyGoldLT(2500)~ THEN REPLY ~I will return with gold you require.~ EXIT
+END
+
+// Brac20
+IF ~~ THEN BEGIN GlovesBRAC20
+    SAY ~For my old self, it will be 5000 gold, and in 2 days, you could return here to claim your commission. Oh, and don't forget to bring another 2500 gold for the finished product to cover my expenses. You interested, yes, yes, yes?~
+    IF ~PartyGoldGT(4999)~ THEN REPLY ~Here is your gold, and I'll hold you to your promise to deliver my order in two days.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",1)
+            TakePartyGold(5000)
+            TakePartyItem("BRAC20")
+            SetGlobalTimer("rqGDBRAC20copy","GLOBAL",TWO_DAYS)~
+        EXIT
+    IF ~~ THEN REPLY ~I do not have enough gold for this, so perhaps I will return later.~ EXIT
+END
+
+IF ~GlobalTimerExpired("rqGDBRAC20copy","GLOBAL")
+    Global("rqGDEnchanting","GLOBAL",1)
+    HasItem("BRAC20",Myself)~ THEN BEGIN GauntletsBRAC17Done
+    SAY ~I've finished your commission. Now you pay my old self the rest of the gold... Oh yes, 2500 gold for my enchanting services.~
+    IF ~PartyGoldGT(2499)~ THEN REPLY ~Here is gold for finishing my artifact.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",0)
+            TakePartyGold(2500)
+            GiveItem("BRAC20",LastTalkedToBy)
+            GiveItemCreate("BRAC20",LastTalkedToBy,1,0,0)~
+        EXIT
+    IF ~PartyGoldLT(2500)~ THEN REPLY ~I will return with gold you require.~ EXIT
+END
+
+// Belt02
+IF ~~ THEN BEGIN GirdleBELT02
+    SAY ~For my old self, it will be 1500 gold, and in 2 days, you could return here to claim your commission. Oh, and don't forget to bring another 750 gold for the finished product to cover my expenses. You interested, yes, yes, yes?~
+    IF ~PartyGoldGT(1499)~ THEN REPLY ~Here is your gold, and I'll hold you to your promise to deliver my order in two days.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",1)
+            TakePartyGold(1500)
+            TakePartyItem("BELT02")
+            SetGlobalTimer("rqGDBELT02copy","GLOBAL",TWO_DAYS)~
+        EXIT
+    IF ~~ THEN REPLY ~I do not have enough gold for this, so perhaps I will return later.~ EXIT
+END
+
+IF ~GlobalTimerExpired("rqGDBELT02copy","GLOBAL")
+    Global("rqGDEnchanting","GLOBAL",1)
+    HasItem("BELT02",Myself)~ THEN BEGIN GirdleBELT02Done
+    SAY ~I've finished your commission. Now you pay my old self the rest of the gold... Oh yes, 750 gold for my enchanting services.~
+    IF ~PartyGoldGT(749)~ THEN REPLY ~Here is gold for finishing my artifact.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",0)
+            TakePartyGold(750)
+            GiveItem("BELT02",LastTalkedToBy)
+            GiveItemCreate("BELT02",LastTalkedToBy,1,0,0)~
+        EXIT
+    IF ~PartyGoldLT(750)~ THEN REPLY ~I will return with gold you require.~ EXIT
+END
+
+// Belt03
+IF ~~ THEN BEGIN GirdleBELT03
+    SAY ~For my old self, it will be 1500 gold, and in 2 days, you could return here to claim your commission. Oh, and don't forget to bring another 750 gold for the finished product to cover my expenses. You interested, yes, yes, yes?~
+    IF ~PartyGoldGT(1499)~ THEN REPLY ~Here is your gold, and I'll hold you to your promise to deliver my order in two days.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",1)
+            TakePartyGold(1500)
+            TakePartyItem("BELT03")
+            SetGlobalTimer("rqGDBELT03copy","GLOBAL",TWO_DAYS)~
+        EXIT
+    IF ~~ THEN REPLY ~I do not have enough gold for this, so perhaps I will return later.~ EXIT
+END
+
+IF ~GlobalTimerExpired("rqGDBELT03copy","GLOBAL")
+    Global("rqGDEnchanting","GLOBAL",1)
+    HasItem("BELT03",Myself)~ THEN BEGIN GauntletsBRAC17Done
+    SAY ~I've finished your commission. Now you pay my old self the rest of the gold... Oh yes, 500 gold for my enchanting services.~
+    IF ~PartyGoldGT(749)~ THEN REPLY ~Here is gold for finishing my artifact.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",0)
+            TakePartyGold(750)
+            GiveItem("BELT03",LastTalkedToBy)
+            GiveItemCreate("BELT03",LastTalkedToBy,1,0,0)~
+        EXIT
+    IF ~PartyGoldLT(750)~ THEN REPLY ~I will return with gold you require.~ EXIT
+END
+
+// Belt04
+IF ~~ THEN BEGIN GirdleBELT04
+    SAY ~For my old self, it will be 1500 gold, and in 2 days, you could return here to claim your commission. Oh, and don't forget to bring another 750 gold for the finished product to cover my expenses. You interested, yes, yes, yes?~
+    IF ~PartyGoldGT(1499)~ THEN REPLY ~Here is your gold, and I'll hold you to your promise to deliver my order in two days.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",1)
+            TakePartyGold(1500)
+            TakePartyItem("BELT04")
+            SetGlobalTimer("rqGDBELT04copy","GLOBAL",TWO_DAYS)~
+        EXIT
+    IF ~~ THEN REPLY ~I do not have enough gold for this, so perhaps I will return later.~ EXIT
+END
+
+IF ~GlobalTimerExpired("rqGDBELT04copy","GLOBAL")
+    Global("rqGDEnchanting","GLOBAL",1)
+    HasItem("BELT04",Myself)~ THEN BEGIN GauntletsBRAC17Done
+    SAY ~I've finished your commission. Now you pay my old self the rest of the gold... Oh yes, 750 gold for my enchanting services.~
+    IF ~PartyGoldGT(749)~ THEN REPLY ~Here is gold for finishing my artifact.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",0)
+            TakePartyGold(750)
+            GiveItem("BELT04",LastTalkedToBy)
+            GiveItemCreate("BELT04",LastTalkedToBy,1,0,0)~
+        EXIT
+    IF ~PartyGoldLT(750)~ THEN REPLY ~I will return with gold you require.~ EXIT
+END
+
+// Belt09
+IF ~~ THEN BEGIN GirdleBELT09
+    SAY ~For my old self, it will be 6600 gold, and in 2 days, you could return here to claim your commission. Oh, and don't forget to bring another 3300 gold for the finished product to cover my expenses. You interested, yes, yes, yes?~
+    IF ~PartyGoldGT(6599)~ THEN REPLY ~Here is your gold, and I'll hold you to your promise to deliver my order in two days.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",1)
+            TakePartyGold(6600)
+            TakePartyItem("BELT09")
+            SetGlobalTimer("rqGDBELT09copy","GLOBAL",TWO_DAYS)~
+        EXIT
+    IF ~~ THEN REPLY ~I do not have enough gold for this, so perhaps I will return later.~ EXIT
+END
+
+IF ~GlobalTimerExpired("rqGDBELT09copy","GLOBAL")
+    Global("rqGDEnchanting","GLOBAL",1)
+    HasItem("BELT09",Myself)~ THEN BEGIN GauntletsBRAC17Done
+    SAY ~I've finished your commission. Now you pay my old self the rest of the gold... Oh yes, 3300 gold for my enchanting services.~
+    IF ~PartyGoldGT(3299)~ THEN REPLY ~Here is gold for finishing my artifact.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",0)
+            TakePartyGold(3300)
+            GiveItem("BELT09",LastTalkedToBy)
+            GiveItemCreate("BELT09",LastTalkedToBy,1,0,0)~
+        EXIT
+    IF ~PartyGoldLT(3300)~ THEN REPLY ~I will return with gold you require.~ EXIT
+END
+
+// Belt10
+IF ~~ THEN BEGIN BeltBELT10
+    SAY ~For my old self, it will be 12500 gold, and in 2 days, you could return here to claim your commission. Oh, and don't forget to bring another 6250 gold for the finished product to cover my expenses. You interested, yes, yes, yes?~
+    IF ~PartyGoldGT(12499)~ THEN REPLY ~Here is your gold, and I'll hold you to your promise to deliver my order in two days.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",1)
+            TakePartyGold(12500)
+            TakePartyItem("BELT10")
+            SetGlobalTimer("rqGDBELT10copy","GLOBAL",TWO_DAYS)~
+        EXIT
+    IF ~~ THEN REPLY ~I do not have enough gold for this, so perhaps I will return later.~ EXIT
+END
+
+IF ~GlobalTimerExpired("rqGDBELT10copy","GLOBAL")
+    Global("rqGDEnchanting","GLOBAL",1)
+    HasItem("BELT10",Myself)~ THEN BEGIN GauntletsBRAC17Done
+    SAY ~I've finished your commission. Now you pay my old self the rest of the gold... Oh yes, 6250 gold for my enchanting services.~
+    IF ~PartyGoldGT(6249)~ THEN REPLY ~Here is gold for finishing my artifact.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",0)
+            TakePartyGold(6250)
+            GiveItem("BELT10",LastTalkedToBy)
+            GiveItemCreate("BELT10",LastTalkedToBy,1,0,0)~
+        EXIT
+    IF ~PartyGoldLT(6250)~ THEN REPLY ~I will return with gold you require.~ EXIT
+END
+
+// Ring27
+IF ~~ THEN BEGIN RingRING27
+    SAY ~For my old self, it will be 3000 gold, and in 2 days, you could return here to claim your commission. Oh, and don't forget to bring another 1500 gold for the finished product to cover my expenses. You interested, yes, yes, yes?~
+    IF ~PartyGoldGT(2999)~ THEN REPLY ~Here is your gold, and I'll hold you to your promise to deliver my order in two days.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",1)
+            TakePartyGold(3000)
+            TakePartyItem("RING27")
+            SetGlobalTimer("rqGDRING27copy","GLOBAL",TWO_DAYS)~
+        EXIT
+    IF ~~ THEN REPLY ~I do not have enough gold for this, so perhaps I will return later.~ EXIT
+END
+
+IF ~GlobalTimerExpired("rqGDRING27copy","GLOBAL")
+    Global("rqGDEnchanting","GLOBAL",1)
+    HasItem("RING27",Myself)~ THEN BEGIN GauntletsRING27Done
+    SAY ~I've finished your commission. Now you pay my old self the rest of the gold... Oh yes, 1500 gold for my enchanting services.~
+    IF ~PartyGoldGT(1999)~ THEN REPLY ~Here is gold for finishing my artifact.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",0)
+            TakePartyGold(3000)
+            GiveItem("RING27",LastTalkedToBy)
+            GiveItemCreate("RING27",LastTalkedToBy,1,0,0)~
+        EXIT
+    IF ~PartyGoldLT(2000)~ THEN REPLY ~I will return with gold you require.~ EXIT
+END
+
+// Ring28
+IF ~~ THEN BEGIN RingRING28
+    SAY ~For my old self, it will be 3000 gold, and in 2 days, you could return here to claim your commission. Oh, and don't forget to bring another 1500 gold for the finished product to cover my expenses. You interested, yes, yes, yes?~
+    IF ~PartyGoldGT(2999)~ THEN REPLY ~Here is your gold, and I'll hold you to your promise to deliver my order in two days.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",1)
+            TakePartyGold(3000)
+            TakePartyItem("RING28")
+            SetGlobalTimer("rqGDRING28copy","GLOBAL",TWO_DAYS)~
+        EXIT
+    IF ~~ THEN REPLY ~I do not have enough gold for this, so perhaps I will return later.~ EXIT
+END
+
+IF ~GlobalTimerExpired("rqGDRING28copy","GLOBAL")
+    Global("rqGDEnchanting","GLOBAL",1)
+    HasItem("RING28",Myself)~ THEN BEGIN GauntletsRING28Done
+    SAY ~I've finished your commission. Now you pay my old self the rest of the gold... Oh yes, 1500 gold for my enchanting services.~
+    IF ~PartyGoldGT(1499)~ THEN REPLY ~Here is gold for finishing my artifact.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",0)
+            TakePartyGold(1500)
+            GiveItem("RING28",LastTalkedToBy)
+            GiveItemCreate("RING28",LastTalkedToBy,1,0,0)~
+        EXIT
+    IF ~PartyGoldLT(1500)~ THEN REPLY ~I will return with gold you require.~ EXIT
+END
+
+// Ring29
+IF ~~ THEN BEGIN RingRING29
+    SAY ~For my old self, it will be 3000 gold, and in 2 days, you could return here to claim your commission. Oh, and don't forget to bring another 1500 gold for the finished product to cover my expenses. You interested, yes, yes, yes?~
+    IF ~PartyGoldGT(2999)~ THEN REPLY ~Here is your gold, and I'll hold you to your promise to deliver my order in two days.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",1)
+            TakePartyGold(3000)
+            TakePartyItem("RING29")
+            SetGlobalTimer("rqGDRING29copy","GLOBAL",TWO_DAYS)~
+        EXIT
+    IF ~~ THEN REPLY ~I do not have enough gold for this, so perhaps I will return later.~ EXIT
+END
+
+IF ~GlobalTimerExpired("rqGDRING29copy","GLOBAL")
+    Global("rqGDEnchanting","GLOBAL",1)
+    HasItem("RING29",Myself)~ THEN BEGIN GauntletsRING29Done
+    SAY ~I've finished your commission. Now you pay my old self the rest of the gold... Oh yes, 1500 gold for my enchanting services.~
+    IF ~PartyGoldGT(1499)~ THEN REPLY ~Here is gold for finishing my artifact.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",0)
+            TakePartyGold(1500)
+            GiveItem("RING29",LastTalkedToBy)
+            GiveItemCreate("RING29",LastTalkedToBy,1,0,0)~
+        EXIT
+    IF ~PartyGoldLT(1500)~ THEN REPLY ~I will return with gold you require.~ EXIT
+END
+
+// Ring35
+IF ~~ THEN BEGIN RingRING35
+    SAY ~For my old self, it will be 3000 gold, and in 2 days, you could return here to claim your commission. Oh, and don't forget to bring another 1500 gold for the finished product to cover my expenses. You interested, yes, yes, yes?~
+    IF ~PartyGoldGT(1499)~ THEN REPLY ~Here is your gold, and I'll hold you to your promise to deliver my order in two days.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",1)
+            TakePartyGold(3000)
+            TakePartyItem("RING35")
+            SetGlobalTimer("rqGDRING35copy","GLOBAL",TWO_DAYS)~
+        EXIT
+    IF ~~ THEN REPLY ~I do not have enough gold for this, so perhaps I will return later.~ EXIT
+END
+
+IF ~GlobalTimerExpired("rqGDRING35copy","GLOBAL")
+    Global("rqGDEnchanting","GLOBAL",1)
+    HasItem("RING35",Myself)~ THEN BEGIN GauntletsRING35Done
+    SAY ~I've finished your commission. Now you pay my old self the rest of the gold... Oh yes, 1500 gold for my enchanting services.~
+    IF ~PartyGoldGT(1499)~ THEN REPLY ~Here is gold for finishing my artifact.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",0)
+            TakePartyGold(1500)
+            GiveItem("RING35",LastTalkedToBy)
+            GiveItemCreate("RING35",LastTalkedToBy,1,0,0)~
+        EXIT
+    IF ~PartyGoldLT(1500)~ THEN REPLY ~I will return with gold you require.~ EXIT
+END
+
+// Ring36
+IF ~~ THEN BEGIN RingRING36
+    SAY ~For my old self, it will be 3000 gold, and in 2 days, you could return here to claim your commission. Oh, and don't forget to bring another 1500 gold for the finished product to cover my expenses. You interested, yes, yes, yes?~
+    IF ~PartyGoldGT(2999)~ THEN REPLY ~Here is your gold, and I'll hold you to your promise to deliver my order in two days.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",1)
+            TakePartyGold(3000)
+            TakePartyItem("RING36")
+            SetGlobalTimer("rqGDRING36copy","GLOBAL",TWO_DAYS)~
+        EXIT
+    IF ~~ THEN REPLY ~I do not have enough gold for this, so perhaps I will return later.~ EXIT
+END
+
+IF ~GlobalTimerExpired("rqGDRING36copy","GLOBAL")
+    Global("rqGDEnchanting","GLOBAL",1)
+    HasItem("RING36",Myself)~ THEN BEGIN GauntletsRING36Done
+    SAY ~I've finished your commission. Now you pay my old self the rest of the gold... Oh yes, 1500 gold for my enchanting services.~
+    IF ~PartyGoldGT(1499)~ THEN REPLY ~Here is gold for finishing my artifact.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",0)
+            TakePartyGold(1500)
+            GiveItem("RING36",LastTalkedToBy)
+            GiveItemCreate("RING36",LastTalkedToBy,1,0,0)~
+        EXIT
+    IF ~PartyGoldLT(1500)~ THEN REPLY ~I will return with gold you require.~ EXIT
+END
+
+// Clck06
+IF ~~ THEN BEGIN CloakCLCK06
+    SAY ~For my old self, it will be 1000 gold, and in 2 days, you could return here to claim your commission. Oh, and don't forget to bring another 500 gold for the finished product to cover my expenses. You interested, yes, yes, yes?~
+    IF ~PartyGoldGT(999)~ THEN REPLY ~Here is your gold, and I'll hold you to your promise to deliver my order in two days.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",1)
+            TakePartyGold(1000)
+            TakePartyItem("CLCK06")
+            SetGlobalTimer("rqGDCLK06copy","GLOBAL",TWO_DAYS)~
+        EXIT
+    IF ~~ THEN REPLY ~I do not have enough gold for this, so perhaps I will return later.~ EXIT
+END
+
+IF ~GlobalTimerExpired("rqGDCLK06copy","GLOBAL")
+    Global("rqGDEnchanting","GLOBAL",1)
+    HasItem("CLCK06",Myself)~ THEN BEGIN CloakCLCK06Done
+    SAY ~I've finished your commission. Now you pay my old self the rest of the gold... Oh yes, 500 gold for my enchanting services.~
+    IF ~PartyGoldGT(499)~ THEN REPLY ~Here is gold for finishing my artifact.~ DO
+            ~TakePartyGold(500)
+            GiveItem("CLCK06",LastTalkedToBy)
+            GiveItemCreate("CLCK06",LastTalkedToBy,1,0,0)~
+        EXIT
+    IF ~PartyGoldLT(500)~ THEN REPLY ~I will return with gold you require.~ EXIT
+END
+
+// SLNG05
+IF ~~ THEN BEGIN slingSLNG05
+    SAY ~For my old self, it will be 1500 gold, and in 2 days, you could return here to claim your commission. Oh, and don't forget to bring another 750 gold for the finished product to cover my expenses. You interested, yes, yes, yes?~
+    IF ~PartyGoldGT(1499)~ THEN REPLY ~Here is your gold, and I'll hold you to your promise to deliver my order in two days.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",1)
+            TakePartyGold(3000)
+            TakePartyItem("SLNG05")
+            SetGlobalTimer("rqGDSLNG05copy","GLOBAL",TWO_DAYS)~
+        EXIT
+    IF ~~ THEN REPLY ~I do not have enough gold for this, so perhaps I will return later.~ EXIT
+END
+
+IF ~GlobalTimerExpired("rqGDSLNG05copy","GLOBAL")
+    Global("rqGDEnchanting","GLOBAL",1)
+    HasItem("SLNG05",Myself)~ THEN BEGIN slingSLNG05Done
+    SAY ~I've finished your commission. Now you pay my old self the rest of the gold... Oh yes, 750 gold for my enchanting services.~
+    IF ~PartyGoldGT(749)~ THEN REPLY ~Here is gold for finishing my artifact.~ DO
+            ~TakePartyGold(750)
+            GiveItem("SLNG05",LastTalkedToBy)
+            GiveItemCreate("SLNG05",LastTalkedToBy,1,0,0)~
+        EXIT
+    IF ~PartyGoldLT(750)~ THEN REPLY ~I will return with gold you require.~ EXIT
+END
+
+// SLNG07
+IF ~~ THEN BEGIN SlingSLNG07
+    SAY ~For my old self, it will be 1800 gold, and in 2 days, you could return here to claim your commission. Oh, and don't forget to bring another 900 gold for the finished product to cover my expenses. You interested, yes, yes, yes?~
+    IF ~PartyGoldGT(1799)~ THEN REPLY ~Here is your gold, and I'll hold you to your promise to deliver my order in two days.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",1)
+            TakePartyGold(1800)
+            TakePartyItem("SLNG07")
+            SetGlobalTimer("rqGDSLNG07copy","GLOBAL",TWO_DAYS)~
+        EXIT
+    IF ~~ THEN REPLY ~I do not have enough gold for this, so perhaps I will return later.~ EXIT
+END
+
+IF ~GlobalTimerExpired("rqGDSLNG07copy","GLOBAL")
+    Global("rqGDEnchanting","GLOBAL",1)
+    HasItem("SLNG07",Myself)~ THEN BEGIN slingSLNG07Done
+    SAY ~I have finished your commission now you pay my old self the rest of the gold... Oh yes 900 gold for my enchanting services.~
+    IF ~PartyGoldGT(899)~ THEN REPLY ~Here is gold for finishing my artifact.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",0)
+            TakePartyGold(900)
+            GiveItem("SLNG07",LastTalkedToBy)
+            GiveItemCreate("SLNG07",LastTalkedToBy,1,0,0)~
+        EXIT
+    IF ~PartyGoldLT(900)~ THEN REPLY ~I will return with gold you require.~ EXIT
+END
+
+// SHLD24
+IF ~~ THEN BEGIN ShieldSHLD24
+    SAY ~For my old self, it will be 2500 gold, and in 2 days, you could return here to claim your commission. Oh, and don't forget to bring another 1250 gold for the finished product to cover my expenses. You interested, yes, yes, yes?~
+        IF ~PartyGoldGT(2499)~ THEN REPLY ~Here is your gold, and I'll hold you to your promise to deliver my order in two days.~ DO
+                ~SetGlobal("rqGDEnchanting","GLOBAL",1)
+                TakePartyGold(2500)
+                TakePartyItem("SHLD24")
+                SetGlobalTimer("rqGDSLNG07copy","GLOBAL",TWO_DAYS)~
+            EXIT
+    IF ~~ THEN REPLY ~I do not have enough gold for this, so perhaps I will return later.~ EXIT
+END
+
+IF ~GlobalTimerExpired("rqGDSLNG07copy","GLOBAL")
+    Global("rqGDEnchanting","GLOBAL",1)
+    HasItem("SHLD24",Myself)~ THEN BEGIN slingSLNG07Done
+    SAY ~I've finished your commission. Now you pay my old self the rest of the gold... Oh yes, 1250 gold for my enchanting services.~
+    IF ~PartyGoldGT(1249)~ THEN REPLY ~Here is gold for finishing my artifact.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",0)
+            TakePartyGold(1250)
+            GiveItem("SHLD24",LastTalkedToBy)
+            GiveItemCreate("SHLD24",LastTalkedToBy,1,0,0)~
+        EXIT
+    IF ~PartyGoldLT(1250)~ THEN REPLY ~I will return with gold you require.~ EXIT
+END
+
+// SHLD26
+IF ~~ THEN BEGIN ShieldSHLD26
+    SAY ~For my old self, it will be 2750 gold, and in 2 days, you could return here to claim your commission. Oh, and don't forget to bring another 1375 gold for the finished product to cover my expenses. You interested, yes, yes, yes?~
+    IF ~PartyGoldGT(2749)~ THEN REPLY ~Here is your gold, and I'll hold you to your promise to deliver my order in two days.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",1)
+            TakePartyGold(2750)
+            TakePartyItem("SHLD26")
+            SetGlobalTimer("rqGDSHLD26copy","GLOBAL",TWO_DAYS)~
+        EXIT
+    IF ~~ THEN REPLY ~I do not have enough gold for this, so perhaps I will return later.~ EXIT
+END
+
+IF ~GlobalTimerExpired("rqGDSHLD26copy","GLOBAL")
+    Global("rqGDEnchanting","GLOBAL",1)
+    HasItem("SHLD26",Myself)~ THEN BEGIN ShieldSHLD26Done
+    SAY ~I've finished your commission. Now you pay my old self the rest of the gold... Oh yes, 1375 gold for my enchanting services.~
+    IF ~PartyGoldGT(1374)~ THEN REPLY ~Here is gold for finishing my artifact.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",0)
+            TakePartyGold(1375)
+            GiveItem("SHLD26",LastTalkedToBy)
+            GiveItemCreate("SHLD26",LastTalkedToBy,1,0,0)~
+        EXIT
+    IF ~PartyGoldLT(1375)~ THEN REPLY ~I will return with gold you require.~ EXIT
+END
+
+// AX1H08
+IF ~~ THEN BEGIN AxeAX1H08
+    SAY ~For my old self, it will be 2500 gold, and in 2 days, you could return here to claim your commission. Oh, and don't forget to bring another 1250 gold for the finished product to cover my expenses. You interested, yes, yes, yes?~
+    IF ~PartyGoldGT(2499)~ THEN REPLY ~Here is your gold, and I'll hold you to your promise to deliver my order in two days.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",1)
+            TakePartyGold(2500)
+            TakePartyItem("AX1H08")
+            SetGlobalTimer("rqGDAX1H08copy","GLOBAL",TWO_DAYS)~
+        EXIT
+    IF ~~ THEN REPLY ~I do not have enough gold for this, so perhaps I will return later.~ EXIT
+END
+
+IF ~GlobalTimerExpired("rqGDAX1H08copy","GLOBAL")
+    Global("rqGDEnchanting","GLOBAL",1)
+    HasItem("AX1H08",Myself)~ THEN BEGIN ShieldAX1H08Done
+    SAY ~I've finished your commission. Now you pay my old self the rest of the gold... Oh yes, 1250 gold for my enchanting services.~
+    IF ~PartyGoldGT(1249)~ THEN REPLY ~Here is gold for finishing my artifact.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",0)
+            TakePartyGold(1250)
+            GiveItem("AX1H08",LastTalkedToBy)
+            GiveItemCreate("AX1H08",LastTalkedToBy,1,0,0)~
+        EXIT
+    IF ~PartyGoldLT(1250)~ THEN REPLY ~I will return with gold you require.~ EXIT
+END
+
+// AX1H12
+IF ~~ THEN BEGIN AxeAX1H12
+    SAY ~For my old self, it will be 5000 gold, and in 2 days, you could return here to claim your commission. Oh, and don't forget to bring another 2500 gold for the finished product to cover my expenses. You interested, yes, yes, yes?~
+    IF ~PartyGoldGT(4999)~ THEN REPLY ~Here is your gold, and I'll hold you to your promise to deliver my order in two days.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",1)
+            TakePartyGold(5000)
+            TakePartyItem("AX1H12")
+            SetGlobalTimer("rqGDAX1H12copy","GLOBAL",TWO_DAYS)~
+        EXIT
+    IF ~~ THEN REPLY ~I do not have enough gold for this, so perhaps I will return later.~ EXIT
+END
+
+IF ~GlobalTimerExpired("rqGDAX1H12copy","GLOBAL")
+    Global("rqGDEnchanting","GLOBAL",1)
+    HasItem("AX1H12",Myself)~ THEN BEGIN ShieldAX1H12Done
+    SAY ~I've finished your commission. Now you pay my old self the rest of the gold... Oh yes, 2500 gold for my enchanting services.~
+    IF ~PartyGoldGT(2499)~ THEN REPLY ~Here is gold for finishing my artifact.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",0)
+            TakePartyGold(2500)
+            GiveItem("AX1H12",LastTalkedToBy)
+            GiveItemCreate("AX1H12",LastTalkedToBy,1,0,0)~
+        EXIT
+    IF ~PartyGoldLT(2500)~ THEN REPLY ~I will return with gold you require.~ EXIT
+END
+
+// AX1H13
+IF ~~ THEN BEGIN AxeAX1H13
+    SAY ~For my old self, it will be 5000 gold, and in 2 days, you could return here to claim your commission. Oh, and don't forget to bring another 2500 gold for the finished product to cover my expenses. You interested, yes, yes, yes?~
+    IF ~PartyGoldGT(4999)~ THEN REPLY ~Here is your gold, and I'll hold you to your promise to deliver my order in two days.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",1)
+            TakePartyGold(5000)
+            TakePartyItem("AX1H13")
+            SetGlobalTimer("rqGDAX1H13copy","GLOBAL",TWO_DAYS)~
+        EXIT
+    IF ~~ THEN REPLY ~I do not have enough gold for this, so perhaps I will return later.~ EXIT
+END
+
+IF ~GlobalTimerExpired("rqGDAX1H13copy","GLOBAL")
+    Global("rqGDEnchanting","GLOBAL",1)
+    HasItem("AX1H13",Myself)~ THEN BEGIN ShieldAX1H13Done
+    SAY ~I've finished your commission. Now you pay my old self the rest of the gold... Oh yes, 2500 gold for my enchanting services.~
+    IF ~PartyGoldGT(2499)~ THEN REPLY ~Here is gold for finishing my artifact.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",0)
+            TakePartyGold(2500)
+            GiveItem("AX1H13",LastTalkedToBy)
+            GiveItemCreate("AX1H13",LastTalkedToBy,1,0,0)~
+        EXIT
+    IF ~PartyGoldLT(2500)~ THEN REPLY ~I will return with gold you require.~ EXIT
+END
+
+// SW2H03 This one is not Half it is 1000 for difficulty of enchanting cursed berserking sword
+IF ~~ THEN BEGIN BerserkingSW2H03
+    SAY ~For my old self, it will be 1000 gold, and in 2 days, you could return here to claim your commission. Oh, and don't forget to bring another 1000 gold for the finished product to cover my expenses. You interested, yes, yes, yes?~
+    IF ~PartyGoldGT(999)~ THEN REPLY ~Here is your gold, and I'll hold you to your promise to deliver my order in two days.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",1)
+            TakePartyGold(1000)
+            TakePartyItem("SW2H03")
+            SetGlobalTimer("rqGDSW2H03copy","GLOBAL",TWO_DAYS)~
+        EXIT
+    IF ~~ THEN REPLY ~I do not have enough gold for this, so perhaps I will return later.~ EXIT
+END
+
+IF ~GlobalTimerExpired("rqGDSW2H03copy","GLOBAL")
+    Global("rqGDEnchanting","GLOBAL",1)
+    HasItem("SW2H03",Myself)~ THEN BEGIN ShieldSW2H03Done
+    SAY ~I've finished your commission. Now you pay my old self the rest of the gold... Oh yes, 1000 gold for my enchanting services.~
+    IF ~PartyGoldGT(999)~ THEN REPLY ~Here is gold for finishing my artifact.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",0)
+            TakePartyGold(1000)
+            GiveItem("SW2H03",LastTalkedToBy)
+            GiveItemCreate("SW2H03",LastTalkedToBy,1,0,0)~
+        EXIT
+    IF ~PartyGoldLT(1000)~ THEN REPLY ~I will return with gold you require.~ EXIT
+END
+
+// SW2H14 Again Enchanting Lilarcor should be super difficult so 6000 gold it is
+IF ~~ THEN BEGIN LilarcorSW2H14
+    SAY ~For my old self, it will be 3000 gold, and in 2 days, you could return here to claim your commission. Oh, and don't forget to bring another 1500 gold for the finished product to cover my expenses. You interested, yes, yes, yes?~
+    IF ~PartyGoldGT(2999)~ THEN REPLY ~Here is your gold, and I'll hold you to your promise to deliver my order in two days.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",1)
+            TakePartyGold(3000)
+            TakePartyItem("SW2H14")
+            SetGlobalTimer("rqGDSW2H14copy","GLOBAL",TWO_DAYS)~
+        EXIT
+    IF ~~ THEN REPLY ~I do not have enough gold for this, so perhaps I will return later.~ EXIT
+END
+
+IF ~GlobalTimerExpired("rqGDSW2H14copy","GLOBAL")
+    Global("rqGDEnchanting","GLOBAL",1)
+    HasItem("SW2H14",Myself)~ THEN BEGIN ShieldSW2H14Done
+    SAY ~Myself I have finished your enchantment but this was much more diffucult that my old self could have imagined and my old self is not doing it again. so... My old self has to renege on old agreement you and has to ask for higher reward of 6000 gold pieces.~
+    IF ~PartyGoldGT(5999)~ THEN REPLY ~Here is gold for finishing my artifact.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",0)
+            TakePartyGold(6000)
+            GiveItem("SW2H14",LastTalkedToBy)
+            GiveItemCreate("SW2H14",LastTalkedToBy,1,0,0)~
+        EXIT
+    IF ~PartyGoldLT(6000)~ THEN REPLY ~I will return with gold you require.~ EXIT
+END
+
+// SW2H16
+IF ~~ THEN BEGIN SwordSW2H16
+    SAY ~For my old self, it will be 3000 gold, and in 2 days, you could return here to claim your commission. Oh, and don't forget to bring another 1500 gold for the finished product to cover my expenses. You interested, yes, yes, yes?~
+    IF ~PartyGoldGT(2999)~ THEN REPLY ~Here is your gold, and I'll hold you to your promise to deliver my order in two days.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",1)
+            TakePartyGold(3000)
+            TakePartyItem("SW2H16")
+            SetGlobalTimer("rqGDSW2H16copy","GLOBAL",TWO_DAYS)~
+        EXIT
+    IF ~~ THEN REPLY ~I do not have enough gold for this, so perhaps I will return later.~ EXIT
+END
+
+IF ~GlobalTimerExpired("rqGDSW2H16copy","GLOBAL")
+    Global("rqGDEnchanting","GLOBAL",1)
+    HasItem("SW2H16",Myself)~ THEN BEGIN ShieldSW2H16Done
+    SAY ~I've finished your commission. Now you pay my old self the rest of the gold... Oh yes, 1500 gold for my enchanting services.~
+    IF ~PartyGoldGT(1499)~ THEN REPLY ~Here is gold for finishing my artifact.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",0)
+            TakePartyGold(1500)
+            GiveItem("SW2H16",LastTalkedToBy)
+            GiveItemCreate("SW2H16",LastTalkedToBy,1,0,0)~
+        EXIT
+    IF ~PartyGoldLT(1500)~ THEN REPLY ~I will return with gold you require.~ EXIT
+END
+
+// HAMM03
+IF ~~ THEN BEGIN HammerHAMM03
+    SAY ~For my old self, it will be 3000 gold, and in 2 days, you could return here to claim your commission. Oh, and don't forget to bring another 1500 gold for the finished product to cover my expenses. You interested, yes, yes, yes?~
+    IF ~PartyGoldGT(2999)~ THEN REPLY ~Here is your gold, and I'll hold you to your promise to deliver my order in two days.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",1)
+            TakePartyGold(3000)
+            TakePartyItem("HAMM03")
+            SetGlobalTimer("rqGDHAMM03copy","GLOBAL",TWO_DAYS)~
+        EXIT
+    IF ~~ THEN REPLY ~I do not have enough gold for this, so perhaps I will return later.~ EXIT
+END
+
+IF ~GlobalTimerExpired("rqGDHAMM03copy","GLOBAL")
+    Global("rqGDEnchanting","GLOBAL",1)
+    HasItem("HAMM03",Myself)~ THEN BEGIN ShieldHAMM03Done
+    SAY ~I've finished your commission. Now you pay my old self the rest of the gold... Oh yes, 1500 gold for my enchanting services.~
+    IF ~PartyGoldGT(1499)~ THEN REPLY ~Here is gold for finishing my artifact.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",0)
+            TakePartyGold(1500)
+            GiveItem("HAMM03",LastTalkedToBy)
+            GiveItemCreate("HAMM03",LastTalkedToBy,1,0,0)~
+        EXIT
+    IF ~PartyGoldLT(1500)~ THEN REPLY ~I will return with gold you require.~ EXIT
+END
+
+// Hamm04
+IF ~~ THEN BEGIN HammerHAMM04
+    SAY ~For my old self, it will be 3000 gold, and in 2 days, you could return here to claim your commission. Oh, and don't forget to bring another 1500 gold for the finished product to cover my expenses. You interested, yes, yes, yes?~
+    IF ~PartyGoldGT(2999)~ THEN REPLY ~Here is your gold, and I'll hold you to your promise to deliver my order in two days.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",1)
+            TakePartyGold(3000)
+            TakePartyItem("HAMM04")
+            SetGlobalTimer("rqGDHAMM04copy","GLOBAL",TWO_DAYS)~
+        EXIT
+    IF ~~ THEN REPLY ~I do not have enough gold for this, so perhaps I will return later.~ EXIT
+END
+
+IF ~GlobalTimerExpired("rqGDHAMM04copy","GLOBAL")
+    Global("rqGDEnchanting","GLOBAL",1)
+    HasItem("HAMM04",Myself)~ THEN BEGIN ShieldHAMM04Done
+    SAY ~I've finished your commission. Now you pay my old self the rest of the gold... Oh yes, 1500 gold for my enchanting services.~
+    IF ~PartyGoldGT(1499)~ THEN REPLY ~Here is gold for finishing my artifact.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",0)
+            TakePartyGold(1500)
+            GiveItem("HAMM04",LastTalkedToBy)
+            GiveItemCreate("HAMM04",LastTalkedToBy,1,0,0)~
+        EXIT
+    IF ~PartyGoldLT(1500)~ THEN REPLY ~I will return with gold you require.~ EXIT
+END
+
+// Dagg11
+IF ~~ THEN BEGIN DaggerDAGG11
+    SAY ~For my old self, it will be 3500 gold, and in 2 days, you could return here to claim your commission. Oh, and don't forget to bring another 1750 gold for the finished product to cover my expenses. You interested, yes, yes, yes?~
+    IF ~PartyGoldGT(3499)~ THEN REPLY ~Here is your gold, and I'll hold you to your promise to deliver my order in two days.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",1)
+            TakePartyGold(3500)
+            TakePartyItem("DAGG11")
+            SetGlobalTimer("rqGDDAGG11copy","GLOBAL",TWO_DAYS)~
+        EXIT
+    IF ~~ THEN REPLY ~I do not have enough gold for this, so perhaps I will return later.~ EXIT
+END
+
+IF ~GlobalTimerExpired("rqGDDAGG11copy","GLOBAL")
+    Global("rqGDEnchanting","GLOBAL",1)
+    HasItem("DAGG11",Myself)~ THEN BEGIN ShieldDAGG11Done
+    SAY ~I have finished your commission now you pay my old self the rest of the gold... Oh yes 1750 gold for my enchanting services.~
+    IF ~PartyGoldGT(1749)~ THEN REPLY ~Here is gold for finishing my artifact.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",0)
+            TakePartyGold(1750)
+            GiveItem("DAGG11",LastTalkedToBy)
+            GiveItemCreate("DAGG11",LastTalkedToBy,1,0,0)~
+        EXIT
+    IF ~PartyGoldLT(1750)~ THEN REPLY ~I will return with gold you require.~ EXIT
+END
+
+// Dagg13
+IF ~~ THEN BEGIN PrickDAGG13
+    SAY ~For my old self, it will be 3000 gold, and in 2 days, you could return here to claim your commission. Oh, and don't forget to bring another 1500 gold for the finished product to cover my expenses. You interested, yes, yes, yes?~
+    IF ~PartyGoldGT(2999)~ THEN REPLY ~Here is your gold, and I'll hold you to your promise to deliver my order in two days.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",1)
+            TakePartyGold(3000)
+            SetGlobalTimer("rqGDDAGG13copy","GLOBAL",TWO_DAYS)
+            TakePartyItem("DAGG13")~
+        EXIT
+    IF ~~ THEN REPLY ~I do not have enough gold for this, so perhaps I will return later.~ EXIT
+END
+
+IF ~GlobalTimerExpired("rqGDDAGG13copy","GLOBAL")
+    Global("rqGDEnchanting","GLOBAL",1)
+    HasItem("DAGG13",Myself)~ THEN BEGIN BracersDAGG13Done
+    SAY ~I've finished your commission. Now you pay my old self the rest of the gold... Oh yes, 1500 gold for my enchanting services.~
+    IF ~PartyGoldGT(1499)~ THEN REPLY ~Here is gold for finishing my artifact.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",0)
+            TakePartyGold(1500)
+            GiveItem("DAGG13",LastTalkedToBy)
+            GiveItemCreate("DAGG13",LastTalkedToBy,1,0,0)~
+        EXIT
+    IF ~PartyGoldLT(1500)~ THEN REPLY ~I will return with gold you require.~ EXIT
+END
+
+// DAGG17
+IF ~~ THEN BEGIN StilettoDAGG17
+    SAY ~For my old self, it will be 2000 gold, and in 2 days, you could return here to claim your commission. Oh, and don't forget to bring another 1000 gold for the finished product to cover my expenses. You interested, yes, yes, yes?~
+    IF ~PartyGoldGT(1999)~ THEN REPLY ~Here is your gold, and I'll hold you to your promise to deliver my order in two days.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",1)
+            TakePartyGold(2000)
+            SetGlobalTimer("rqGDDAGG17copy","GLOBAL",TWO_DAYS)
+            TakePartyItem("DAGG17")~
+        EXIT
+    IF ~~ THEN REPLY ~I do not have enough gold for this, so perhaps I will return later.~ EXIT
+END
+
+IF ~GlobalTimerExpired("rqGDDAGG17copy","GLOBAL")
+    Global("rqGDEnchanting","GLOBAL",1)
+    HasItem("DAGG17",Myself)~ THEN BEGIN BracersDAGG17Done
+    SAY ~I've finished your commission. Now you pay my old self the rest of the gold... Oh yes, 1000 gold for my enchanting services.~
+    IF ~PartyGoldGT(999)~ THEN REPLY ~Here is gold for finishing my artifact.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",0)
+            TakePartyGold(1000)
+            GiveItem("DAGG17",LastTalkedToBy)
+            GiveItemCreate("DAGG17",LastTalkedToBy,1,0,0)~
+        EXIT
+    IF ~PartyGoldLT(1000)~ THEN REPLY ~I will return with gold you require.~ EXIT
+END
+
+// Nebdag
+IF ~~ THEN BEGIN CutterNEBDAG
+    SAY ~For my old self, it will be 1000 gold, and in 2 days, you could return here to claim your commission. Oh, and don't forget to bring another 500 gold for the finished product to cover my expenses. You interested, yes, yes, yes?~
+    IF ~PartyGoldGT(999)~ THEN REPLY ~Here is your gold, and I'll hold you to your promise to deliver my order in two days.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",1)
+            TakePartyGold(1000)
+            SetGlobalTimer("rqGDNEBDAGcopy","GLOBAL",TWO_DAYS)
+            TakePartyItem("NEBDAG")~
+        EXIT
+    IF ~~ THEN REPLY ~I do not have enough gold for this, so perhaps I will return later.~ EXIT
+END
+
+IF ~GlobalTimerExpired("rqGDNEBDAGcopy","GLOBAL")
+    Global("rqGDEnchanting","GLOBAL",1)
+    HasItem("NEBDAG",Myself)~ THEN BEGIN BracersNEBDAGDone
+    SAY ~I've finished your commission. Now you pay my old self the rest of the gold... Oh yes, 500 gold for my enchanting services.~
+    IF ~PartyGoldGT(499)~ THEN REPLY ~Here is gold for finishing my artifact.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",0)
+            TakePartyGold(500)
+            GiveItem("NEBDAG",LastTalkedToBy)
+            GiveItemCreate("NEBDAG",LastTalkedToBy,1,0,0)~
+        EXIT
+    IF ~PartyGoldLT(500)~ THEN REPLY ~I will return with gold you require.~ EXIT
+END
+
+// SW1H26
+IF ~~ THEN BEGIN IlbrathaSW1H26
+    SAY ~For my old self, it will be 7500 gold, and in 2 days, you could return here to claim your commission. Oh, and don't forget to bring another 3750 gold for the finished product to cover my expenses. You interested, yes, yes, yes?~
+    IF ~PartyGoldGT(7499)~ THEN REPLY ~Here is your gold, and I'll hold you to your promise to deliver my order in two days.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",1)
+            TakePartyGold(7500)
+            SetGlobalTimer("rqGDSW1H26copy","GLOBAL",TWO_DAYS)
+            TakePartyItem("SW1H26")~
+        EXIT
+    IF ~~ THEN REPLY ~I do not have enough gold for this, so perhaps I will return later.~ EXIT
+END
+
+IF ~GlobalTimerExpired("rqGDSW1H26copy","GLOBAL")
+    Global("rqGDEnchanting","GLOBAL",1)
+    HasItem("SW1H26",Myself)~ THEN BEGIN BracersSW1H26Done
+    SAY ~I've finished your commission. Now you pay my old self the rest of the gold... Oh yes, 3750 gold for my enchanting services.~
+    IF ~PartyGoldGT(3749)~ THEN REPLY ~Here is gold for finishing my artifact.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",0)
+            TakePartyGold(3750)
+            GiveItem("SW1H26",LastTalkedToBy)
+            GiveItemCreate("SW1H26",LastTalkedToBy,1,0,0)~
+        EXIT
+    IF ~PartyGoldLT(3750)~ THEN REPLY ~I will return with gold you require.~ EXIT
+END
+
+// SW1H27
+IF ~~ THEN BEGIN SwordSW1H27
+    SAY ~For my old self, it will be 10000 gold, and in 2 days, you could return here to claim your commission. Oh, and don't forget to bring another 5000 gold for the finished product to cover my expenses. You interested, yes, yes, yes?~
+    IF ~PartyGoldGT(9999)~ THEN REPLY ~Here is your gold, and I'll hold you to your promise to deliver my order in two days.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",1)
+            TakePartyGold(10000)
+            SetGlobalTimer("rqGDSW1H27copy","GLOBAL",TWO_DAYS)
+            TakePartyItem("SW1H27")~
+        EXIT
+    IF ~~ THEN REPLY ~I do not have enough gold for this, so perhaps I will return later.~ EXIT
+END
+
+IF ~GlobalTimerExpired("rqGDSW1H27copy","GLOBAL")
+    Global("rqGDEnchanting","GLOBAL",1)
+    HasItem("SW1H27",Myself)~ THEN BEGIN BracersSW1H27Done
+    SAY ~I've finished your commission. Now you pay my old self the rest of the gold... Oh yes, 5000 gold for my enchanting services.~
+    IF ~PartyGoldGT(4999)~ THEN REPLY ~Here is gold for finishing my artifact.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",0)
+            TakePartyGold(5000)
+            GiveItem("SW1H27",LastTalkedToBy)
+            GiveItemCreate("SW1H27",LastTalkedToBy,1,0,0)~
+        EXIT
+    IF ~PartyGoldLT(5000)~ THEN REPLY ~I will return with gold you require.~ EXIT
+END
+
+// SW1H30
+IF ~~ THEN BEGIN ScimitarSW1H30
+    SAY ~For my old self, it will be 3000 gold, and in 2 days, you could return here to claim your commission. Oh, and don't forget to bring another 1500 gold for the finished product to cover my expenses. You interested, yes, yes, yes?~
+    IF ~PartyGoldGT(2999)~ THEN REPLY ~Here is your gold, and I'll hold you to your promise to deliver my order in two days.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",1)
+            TakePartyGold(3000)
+            SetGlobalTimer("rqGDSW1H30copy","GLOBAL",TWO_DAYS)
+            TakePartyItem("SW1H30")~
+        EXIT
+    IF ~~ THEN REPLY ~I do not have enough gold for this, so perhaps I will return later.~ EXIT
+END
+
+IF ~GlobalTimerExpired("rqGDSW1H30copy","GLOBAL")
+    Global("rqGDEnchanting","GLOBAL",1)
+    HasItem("SW1H30",Myself)~ THEN BEGIN BracersSW1H30Done
+    SAY ~I've finished your commission. Now you pay my old self the rest of the gold... Oh yes, 1500 gold for my enchanting services.~
+    IF ~PartyGoldGT(1499)~ THEN REPLY ~Here is gold for finishing my artifact.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",0)
+            TakePartyGold(1500)
+            GiveItem("SW1H30",LastTalkedToBy)
+            GiveItemCreate("SW1H30",LastTalkedToBy,1,0,0)~
+        EXIT
+    IF ~PartyGoldLT(1500)~ THEN REPLY ~I will return with gold you require.~ EXIT
+END
+
+// SW1H35
+IF ~~ THEN BEGIN AdjathaSW1H35
+    SAY ~For my old self, it will be 3500 gold, and in 2 days, you could return here to claim your commission. Oh, and don't forget to bring another 1750 gold for the finished product to cover my expenses. You interested, yes, yes, yes?~
+    IF ~PartyGoldGT(3499)~ THEN REPLY ~Here is your gold, and I'll hold you to your promise to deliver my order in two days.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",1)
+            TakePartyGold(3500)
+            SetGlobalTimer("rqGDSW1H35copy","GLOBAL",TWO_DAYS)
+            TakePartyItem("SW1H35")~
+        EXIT
+    IF ~~ THEN REPLY ~I do not have enough gold for this, so perhaps I will return later.~ EXIT
+END
+
+IF ~GlobalTimerExpired("rqGDSW1H35copy","GLOBAL")
+    Global("rqGDEnchanting","GLOBAL",1)
+    HasItem("SW1H35",Myself)~ THEN BEGIN BracersSW1H35Done
+    SAY ~I've finished your commission. Now you pay my old self the rest of the gold... Oh yes, 1750 gold for my enchanting services.~
+    IF ~PartyGoldGT(1749)~ THEN REPLY ~Here is gold for finishing my artifact.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",0)
+            TakePartyGold(1750)
+            GiveItem("SW1H35",LastTalkedToBy)
+            GiveItemCreate("SW1H35",LastTalkedToBy,1,0,0)~
+        EXIT
+    IF ~PartyGoldLT(1750)~ THEN REPLY ~I will return with gold you require.~ EXIT
+END
+
+// SW1H36
+IF ~~ THEN BEGIN NamarraSW1H36
+    SAY ~For my old self, it will be 10000 gold, and in 2 days, you could return here to claim your commission. Oh, and don't forget to bring another 5000 gold for the finished product to cover my expenses. You interested, yes, yes, yes?~
+    IF ~PartyGoldGT(4999)~ THEN REPLY ~Here is your gold, and I'll hold you to your promise to deliver my order in two days.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",1)
+            TakePartyGold(5000)
+            SetGlobalTimer("rqGDSW1H36copy","GLOBAL",TWO_DAYS)
+            TakePartyItem("SW1H36")~
+        EXIT
+    IF ~~ THEN REPLY ~I do not have enough gold for this, so perhaps I will return later.~ EXIT
+END
+
+IF ~GlobalTimerExpired("rqGDSW1H36copy","GLOBAL")
+    Global("rqGDEnchanting","GLOBAL",1)
+    HasItem("SW1H36",Myself)~ THEN BEGIN BracersSW1H36Done
+    SAY ~I've finished your commission. Now you pay my old self the rest of the gold... Oh yes, 5000 gold for my enchanting services.~
+    IF ~PartyGoldGT(4999)~ THEN REPLY ~Here is gold for finishing my artifact.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",0)
+            TakePartyGold(5000)
+            GiveItem("SW1H36",LastTalkedToBy)
+            GiveItemCreate("SW1H36",LastTalkedToBy,1,0,0)~
+        EXIT
+    IF ~PartyGoldLT(5000)~ THEN REPLY ~I will return with gold you require.~ EXIT
+END
+
+// Blun12
+IF ~~ THEN BEGIN MaceBLUN12
+    SAY ~For my old self, it will be 4500 gold, and in 2 days, you could return here to claim your commission. Oh, and don't forget to bring another 2250 gold for the finished product to cover my expenses. You interested, yes, yes, yes?~
+    IF ~PartyGoldGT(4499)~ THEN REPLY ~Here is your gold, and I'll hold you to your promise to deliver my order in two days.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",1)
+            TakePartyGold(4500)
+            SetGlobalTimer("rqGDBLUN12copy","GLOBAL",TWO_DAYS)
+            TakePartyItem("BLUN12")~
+        EXIT
+    IF ~~ THEN REPLY ~I do not have enough gold for this, so perhaps I will return later.~ EXIT
+END
+
+IF ~GlobalTimerExpired("rqGDBLUN12copy","GLOBAL")
+    Global("rqGDEnchanting","GLOBAL",1)
+    HasItem("BLUN12",Myself)~ THEN BEGIN BracersBLUN12Done
+    SAY ~I've finished your commission. Now you pay my old self the rest of the gold... Oh yes, 2250 gold for my enchanting services.~
+    IF ~PartyGoldGT(2249)~ THEN REPLY ~Here is gold for finishing my artifact.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",0)
+            TakePartyGold(2250)
+            GiveItem("BLUN12",LastTalkedToBy)
+            GiveItemCreate("BLUN12",LastTalkedToBy,1,0,0)~
+        EXIT
+    IF ~PartyGoldLT(2250)~ THEN REPLY ~I will return with gold you require.~ EXIT
+END
+
+// Blun20
+IF ~~ THEN BEGIN MaceBLUN20
+    SAY ~For my old self, it will be 3000 gold, and in 2 days, you could return here to claim your commission. Oh, and don't forget to bring another 1500 gold for the finished product to cover my expenses. You interested, yes, yes, yes?~
+    IF ~PartyGoldGT(2999)~ THEN REPLY ~Here is your gold, and I'll hold you to your promise to deliver my order in two days.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",1)
+            TakePartyGold(3000)
+            SetGlobalTimer("rqGDBLUN20copy","GLOBAL",TWO_DAYS)
+            TakePartyItem("BLUN20")~
+        EXIT
+    IF ~~ THEN REPLY ~I do not have enough gold for this, so perhaps I will return later.~ EXIT
+END
+
+IF ~GlobalTimerExpired("rqGDBLUN20copy","GLOBAL")
+    Global("rqGDEnchanting","GLOBAL",1)
+    HasItem("BLUN20",Myself)~ THEN BEGIN MaceBLUN20Done
+    SAY ~I've finished your commission. Now you pay my old self the rest of the gold... Oh yes, 1500 gold for my enchanting services.~
+    IF ~PartyGoldGT(1499)~ THEN REPLY ~Here is gold for finishing my artifact.~ DO
+            ~SetGlobal("rqGDEnchanting","GLOBAL",0)
+            TakePartyGold(1500)
+            GiveItem("BLUN20",LastTalkedToBy)
+            GiveItemCreate("BLUN20",LastTalkedToBy,1,0,0)~
+        EXIT
+    IF ~PartyGoldLT(1500)~ THEN REPLY ~I will return with gold you require.~ EXIT
+END
+
+
+IF ~Global("rqGDEnchanting","GLOBAL",1)~ THEN BEGIN Undone
+    SAY ~I have not yet finished your order dear customer please return later. Yes yes yes?~
+    IF ~~ THEN EXIT
+END

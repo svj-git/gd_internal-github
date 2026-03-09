@@ -1,0 +1,12 @@
+// Council of Six building
+IF
+    InParty("rqbro")
+    Global("rqGDBG2BrokMurderers","GLOBAL",1)
+    Global("rqGDBrokkr1Investigation","AR1002",0) // Council of Six building
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDBrokkr1Investigation","AR1002",1) // Council of Six building
+        CreateCreature("rqjergun",[1236.909],S) // Jergun Ermingsen
+        CreateCreature("rqjoses",[1199.941],S) // Joses
+        Continue()
+END

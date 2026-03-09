@@ -1,0 +1,21 @@
+// Anton override script
+IF
+    See([PC])
+    Allegiance(Myself,NEUTRAL)
+    !ActuallyInCombat()
+THEN
+    RESPONSE #100
+        StartDialogueNoSet([PC])
+END
+
+
+IF
+    !ActuallyInCombat()
+    See([PC])
+    Allegiance(Myself,NEUTRAL)
+    Dead("rqjoses2")
+    Dead("rqabiyah")
+THEN
+    RESPONSE #100
+        StartDialogueNoSet([PC])
+END

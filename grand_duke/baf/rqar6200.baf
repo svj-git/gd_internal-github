@@ -1,0 +1,16 @@
+// Ending
+IF
+    Global("StartEndBios","ar6200",1)
+    InParty("rqbro")
+    Global("rqbrokrBio","GLOBAL",0)
+THEN
+    RESPONSE #100
+        SetGlobal("rqbrokrBio","GLOBAL",1)
+        TextScreen("rqbro")
+        SetGlobal("rqbrokrBio","GLOBAL",1)
+        SmallWait(1)
+        SetGlobal("rqbrokrBio","GLOBAL",1)
+        Continue()
+        SetGlobal("rqbrokrBio","GLOBAL",1)
+        Continue()
+END

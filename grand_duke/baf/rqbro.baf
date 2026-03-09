@@ -1,0 +1,124 @@
+// Brokkr Override Script
+
+// Gnoll Fortress
+IF
+    Global("rqGDBrokkrTreasure","GLOBAL",1)
+    AreaCheck("AR4100")
+    See(Player1)
+THEN
+    RESPONSE #100
+        StartDialogueNoSet(Player1)
+END
+// Have Axe
+IF
+    Global("rqGDBrokkrTreasure","GLOBAL",2)
+    PartyHasItem("rqaxe01")
+    See(Player1)
+THEN
+    RESPONSE #100
+        StartDialogueNoSet(Player1)
+END
+// Baldurs Gate manual quest
+IF
+    Global("rqGDBrokkrTreasure","GLOBAL",3)
+    AreaCheck("AR7800")
+    See([PC])
+THEN
+    RESPONSE #100
+        StartDialogueNoSet(Player1)
+END
+// Have manual talk
+IF
+    Dead("rqprog")
+    Global("rqGDBrokkrTreasure","GLOBAL",7)
+    PartyHasItem("rqbook2")
+    See(Player1)
+THEN
+    RESPONSE #100
+        StartDialogueNoSet(Player1)
+END
+// Let Progunnos escape talk
+IF
+    !InMyArea("rqprog")
+    Global("rqGDBrokkrTreasure","GLOBAL",7)
+    !PartyHasItem("rqbook2")
+    !Dead("rqprog")
+    See(Player1)
+THEN
+    RESPONSE #100
+        StartDialogueNoSet(Player1)
+END
+// Hurgan Treasure
+IF
+    OR (2)
+        Global("Hurganquest","GLOBAL",1)
+        Global("TalkToHurgan","GLOBAL",1)
+    !AreaCheck("ARU001")
+    Global("rqGDBrokkrTreasure2","GLOBAL",0)
+    See(Player1)
+THEN
+    RESPONSE #100
+        StartDialogueNoSet(Player1)
+END
+// In Peldvale
+IF
+    Global("rqGDBrokkrTreasure2","GLOBAL",1)
+    See(Player1)
+    AreaCheck("AR8900")
+THEN
+    RESPONSE #100
+        StartDialogueNoSet(Player1)
+END
+// Ruth Hurgan raction
+IF
+    Global("rqGDBrokkrTreasure2","GLOBAL",2)
+    See(Player1)
+    Dead("rqruth")
+    Dead("rqlevg1")
+    Dead("rqlevg2")
+    Dead("rqlevg3")
+    Dead("rqlevg4")
+    Dead("rqlevg5")
+    Dead("rqlevg6")
+    Dead("rqlev7cl")
+THEN
+    RESPONSE #100
+        StartDialogueNoSet(Player1)
+END
+
+// Cultists ambush
+IF
+    Dead("rqiacob") // Iacob
+    Dead("rqavaram") // Avaram
+    Dead("rqmicha") // Michaël
+    Dead("rqiosias") // Iosias
+    Dead("rqgedeon") // Gedeon
+    Dead("rqdaniel") // Daniell
+    Dead("rqelias") // Eliasson
+    See(Player1)
+    AreaCheck("AR0800") // Graveyard
+    Global("rqGDBG2Cultists","LOCALS",0)
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDBG2Cultists","LOCALS",1)
+        StartDialogueNoSet(Player1)
+END
+
+
+IF
+    Global("rqGDBG2BrokKilledJoses","GLOBAL",1)
+    See(Player1)
+    Global("rqGDBG2SpyReaction","LOCALS",0)
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDBG2SpyReaction","LOCALS",1)
+        StartDialogueNoSet(Player1)
+END
+
+IF
+    Global("rqGDBG2BrokMurderers","GLOBAL",6)
+    See(Player1)
+THEN
+    RESPONSE #100
+        StartDialogueNoSet(Player1)
+END

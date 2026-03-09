@@ -1,0 +1,2584 @@
+BACKUP ~grand_duke/backup~
+AUTHOR ~oaq@gmx.com~
+
+VERSION ~v1.0i~
+
+README ~grand_duke/grand_duke-readme.txt~
+
+BEGIN ~Grand Duke of Baldur's Gate mod (Requires Baldurs Gate Trilogy mod)~
+LABEL ~Grand_Duke_of_Baldur's Gate~
+REQUIRE_PREDICATE ((GAME_IS ~bgt~) OR (MOD_IS_INSTALLED ~BGT/BGT.TP2~ "0")) ~This mod requires Baldurs Gate Trilogy mod installed~
+
+
+/* Compile everything in D directory to DLG in override D >> override/DLG */
+COMPILE ~grand_duke/d~
+
+/* Copy sounds */
+COPY ~grand_duke/sounds/rqsink.wav~ ~override/rqsink.wav~
+
+/* Create new talking items */
+COPY_EXISTING ~itemdial.2da~ ~override~
+
+APPEND ~itemdial.2da~
+~rqcrat01   9460   rqcrat01~
+UNLESS ~rqcrat01~
+
+APPEND ~itemdial.2da~
+~rqbook2    4978  rqbook2~
+UNLESS ~rqbook2~
+
+// Epilogue stuff
+COPY ~grand_duke/2da/rqbro.2da~ ~override/rqbro.2da~
+  REPLACE ~99999~ ~Brokkr after adventuring with <CHARNAME> disappeared from Faerun for some time nobody knew where he was and what he did but emerged in Thar as leader of warband which were raiding the caravans supplying city of Glister. Town tried to defeat Brokkr but failed every time but then Brokkr did something unexpected he requested to negotiate with Glisters leadership. If leaders of Glister would made him into captain of Glister he would protect the town and he had the army which could do it. Glister leadership have accepted for they had no choice and as of writing this epilogue all that is known is that Brokkr is now one of most powerful men in Glister.~
+EXTEND_TOP ~ar6200.bcs~ ~grand_duke/baf/rqar6200.baf~
+
+/* copy store files*/
+COPY ~grand_duke/sto/rqstor01.sto~ ~override/rqstor01.sto~
+COPY ~grand_duke/sto/rqstor02.sto~ ~override/rqstor02.sto~
+
+/* copy bams */
+COPY ~grand_duke/bam/~ ~override~
+
+/* copy portraits */
+COPY ~grand_duke/portraits~ ~override~
+
+/* Copy spl files from grand_duke_spl >> override */
+COPY ~grand_duke/spl/rqaxe.spl~ ~override/rqaxe.spl~ // Axe
+COPY ~grand_duke/spl/rqhamm.spl~ ~override/rqhamm.spl~ // Axe
+COPY ~grand_duke/spl/rqhalber.spl~ ~override/rqhalber.spl~ // Halberd
+COPY ~grand_duke/spl/rqspear.spl~ ~override/rqspear.spl~ // Spear
+COPY ~grand_duke/spl/rqxbow.spl~ ~override/rqxbow.spl~ // Crossbow
+COPY ~grand_duke/spl/rqinvis.spl~ ~override/rqinvis.spl~ // Invisibility no Casting time and animation
+COPY ~grand_duke/spl/rqpause.spl~ ~override/rqpause.spl~ // Pause Target
+COPY ~grand_duke/spl/rqgwehr1.spl~ ~override/rqgwehr1.spl~ // Anton Shapeshift
+COPY ~grand_duke/spl/rqgwehr2.spl~ ~override/rqgwehr2.spl~ // Joses Shapeshift
+COPY ~grand_duke/spl/rqgwehr3.spl~ ~override/rqgwehr3.spl~ // Anton Shapeshift Neutral
+COPY ~grand_duke/spl/rqdfog01.spl~ ~override/rqdfog01.spl~ // Death Fog
+COPY ~grand_duke/spl/rqwand03.spl~ ~override/rqwand03.spl~ // Entsele Warding Glyph
+
+// COPY ~grand_duke/spl/rqenrage.spl~ ~override/rqenrage.spl~ // Enrage
+
+/* Extend area script Area baf >> bcs*/
+COPY_EXISTING ~aram00.bcs~ ~override/aram00.bcs~
+EXTEND_BOTTOM ~aram00.bcs~ ~grand_duke/baf/rqaram00.baf~
+
+COPY_EXISTING ~ar0400.bcs~ ~override/ar0400.bcs~
+EXTEND_BOTTOM ~ar0400.bcs~ ~grand_duke/baf/rqar0400.baf~
+
+COPY_EXISTING ~ar0700.bcs~ ~override/ar0700.bcs~
+EXTEND_BOTTOM ~ar0700.bcs~ ~grand_duke/baf/rqar0700.baf~
+
+COPY_EXISTING ~ar0704.bcs~ ~override/ar0704.bcs~
+EXTEND_BOTTOM ~ar0704.bcs~ ~grand_duke/baf/rqar0704.baf~
+
+COPY_EXISTING ~ar0800.bcs~ ~override/ar0800.bcs~
+EXTEND_BOTTOM ~ar0800.bcs~ ~grand_duke/baf/rqar0800.baf~
+
+COPY_EXISTING ~ar1002.bcs~ ~override/ar1002.bcs~
+EXTEND_BOTTOM ~ar1002.bcs~ ~grand_duke/baf/rqar1002.baf~
+
+COPY_EXISTING ~ar1901.bcs~ ~override/ar1901.bcs~
+EXTEND_BOTTOM ~ar1901.bcs~ ~grand_duke/baf/rqar1901.baf~
+
+COPY_EXISTING ~ar2600.bcs~ ~override/ar2600.bcs~
+EXTEND_BOTTOM ~ar2600.bcs~ ~grand_duke/baf/rqar2600.baf~
+
+COPY_EXISTING ~ar3709.are~ ~override/ar3709.are~
+WRITE_ASCII 0x94 ~ar3709~
+EXTEND_BOTTOM ~ar3709.bcs~ ~grand_duke/baf/rqar3709.baf~
+
+COPY_EXISTING ~ar0404.bcs~ ~override/ar0404.bcs~
+EXTEND_TOP ~ar0404.bcs~ ~grand_duke/baf/rqar0404.baf~
+
+COPY_EXISTING ~ar4000.bcs~ ~override/ar4000.bcs~
+EXTEND_TOP ~ar4000.bcs~ ~grand_duke/baf/rqar4000.baf~
+
+COPY_EXISTING ~ar4500.bcs~ ~override/ar4500.bcs~
+EXTEND_TOP ~ar4500.bcs~ ~grand_duke/baf/rqar4500.baf~
+
+COPY_EXISTING ~ar4100.bcs~ ~override/ar4100.bcs~
+EXTEND_TOP ~ar4100.bcs~ ~grand_duke/baf/rqar4100.baf~
+
+COPY_EXISTING ~ar6400.bcs~ ~override/ar6400.bcs~
+EXTEND_TOP ~ar6400.bcs~ ~grand_duke/baf/rqar6400.baf~
+
+COPY_EXISTING ~ar6801.bcs~ ~override/ar6801.bcs~
+EXTEND_TOP ~ar6801.bcs~ ~grand_duke/baf/rqar6801.baf~
+
+COPY_EXISTING ~ar6802.are~ ~override/ar6802.are~
+WRITE_ASCII 0x94 ~ar6802~
+EXTEND_BOTTOM ~ar6802.bcs~ ~grand_duke/baf/rqar6802.baf~
+
+COPY_EXISTING ~ar7200.bcs~ ~override/ar7200.bcs~
+EXTEND_TOP ~ar7200.bcs~ ~grand_duke/baf/rqar7200.baf~
+COPY_EXISTING ~ar7203.bcs~ ~override/ar7203.bcs~
+EXTEND_TOP ~ar7203.bcs~ ~grand_duke/baf/rqar7203.baf~
+COPY_EXISTING ~ar7206.bcs~ ~override/ar7206.bcs~
+EXTEND_TOP ~ar7206.bcs~ ~grand_duke/baf/rqar7206.baf~
+COPY_EXISTING ~ar7208.bcs~ ~override/ar7208.bcs~
+EXTEND_TOP ~ar7208.bcs~ ~grand_duke/baf/rqar7208.baf~
+COPY_EXISTING ~ar7212.bcs~ ~override/ar7212.bcs~
+EXTEND_TOP ~ar7212.bcs~ ~grand_duke/baf/rqar7212.baf~
+COPY_EXISTING ~ar7214.bcs~ ~override/ar7214.bcs~
+EXTEND_TOP ~ar7214.bcs~ ~grand_duke/baf/rqar7214.baf~
+COPY_EXISTING ~ar7215.bcs~ ~override/ar7215.bcs~
+EXTEND_TOP ~ar7215.bcs~ ~grand_duke/baf/rqar7215.baf~
+COPY_EXISTING ~ar7219.bcs~ ~override/ar7219.bcs~
+EXTEND_TOP ~ar7219.bcs~ ~grand_duke/baf/rqar7219.baf~
+
+COPY_EXISTING ~ar7225.bcs~ ~override/ar7225.bcs~
+EXTEND_TOP ~ar7225.bcs~ ~grand_duke/baf/rqar7225.baf~
+
+COPY_EXISTING ~ar7233.are~ ~override/ar7233.are~
+WRITE_ASCII 0x94 ~ar7233~
+EXTEND_BOTTOM ~ar7233.bcs~ ~grand_duke/baf/rqar7233.baf~
+
+COPY_EXISTING ~ar7248.are~ ~override/ar7248.are~
+WRITE_ASCII 0x94 ~ar7248~
+EXTEND_BOTTOM ~ar7248.bcs~ ~grand_duke/baf/rqar7248.baf~
+
+COPY_EXISTING ~ar7250.are~ ~override/ar7250.are~
+WRITE_ASCII 0x94 ~ar7250~
+EXTEND_BOTTOM ~ar7250.bcs~ ~grand_duke/baf/rqar7250.baf~
+
+COPY_EXISTING ~ar7251.are~ ~override/ar7251.are~
+WRITE_ASCII 0x94 ~ar7251~
+EXTEND_BOTTOM ~ar7251.bcs~ ~grand_duke/baf/rqar7251.baf~
+
+COPY_EXISTING ~ar7252.are~ ~override/ar7252.are~
+WRITE_ASCII 0x94 ~ar7252~
+EXTEND_BOTTOM ~ar7252.bcs~ ~grand_duke/baf/rqar7252.baf~
+
+COPY_EXISTING ~ar7253.bcs~ ~override/ar7253.bcs~
+EXTEND_TOP ~ar7253.bcs~ ~grand_duke/baf/rqar7253.baf~
+
+COPY_EXISTING ~ar7254.are~ ~override/ar7254.are~
+WRITE_ASCII 0x94 ~ar7254~
+EXTEND_BOTTOM ~ar7254.bcs~ ~grand_duke/baf/rqar7254.baf~
+
+COPY_EXISTING ~ar7255.are~ ~override/ar7255.are~
+WRITE_ASCII 0x94 ~ar7255~
+EXTEND_BOTTOM ~ar7255.bcs~ ~grand_duke/baf/rqar7255.baf~
+
+COPY_EXISTING ~ar7500.bcs~ ~override/ar7500.bcs~
+EXTEND_TOP ~ar7500.bcs~ ~grand_duke/baf/rqar7500.baf~
+
+COPY_EXISTING ~ar7607.bcs~ ~override/ar7607.bcs~
+EXTEND_TOP ~ar7607.bcs~ ~grand_duke/baf/rqar7607.baf~
+
+COPY_EXISTING ~ar7705.bcs~ ~override/ar7705.bcs~
+EXTEND_TOP ~ar7705.bcs~ ~grand_duke/baf/rqar7705.baf~
+
+COPY_EXISTING ~ar7706.are~ ~override/ar7706.are~
+WRITE_ASCII 0x94 ~ar7706~
+EXTEND_BOTTOM ~ar7706.bcs~ ~grand_duke/baf/rqar7706.baf~
+
+COPY_EXISTING ~ar7608.are~ ~override/ar7608.are~
+WRITE_ASCII 0x94 ~ar7608~
+EXTEND_BOTTOM ~ar7608.bcs~ ~grand_duke/baf/rqar7608.baf~
+
+COPY_EXISTING ~ar7703.are~ ~override/ar7703.are~
+WRITE_ASCII 0x94 ~ar7703~
+EXTEND_BOTTOM ~ar7703.bcs~ ~grand_duke/baf/rqar7703.baf~
+
+COPY_EXISTING ~ar7720.are~ ~override/ar7720.are~
+WRITE_ASCII 0x94 ~ar7720~
+EXTEND_BOTTOM ~ar7720.bcs~ ~grand_duke/baf/rqar7720.baf~
+
+COPY_EXISTING ~ar7809.are~ ~override/ar7809.are~
+WRITE_ASCII 0x94 ~ar7809~
+EXTEND_BOTTOM ~ar7809.bcs~ ~grand_duke/baf/rqar7809.baf~
+
+// Northest Baldur's Gate
+COPY_EXISTING ~ar7200.bcs~ ~override/ar7200.bcs~
+EXTEND_TOP ~ar7200.bcs~ ~grand_duke/baf/rqar7200.baf~
+// North Baldur's Gate
+COPY_EXISTING ~ar7300.bcs~ ~override/ar7300.bcs~
+EXTEND_TOP ~ar7300.bcs~ ~grand_duke/baf/rqar7300.baf~
+// Northeast Baldur's Gate
+COPY_EXISTING ~ar7400.bcs~ ~override/ar7400.bcs~
+EXTEND_TOP ~ar7400.bcs~ ~grand_duke/baf/rqar7400.baf~
+// West Baldur's Gate
+COPY_EXISTING ~ar7600.bcs~ ~override/ar7600.bcs~
+EXTEND_TOP ~ar7600.bcs~ ~grand_duke/baf/rqar7600.baf~
+// Central Baldur's Gate
+COPY_EXISTING ~ar7700.bcs~ ~override/ar7700.bcs~
+EXTEND_TOP ~ar7700.bcs~ ~grand_duke/baf/rqar7700.baf~
+// East Baldur's Gate
+COPY_EXISTING ~ar7800.bcs~ ~override/ar7800.bcs~
+EXTEND_TOP ~ar7800.bcs~ ~grand_duke/baf/rqar7800.baf~
+// Southwest Baldur's Gate
+COPY_EXISTING ~ar8000.bcs~ ~override/ar8000.bcs~
+EXTEND_TOP ~ar8000.bcs~ ~grand_duke/baf/rqar8000.baf~
+// South Baldur's Gate
+COPY_EXISTING ~ar8100.bcs~ ~override/ar8100.bcs~
+EXTEND_TOP ~ar8100.bcs~ ~grand_duke/baf/rqar8100.baf~
+// Southeast Baldur's Gate
+COPY_EXISTING ~ar8200.bcs~ ~override/ar8200.bcs~
+EXTEND_TOP ~ar8200.bcs~ ~grand_duke/baf/rqar8200.baf~
+// Peldvale
+COPY_EXISTING ~ar8900.bcs~ ~override/ar8900.bcs~
+EXTEND_TOP ~ar8900.bcs~ ~grand_duke/baf/rqar8900.baf~
+
+COPY_EXISTING ~ar9500.bcs~ ~override/ar9500.bcs~
+EXTEND_TOP ~ar9500.bcs~ ~grand_duke/baf/rqar9500.baf~
+
+/* Extend baldur.bcs */
+COPY_EXISTING ~BALDUR.BCS~ ~override/BALDUR.BCS~
+EXTEND_BOTTOM ~BALDUR.BCS~ ~grand_duke/baf/rqbaldur.baf~
+
+/*
+COPY_EXISTING ~ar7208.bcs~ ~override~
+    DECOMPILE_AND_PATCH BEGIN
+        REFACTOR_TRIGGER EXACT_MATCH ~!Exists("BELTBRD")~ ~\0 Global("rqGDMakeBeltDisappear","GLOBAL",1)~
+    END
+BUT_ONLY
+*/
+
+// Remove BELTBRD spawning constantly. I have need to replace Belt with my own rqbelt and BELTBRD just gets in the way.
+COPY_EXISTING ~ar7208.bcs~ ~override~
+    DECOMPILE_AND_PATCH BEGIN
+        SPRINT textToReplace ~\(!Exists("BELTBRD")\)~
+        COUNT_REGEXP_INSTANCES ~%textToReplace%~ num_matches
+        PATCH_IF (num_matches > 0) BEGIN
+            REPLACE_TEXTUALLY CASE_INSENSITIVE ~%textToReplace%~ ~!Exists("rqbelt") !Exists("rqalvier") Global("rqGDBeltPalaceControl","GLOBAL",1) !Exists("BELTBRD")~
+            PATCH_PRINT ~Patching: %num_matches% matches found in %SOURCE_FILESPEC% for REPLACE_TEXTUALLY: %textToReplace%~
+        END ELSE BEGIN
+            PATCH_WARN ~WARNING: could not find %textToReplace% in %SOURCE_FILESPEC%~
+        END
+    END
+BUT_ONLY
+/*
+// Remove BELTBRD spawning constantly. I have need to replace Belt with my own rqbelt and BELTBRD just gets in the way.
+COPY_EXISTING ~aram00.bcs~ ~override~
+    DECOMPILE_AND_PATCH BEGIN
+        SPRINT textToReplace ~\(CreateCreature("AMBMAEVR",[515.360],W)\)~
+        COUNT_REGEXP_INSTANCES ~%textToReplace%~ num_matches
+        PATCH_IF (num_matches > 0) BEGIN
+            REPLACE_TEXTUALLY CASE_INSENSITIVE ~%textToReplace%~ ~CreateCreature("rqrenal",[515.360],W)~
+            PATCH_PRINT ~Patching: %num_matches% matches found in %SOURCE_FILESPEC% for REPLACE_TEXTUALLY: %textToReplace%~
+        END ELSE BEGIN
+            PATCH_WARN ~WARNING: could not find %textToReplace% in %SOURCE_FILESPEC%~
+        END
+    END
+BUT_ONLY
+*/
+
+COPY_EXISTING ~aram00.bcs~ ~override~
+    DECOMPILE_AND_PATCH BEGIN
+        SPRINT textToReplace ~ActionOverride("AMBMAEVR",DisplayStringWait("AMBMAEVR",75282))~
+        COUNT_REGEXP_INSTANCES ~%textToReplace%~ num_matches
+        PATCH_IF (num_matches > 0) BEGIN
+            REPLACE_TEXTUALLY CASE_INSENSITIVE ~%textToReplace%~ ~ActionOverride("AMBMAEVR",DisplayStringWait("AMBMAEVR",%Take them all back to Amn. We need to move quickly before Renal shows up.%))~
+            PATCH_PRINT ~Patching: %num_matches% matches found in %SOURCE_FILESPEC% for REPLACE_TEXTUALLY: %textToReplace%~
+        END ELSE BEGIN
+            PATCH_WARN ~WARNING: could not find %textToReplace% in %SOURCE_FILESPEC%~
+        END
+    END
+BUT_ONLY
+
+/* Copy personal scripts and compile scripts to override: .baf >> override/bcs */
+// COMPILE ~grand_duke/baf/rqcaptu.baf~
+COMPILE ~grand_duke/baf/rqpala7.baf~
+COMPILE ~grand_duke/baf/rqbro.baf~
+COMPILE ~grand_duke/baf/rqrhiv.baf~
+COMPILE ~grand_duke/baf/rqnemean.baf~
+COMPILE ~grand_duke/baf/rqnemeae.baf~
+COMPILE ~grand_duke/baf/rqnemeag.baf~
+COMPILE ~grand_duke/baf/rqprog.baf~
+COMPILE ~grand_duke/baf/rqiachin.baf~
+COMPILE ~grand_duke/baf/rqgpuse.baf~
+COMPILE ~grand_duke/baf/rqnebat5.baf~
+COMPILE ~grand_duke/baf/rqremyha.baf~
+COMPILE ~grand_duke/baf/rqtrest.baf~
+COMPILE ~grand_duke/baf/rqthief2.baf~
+COMPILE ~grand_duke/baf/rqanton.baf~
+COMPILE ~grand_duke/baf/rqantonn.baf~
+COMPILE ~grand_duke/baf/rqjoses.baf~
+COMPILE ~grand_duke/baf/rqavaram.baf~
+COMPILE ~grand_duke/baf/rqdaniel.baf~
+COMPILE ~grand_duke/baf/rqiacob.baf~
+COMPILE ~grand_duke/baf/rqmicha.baf~
+COMPILE ~grand_duke/baf/rqgedeon.baf~
+COMPILE ~grand_duke/baf/rqiosias.baf~
+COMPILE ~grand_duke/baf/rqelias.baf~
+COMPILE ~grand_duke/baf/rqruth.baf~
+COMPILE ~grand_duke/baf/rqmalimp.baf~
+COMPILE ~grand_duke/baf/rqdwiz01.baf~
+COMPILE ~grand_duke/baf/rqbro25.baf~
+COMPILE ~grand_duke/baf/rqenfist.baf~
+COMPILE ~grand_duke/baf/rqlerov.baf~
+COMPILE ~grand_duke/baf/rqreman.baf~
+
+/* Copy new items into override: item >> override */
+COPY ~grand_duke/itm/rqhead01.itm~ ~override/rqhead01.itm~
+/* Unidentified name */
+SAY NAME1 ~Grothuk's Head~
+/* Identified name */
+SAY NAME2 ~Grothuk's Head~
+SAY UNIDENTIFIED_DESC
+~This Gro'Thuk is one ugly Orc he looks more like a half-troll.~
+
+/* Copy new items into override: item >> override */
+COPY ~grand_duke/itm/rqcrat01.itm~ ~override/rqcrat01.itm~
+/* Unidentified name */
+SAY NAME1 ~Large crate~
+/* Identified name */
+SAY NAME2 ~Large crate~
+SAY UNIDENTIFIED_DESC
+~Large and heavy crate with lock on top. If you stop and listen closely you can hear muffled voices and movement. There must be someone inside!~
+
+// Letter to Nemean
+COPY ~grand_duke/itm/rqletne1.itm~ ~override/rqletne1.itm~
+/* Unidentified name */
+SAY NAME1 ~Letter~
+/* Identified name */
+SAY NAME2 ~Letter~
+SAY UNIDENTIFIED_DESC
+~<CHARNAME> has proved to an obstacle and obstacles can be removed if executed by capable man like yourself. Be steadfast, do not be deterred no matter what the cost.
+Our old meeting places has become compromised meet me at Blade and Stars.~
+
+// Nemeans journal
+COPY ~grand_duke/itm/rqnemjou.itm~ ~override/rqnemjou.itm~
+/* Unidentified name */
+SAY NAME1 ~Nemean's Journal~
+/* Identified name */
+SAY NAME2 ~Nemean's Journal~
+SAY UNIDENTIFIED_DESC
+~It seems this Nemean was quite a meticulous assassin, keeping a very detailed journal. The last few entries he wrote describe his latest assassination:
+I took a contract from Alatos to assassinate a former Thieves Guild member, Krivy. It should be difficult, but I love the challenge.
+Now I understand why Alatos hired me to kill Krivy t seems he is trying to get <CHARNAME> into power. If I killed <CHARNAME>, that would ruin Krivy's plans and force him out of the city, where my trackers could find him much more easily than in the urban squalor.
+This Lerov is certainly annoying, but I still need him since he's working for us. However, if an opportunity arises to kill him, I won't hesitate.
+Lerov has been spinning tall tales again, but this time he blurted out that he actually prefers <CHARNAME> to live. I can't work with people of dubious loyalty, so I'll have to dispose of him.
+Damn this skulking around! I was nearly captured by the Flaming Fist! Worse, they know who I am and are actively hunting me. Looks like I'll have to speak to Lezgyn Hawk about this.
+Talking with Lezgyn Hawk was useless as always though he did send Flemil to investigate.
+Flemil said it was the Flaming Fist mercenary Trest who initiated a citywide manhunt for me. Perhaps I should send someone to find out how Fist learned my name and whereabouts.~
+
+// letter
+COPY ~grand_duke/itm/rqletkr1.itm~ ~override/rqletkr1.itm~
+/* Unidentified name */
+SAY NAME1 ~Krivy's contact list~
+/* Identified name */
+SAY NAME2 ~Krivy's contact list~
+SAY UNIDENTIFIED_DESC
+~Talvin of Gelfiven Drakon Tavern, Central Baldur's Gate
+
+Gemerkan Keexie Tavern, East Baldur's Gate
+
+Melwis Blade and Stars, Southeast Baldur's Gate
+
+Gvalas Three Old Kegs, North Baldur's Gate
+
+Temur of Droliegen Blushing Mermaid, Northeast Baldur's Gate
+
+Turpin of Milgerin, Ivylla Donnerstrom, Remelsen: All three are in Splurging Sturgeon, Northeast Baldur's Gate
+
+Nestor Low Lantern, South Baldur's Gate
+
+Ioviis Elfsong Tavern 2nd floor, East Baldur's Gate~
+
+COPY ~grand_duke/itm/rqletkr2.itm~ ~override/rqletkr2.itm~
+/* Unidentified name */
+SAY NAME1 ~Krivy's letter~
+/* Identified name */
+SAY NAME2 ~Krivy's letter~
+SAY UNIDENTIFIED_DESC
+~<CHARNAME> i am writing to you in great haste. Our "friend" Lezgyn must have betrayed us thus i am no longer in Baldur's Gate you can try to get revenge on our main enemy the Thieves Guild who were behind all attempts on your life but i would just recommend you to leave the city. No doubt that this will escalate and Thieves will send even more assassin after you.~
+
+COPY ~grand_duke/itm/rqletbe1.itm~ ~override/rqletbe1.itm~
+/* Unidentified name */
+SAY NAME1 ~Ducal Letter~
+/* Identified name */
+SAY NAME2 ~Ducal Letter~
+SAY UNIDENTIFIED_DESC
+~You see parchment with wax seal of city of Baldur's Gate and Belts personal seal.
+
+Dear <CHARNAME> you have saved us from vile Sarevok though your valiant actions against your brother do not allow you destabilize our city in these dangerous times. We are aware of your allegiance to Krivy and we advise you to cease and desist any further cooperation with him. Know that Krivy used to work for Alatos. Now i am not unreasonable man you can if you wish cooperate with me. We could use one so resourceful speak if you are ready to switch to side of good and order speak to my servant Alvier in Ducal Palace.
+
+Duke Belt~
+
+// Letter of credence
+COPY ~grand_duke/itm/rqletre3.itm~ ~override/rqletre3.itm~
+/* Unidentified name */
+SAY NAME1 ~Letter of credence~
+/* Identified name */
+SAY NAME2 ~Letter of credence~
+SAY UNIDENTIFIED_DESC
+~Letter of Credence
+
+I, Agraar Kelthor, do hereby appoint and authorize Melwis of Baldur's Gate to act on my behalf. This authorization is temporary and grants Melwis the authority to represent me in all relevant matters during this period.
+
+Signed,
+Agraar Kelthor
+
+This is lavishly decorated letter with signature and wax seal at the bottom serves as identification that bearer of this letter is representing Kelthor Family. As far as you can tell this is the real deal and you can trust bearer of this letter is acting on behalf of who he says he is.~
+
+// Sirine body
+COPY ~grand_duke/itm/rqsirine.itm~ ~override/rqsirine.itm~
+/* Unidentified name */
+SAY NAME1 ~Body of Sirine~
+/* Identified name */
+SAY NAME2 ~Body of Sirine~
+SAY UNIDENTIFIED_DESC
+~Body of wounded Sirine which Gemerkan requested from you.~
+
+// Sirine body
+COPY ~grand_duke/itm/rqgprof5.itm~ ~override/rqgprof5.itm~
+/* Unidentified name */
+SAY NAME1 ~Amulet of Alatos's~
+/* Identified name */
+SAY NAME2 ~Amulet of Alatos's~
+SAY UNIDENTIFIED_DESC
+~Drusilla forever yours, Alatos always.~
+
+// Immunity Stinking cloud undroppable
+COPY ~grand_duke/itm/rqimun07.itm~ ~override/rqimun07.itm~
+/* Unidentified name */
+SAY NAME1 ~Ring~
+/* Identified name */
+SAY NAME2 ~Ring of Immunity from Stinking Cloud~
+SAY DESC
+~Provides immunity from Stinking Cloud~
+
+// Rilifane stone
+COPY ~grand_duke/itm/rqproof5.itm~ ~override/rqproof5.itm~
+/* Unidentified name */
+SAY NAME1 ~Demins Stone~
+/* Identified name */
+SAY NAME2 ~Demins Stone~
+SAY DESC
+~This a Holy Stone used by priests of the Elven god Rillifane. This one seems to have Demin written on its back.~
+
+// Suldanesselar map
+COPY ~grand_duke/itm/rqproof6.itm~ ~override/rqproof6.itm~
+/* Unidentified name */
+SAY NAME1 ~Suldanesselar map~
+/* Identified name */
+SAY NAME2 ~Suldanesselar map~
+SAY DESC
+~This is highly detailed and accurate map of Suldanesselar with numerous and highly detailed notes. You can tell that Brokkr is an expert mapmaker which stands in complete contrast of his demeanor.~
+
+// Suldanesselar map
+COPY ~grand_duke/itm/rqletmal.itm~ ~override/rqletmal.itm~
+/* Unidentified name */
+SAY NAME1 ~Malzoths Letter~
+/* Identified name */
+SAY NAME2 ~Malzoths Letter~
+SAY DESC
+~You must apologize me for not wanting to meet and sending my just my familiar to deliver your reward but i had other pressing matters to attend to. Utilize your new tools well.
+
+Malzoth~
+
+// Potion of Storm Giant Strength
+COPY ~grand_duke/itm/rqpotn61.itm~ ~override/rqpotn61.itm~
+/* Unidentified name */
+SAY NAME1 ~Potion of Storm Giant Strength~
+/* Identified name */
+SAY NAME2 ~Potion of Storm Giant Strength~
+SAY DESC
+~Potion of Storm Giant Strength
+When a giant strength potion is consumed, the individual gains great strength and bonuses to hit and damage while using any hand-held or thrown weapon.  The effect lasts for 10 turns.
+
+This potion was modified so that even non warriors could use it to enhance their strength.
+
+STATISTICS:
+
+Strength:  24  (Storm Giant Strength)
+~
+
+// New items ----------------------------------------------------------------------------------------------
+
+// Belt of Freedom -------------------- 1
+COPY ~grand_duke/itm/rqbelt03.itm~ ~override/rqbelt03.itm~
+/* Unidentified name */
+SAY NAME1 ~Belt~
+/* Identified name */
+SAY NAME2 ~Belt of Freedom~
+SAY UNIDENTIFIED_DESC
+
+~Girdles are generally similar to belts.  Unlike belts, girdles are not used to hold up pants and dungarees, but to carry pouches, scabbards, and the like.
+
+STATISTICS:
+
+Weight:  2~
+
+SAY DESC
+~Belt of Freedom was invented by illustrious thief named Helget. Helget needed protection from magical ensnarement but did not wanted to be obvious by acquiring Ring of Free Action so he had enchanted his belt. Since then belt has changed hands multiple times mostly through violence. The only question unanswered in your mind is whether this Helget wants his belt back.
+
+STATISTICS:
+
+Special:  The wearer is immune to everything,  magical and otherwise,  that affects mobility in any way.  This includes haste and slow spells.
+
+Not Usable By:
+  Wizardslayer~
+
+// Belt of Vigor and Wisdom -------------------- 2
+COPY ~grand_duke/itm/rqbelt04.itm~ ~override/rqbelt04.itm~
+/* Unidentified name */
+SAY NAME1 ~Belt~
+/* Identified name */
+SAY NAME2 ~Belt of Vigor and Wisdom~
+SAY UNIDENTIFIED_DESC
+
+~Girdles are generally similar to belts.  Unlike belts, girdles are not used to hold up pants and dungarees, but to carry pouches, scabbards, and the like.
+
+STATISTICS:
+
+Weight:  2~
+
+SAY DESC
+~Belt of Vigor and Wisdom
+The reasoning behind placing enchantments that enhance users' Wisdom Dexterity and Constitution is not known, though scholars have two competing theories. One theory proposed by Scholar Amarannath speculates that the belt was intended for the Cult of Shar located in Tethyr. They point to the belt's unusual craftsmanship which is typical for Tethyr. The War Wizards of Cormyr on the other hand suggest that the enchantment runes tend to be found on enchanted items from makers residing in Waterdeep.
+
+Whatever the case, one of these belts was worn by a priest of Tempus who was instrumental in the war against goblin tribes in DR1247. An army led by an unknown priest of Tempus was eventually defeated, and the belt appeared in the possession of a priestess of Auril named Joralia. Records indicate she lived to an advanced age, so it is assumed that the belt was in her possession when she died.
+
+The last known wielder was a fighter named Belgeron from Waterdeep, who bought this belt at an auction in the city. Belgeron was involved in a coup against the rulers of Waterdeep; he and other plotters sought to place his men in various influential leadership positions in the city. However, his plot was discovered, and he had to flee.
+
+It is not known how many of these belts still survive, but there must be more than one in Faerun. Both Amarannath and the War Wizards of Cormyr agree on this point.
+
+STATISTICS:
+
+STATISTICS:
+Wight: 2 lbs
+
+STATISTICS:
+Dexterity +1
+Constitution +1
+Wisdom +1
+
+Not Usable By:
+  Wizardslayer~
+
+// Veilguard -------------------- 3
+COPY ~grand_duke/itm/rqbelt05.itm~ ~override/rqbelt05.itm~
+/* Unidentified name */
+SAY NAME1 ~Magical Rope~
+/* Identified name */
+SAY NAME2 ~Veilguard~
+SAY UNIDENTIFIED_DESC
+
+~On first glance, the appearance of this rope might fool peasants or village merchants into discarding it as an ordinary rope, but any adventurer will recognize its aura of potent protective magic.
+
+STATISTICS:
+
+Weight:  5 lbs~
+
+SAY DESC
+~Veilguard is one of the stranger items in Faerun instead of having appearance of belt whoever enchanted it chose to enchant an ordinary rope instead of more practical belt or girdle. Scholars are unsure who exactly crafted this girdle disguised at rope but its protective qualities are undeniable. Only entry describing Veilguard comes from Athkatlan Priest who found following letter just by accident.
+Enclosed you will find the rope, as discussed.  When worn around the waist, this rope will cloak the wearer in an invisible, non-encumbering armor.  Its protective qualities are equivalent to a full suit of plate armor, shielding you from harm.
+Furthermore, tying the rope around your waist will enhance your fortune.
+There is no other indication of its origin other than purple colored threads woven into rope which could indicate Sharran origin.
+
+STATISTICS:
+Wight: 5 lbs
+
+STATISTICS:
+Luck +2
+Armor Class: 1
+
+Not Usable By:
+  Wizardslayer~
+
+// Boots of harder road -------------------- 4
+COPY ~grand_duke/itm/rqboot05.itm~ ~override/rqboot05.itm~
+/* Unidentified name */
+SAY NAME1 ~Boots~
+/* Identified name */
+SAY NAME2 ~Boots of Hard Road~
+SAY UNIDENTIFIED_DESC
+
+~Boots are normally hand-made by cobblers.  Common boots are made by using a form, but good boots are designed for the foot of an individual.
+
+STATISTICS:
+
+Weight:  4~
+
+SAY DESC
+~Boots of Hard Road
+Apparently these boots were enchanted by Elvigar who was commander of small militia located in Cormyr. Further records state that some of boots have were either stolen from militias armory or looted by victorious hobgoblins after successful ambush made by Tuk tribe in DR1279. Since then several pairs appeared in Sword Coast.
+
+STATISTICS:
+
+AC bonus +1
+Weight: 4
++10 % bonus to hit points
+
+Not Usable By:
+  Druid
+  Fighter/Druid~
+
+// Engel's Bracers -------------------- 5
+COPY ~grand_duke/itm/rqbrac04.itm~ ~override/rqbrac04.itm~
+/* Unidentified name */
+SAY NAME1 ~Bracers~
+/* Identified name */
+SAY NAME2 ~Engel's Bracers~
+SAY UNIDENTIFIED_DESC
+~Bracers are thick bands of metal or leather that are strapped, belted, or tied to a character's forearm.~
+
+SAY DESC
+~Engel's Bracers
+Creation of pairs these bracers is attributed to Engel from Rasheman. Engel used to be mage of power however after particularly disastrous teleport spell accident. From then on he refused ever to use magic to transport himself but found traveling exhausting and this is why these braces came into existence. This is supposed to be creation myth of Engel's bracers but chroniclers might have confused this myth with other myth because bracers do enhance bearers dexterity more that constitution.
+
+STATISTICS:
+Wight: 1 lbs
+
+STATISTICS:
+Dexterity +2
+Constitution +1
+
+Unusable By:
+Wizardslayer~
+
+// Ghosts Punch -------------------- 6
+COPY ~grand_duke/itm/rqstaf01.itm~ ~override/rqstaf01.itm~
+/* Unidentified name */
+SAY NAME1 ~Quarterstaff~
+/* Identified name */
+SAY NAME2 ~Ghosts Punch~
+SAY UNIDENTIFIED_DESC
+~The simplest and humblest of staff weapons, the quarterstaff is a length of wood ranging six to nine feet in length.  High-quality quarterstaves are made of stout oak and are shod with metal at both ends.  The quarterstaff must be wielded with both hands.
+
+STATISTICS:
+
+Damage:  1D6
+Damage type:  crushing
+Weight: 4
+Speed Factor: 4
+Proficiency Type: Staff
+Type:  2-handed
+Requires: 5 Strength~
+
+SAY DESC
+~Ghosts Punch
+Creation of this staff is attributed to Fighter Mage Khornovus who was chief of militia training for the city of Akanax. He wanted a weapon for disciplining his pupils if need arose. Which in city like Akanax as trainer for its militia had plenty of opportunities to use this staff. Story how sfaff left left Khornovus possession is interesting one. One of trainees had enough of Khornovus *disciplining* and conspired with other trainees steal his master staff of spare himself of beating. The story goes that one night group of trainees and stole Khornovus staff however mage found about the theft. Unable to withstand Khornovus interrogation students procured ordinary enchanted staff and pretended to be hit when they were *hit* by Khornovus swings by counterfeit staff. Since disappearance of Ghosts Punch from history scholars record only one similar weapon, Phantom Staff to have similar ability to strike from afar with supposedly melee weapon.
+
+STATISTICS:
+Damage:  1D6 + 1
+THAC0:  +1
+Damage type:  crushing
+Weight: 4
+Speed Factor: 3
+Range (feet): 30
+Proficiency Type: Staff
+Type:  2-handed
+Requires: 5 Strength~
+
+
+
+// Throwing Dagger +1 -------------------- 8
+COPY ~grand_duke/itm/rqdagg01.itm~ ~override/rqdagg01.itm~
+/* Unidentified name */
+SAY NAME1 ~Throwing Dagger~
+/* Identified name */
+SAY NAME2 ~Throwing Dagger +1~
+
+SAY UNIDENTIFIED_DESC
+~The typical throwing dagger has a pointed, usually double-edged blade, as opposed to a knife, which has a single edge and is a bit shorter than the dagger. Unlike a normal dagger, this one has a smaller handle and is balanced for throwing. It is also enchanted to make it more effective in combat. Since the throwing dagger is designed differently than a normal dagger, it is not very effective as a melee weapon.
+
+STATISTICS:
+
+Damage:  1D4
+Damage type:   missile (piercing)
+Weight: 1
+Speed Factor: 2
+Proficiency Type: Dagger
+Type:  1-handed
+Requires: 3 Strength
+Not Usable By:
+ Cleric~
+
+SAY DESC
+~This dagger bears forging symbol of Weissgaden family which is one of largest manufacturers of weapons in Faerun.
+
+STATISTICS:
+
+Combat Abilities: dagger returns to the thrower
+THAC0:  +1 bonus
+Damage:  1D4 + 1
+Damage type:  missile (piercing)
+Weight: 1
+Speed Factor: 0
+Proficiency Type: Dagger
+Type:  1-handed
+Requires: 3 Strength
+Not Usable By:
+ Cleric~
+
+// Unlimited Arrows -------------------- 9
+COPY ~grand_duke/itm/rqquiv01.itm~ ~override/rqquiv01.itm~
+/* Unidentified name */
+SAY NAME1 ~Quiver~
+/* Identified name */
+SAY NAME2 ~Infinity Arrows +1~
+
+SAY UNIDENTIFIED_DESC
+~Usually made of leather, a quiver can hold anywhere from 20 to 40 arrows or crossbow bolts.~
+
+SAY DESC
+~Quiver has marking of Bears paw which is symbol of Vecchio family. They used to be one larger manufacturers of bows but they are now defunct after particularly incompetent member of their family took control of their business.~
+
+// Unlimited Bullets -------------------- 10
+COPY ~grand_duke/itm/rqquiv02.itm~ ~override/rqquiv02.itm~
+/* Unidentified name */
+SAY NAME1 ~Bag~
+/* Identified name */
+SAY NAME2 ~Infinity Bag +1~
+
+SAY UNIDENTIFIED_DESC
+~A simple cloth bag may be used for holding any number of items.~
+
+SAY DESC
+~Slings, while common for sieges particularly staff slings are not that prevalent anymore as battlefield weapons used by the humans, which suggests a non-human origin for this particular enchanted bag of unlimited rocks for slinging.~
+
+// Dwarven militia training manual -------------------- 11
+COPY ~grand_duke/itm/rqbook2.itm~ ~override/rqbook2.itm~
+/* Unidentified name */
+SAY NAME1 ~Fighting Manual~
+/* Identified name */
+SAY NAME2 ~Korolnor City Militia Training Manual~
+
+SAY UNIDENTIFIED_DESC
+~Thick book in Dwarven script containing depictions of dwarves sparring.~
+
+SAY DESC
+~This is Militia training book for Korolnor. Studying the techniques inside the manual reader can teach himself fighting techniques practiced by dwarves of Korolnor: Reader can learn techniques with following weapons Axe, War Hammer, Spear, Halberd and Crossbow.~
+
+
+// Wand of Cures -------------------- 13
+COPY ~grand_duke/itm/rqwand02.itm~ ~override/rqwand02.itm~
+/* Unidentified name */
+SAY NAME1 ~Wand~
+/* Identified name */
+SAY NAME2 ~Wand of Cures~
+
+SAY UNIDENTIFIED_DESC
+~Wands are 1 1/4 feet long and slender.  They are made of ivory, bone, or wood and are usually tipped with something - metal, crystal, stone, etc.  They are fragile and tend to break easily.  Because of this, they are often kept in cases.
+
+Wands are powered by charges, each use costing one or more charges (depending on the item).  When a wand runs out of charges, it is consumed and destroyed.~
+
+SAY DESC
+~Wand of Cures
+Priests typically create less wands than mages exception to this rule are typically priests of Waukeen and so it is how this wand came into being. One of larger monasteries that Waukeenar clergy produced wands were located in Vast near city Procampur and this wand bear identification mark indicating it was produced there. Such marking are unreliable though as these marks are widely falsified and wand with falsified marks are typically of lesser quality.
+
+STATISTICS:
+
+Ability 1:
+
+Neutralize Poison (Necromancy)
+Range: Touch
+Duration: Instant
+Area of Effect: Creature touched
+Saving Throw: None
+
+This spell removes all toxins from the body, both natural and magical in nature.  When this spell is cast upon a poisoned individual, it immediately neutralizes any poison and restores 10 lost hit points. This spell will also cure any diseases that the target may be suffering from, as well as blindness and deafness.
+
+
+Ability 2:
+
+Remove Paralysis (Abjuration)
+Range (feet): 150
+Duration: Permanent
+Area of Effect: 20 ft radius
+Saving Throw: None
+
+By the use of this spell, the priest can free several creatures from the effects of any paralyzation or related magic (such as a ghoul touch, or a hold spell).
+
+Ability 3:
+
+Lesser Restoration (Necromancy)
+Range: Touch
+Duration: Permanent
+Area of Effect: Target Creature
+Saving Throw: None
+
+When this spell is cast, the life-energy level of the recipient is raised.  This reverses any previous life-energy-level drain of the creature by a force or monster.  The casting of this spell is very draining on the priest and she will likely require rest immediately after the casting, as it will cause days worth of fatigue almost instantaneously.
+
+Usable By:
+Clerics(Single-class,Multi-class,Dual-class)
+~
+
+// Wand of Entsele's Warding Glyph --------------------
+COPY ~grand_duke/itm/rqwand03.itm~ ~override/rqwand03.itm~
+/* Unidentified name */
+SAY NAME1 ~Wand~
+/* Identified name */
+SAY NAME2 ~Entsele's Warding Glyph~
+
+SAY UNIDENTIFIED_DESC
+~Wands are 1 1/4 feet long and slender.  They are made of ivory, bone, or wood and are usually tipped with something - metal, crystal, stone, etc.  They are fragile and tend to break easily.  Because of this, they are often kept in cases.
+
+Wands are powered by charges, each use costing one or more charges (depending on the item).  When a wand runs out of charges, it is consumed and destroyed.~
+
+SAY DESC
+~Entsele's Warding Glyph
+Entsele was a mage who belonged to brigand band setup to preyed on peasants traveller and even on other brigand bands in east Moonsea and due Entsele being only mage he assumed leadership after brief struggle with previous leader and after attaining mantle of leadership had this wand made to help in his ambushes. Wand was thought to be lost but then it reappeared in Sword Coast in hands of bandits which caused the Iron Crisis. There is no indication where it was made though it it likely the wand is manufactured by spell component guild and custom enchantment was put by unknown enchanter.
+
+A Entsele's Warding Glyph is a powerful inscription magically drawn to prevent unauthorized or hostile creatures from passing, entering, or opening. It can be used to guard a small bridge, to ward an entry, or as a trap on a chest or box.
+Any creature violating the warded area is subject to the magic it stores. A successful saving throw vs. spell enables the creature to escape half of damage of the glyph.  Multiple glyphs cannot be cast on the same area; although if a cabinet had three drawers, each could be separately warded.
+When the spell is cast, the user weaves a tracery of faintly glowing lines around the warding sigil.  When the glyph is activated, it deals 12d8. Creatures failing their saving throws each suffer full damage from the blast. Those who roll successful saving throws manage to dodge, fall flat, or roll aside, each receiving half damage thus 6d8.
+
+Level: 7
+Range: Visual range of caster
+Duration: Special
+Casting Time: 7
+Area of Effect: 12-foot radius
+Saving Throw: 1/2
+
+Not usable by:
+ Fighter
+ Cleric
+ Druid
+ Thief
+ Paladin
+ Ranger
+~
+
+// Initiate ring -------------------- 14
+COPY ~grand_duke/itm/rqring05.itm~ ~override/rqring05.itm~
+/* Unidentified name */
+SAY NAME1 ~Ring~
+/* Identified name */
+SAY NAME2 ~Initiate Ring~
+SAY UNIDENTIFIED_DESC
+~A ring is a small band of precious metal that is used as jewelry.  Some rare rings have had enchantments placed upon them that confer various magical abilities.  These rings are highly sought after, especially by those of the adventuring profession.~
+SAY DESC
+~Initiate ring
+This ring was enchanted for monastery of Sun Soul monks Tasseldale and it was sometimes given to initiates who were sent for extremely dangerous missions for monastery. Chroniclers records only one such episode when monk named Orgolin who was sent to aid militia of Moontassel to defeat Ironarm tribe of Hobgoblins who besieged the city to break the siege Orgolin and his men were sent on surprise attack on tent of an Gnoll chieftain. Attack succeeded though at cost of all monks lives except youngest monk Orgolin who returned to monastery with this ring. Leaderless gnolls were dispersed by simultaneous attack from city Cavalry.
+
+STATISTICS:
+Magic Resistance:  +10% Bonus
+Equipped Ability: Increases movement rate
+Equipped Abilities: Wearer regenerates 1 hit point every 3 seconds
+
+Not Usable By:
+Wizardslayer
+~
+
+// Unlimited Cold arrows -------------------- 16
+COPY ~grand_duke/itm/rqquiv03.itm~ ~override/rqquiv03.itm~
+/* Unidentified name */
+SAY NAME1 ~Quiver~
+/* Identified name */
+SAY NAME2 ~Infinity Arows of Ice~
+
+SAY UNIDENTIFIED_DESC
+~Usually made of leather, a quiver can hold anywhere from 20 to 40 arrows or crossbow bolts.~
+
+SAY DESC
+~Infinity Arrows of Ice
+Quiver has marking of Bears paw which is symbol of Vecchio family. They used to be one larger manufacturers of bows but they are now defunct after particularly incompetent member of their family took control of their business.~
+
+// Brichtold's Axe ------------------------------ 7
+COPY ~grand_duke/itm/rqaxe01.itm~ ~override/rqaxe01.itm~
+/* Unidentified name */
+SAY NAME1 ~Throwing Axe~
+/* Identified name */
+SAY NAME2 ~Brichtold's Axe~
+
+SAY UNIDENTIFIED_DESC
+~The hand axe or throwing axe is also known as a hatchet.  The axe blade has a sharp steel tip, counterbalanced by a pointed fluke. The short handle has a point on the bottom and the head may have a spike on the top.
+
+STATISTICS:
+
+Damage:  1D6 +1
+Damage type:  missile (piercing)
+Weight: 5
+Speed Factor: 4
+Proficiency Type:  Axe
+Type:  1-handed
+Requires: 4 Strength
+Not Usable By:
+ Druid
+ Cleric
+ Mage
+ Thief~
+
+SAY DESC
+~Brichtold's Axe
+Creation of throwing axe was Brichtold idea. Not knowing much about forging he delegated to weapon forging guild from Cormyr. Weapon had boring history from that point in time except when being lent by Brichtold for short periods of time to adventurers and even in such role there were are no record of axes use. Latest records point location of axe to Asbravn where axe was used by Paladin of Tyr called Blenheim to protect small village.
+
+STATISTICS:
+
+Combat Abilities: Axe returns to the wielder's hand instantly after an attack is made
+THAC0:  +3 bonus
+Damage:  1D6 + 4, +1 electrical
+Damage type (melee):  slashing
+Damage type (thrown):  missile (piercing)
+Special:  Returns to user's hand once thrown
+Weight: 2
+Speed Factor: 1
+Proficiency Type: Axe
+Type:  1-handed
+Requires: 4 Strength
+Not Usable By:
+ Druid
+ Cleric
+ Mage
+ Thief~
+
+// Hindra +3 ------------------------------ 17
+COPY ~grand_duke/itm/rqaxe02.itm~ ~override/rqaxe02.itm~
+/* Unidentified name */
+SAY NAME1 ~Throwing Axe~
+/* Identified name */
+SAY NAME2 ~Hindra +3~
+
+SAY UNIDENTIFIED_DESC
+~The hand axe or throwing axe is also known as a hatchet.  The axe blade has a sharp steel tip, counterbalanced by a pointed fluke. The short handle has a point on the bottom and the head may have a spike on the top.
+
+STATISTICS:
+
+THAC0:  +1 bonus
+Damage:  1D6 +1
+Damage type:  missile (piercing)
+Weight: 5
+Speed Factor: 4
+Proficiency Type:  Axe
+Type:  1-handed
+Requires: 4 Strength
+Not Usable By:
+ Cleric
+ Mage
+ Paladin
+ Ranger
+ Thief
+ Monk
+ Druid
+~
+
+SAY DESC
+~Hindra +3
+Hindra share much of its history with Sofn war hammer though chronicler do record that it was kept at least till DR1349 by clan whos Varg was leader. It is heavily enchanted just like Sofn and limited to use to dwarves.
+
+STATISTICS:
+
+Combat Abilities:
+   Combat Abilities: Axe returns to the wielder's hand instantly after an attack is made
+   20% chance with each successful attack that the target is slowed (No Save)
+   20% chance each hit that target must make a saving throw vs death (-2 penalty) or be rendered unconscious.
+   5% chance each hit that target must make a saving throw vs death (-2 penalty) or be stunned.
+
+THAC0:  +3 bonus (+4 enchanted)
+Damage:  1D6 +4
+Damage type (melee):  slashing
+Damage type (thrown):  missile (piercing)
+Special:  Returns to user's hand once thrown
+Weight: 1
+Speed Factor: 2
+Proficiency Type:  Axe
+Type:  1-handed
+Requires: 9 Strength
+Not Usable By:
+ Non-Dwarves
+ Cleric
+ Mage
+ Paladin
+ Ranger
+ Thief
+ Monk
+ Druid
+~
+
+// Hindra +5------------------------------
+COPY ~grand_duke/itm/rqaxe04.itm~ ~override/rqaxe04.itm~
+/* Unidentified name */
+SAY NAME1 ~Throwing Axe~
+/* Identified name */
+SAY NAME2 ~Hindra +5~
+
+SAY UNIDENTIFIED_DESC
+~The hand axe or throwing axe is also known as a hatchet.  The axe blade has a sharp steel tip, counterbalanced by a pointed fluke. The short handle has a point on the bottom and the head may have a spike on the top.
+
+STATISTICS:
+
+Combat Abilities: Axe returns to the wielder's hand instantly after an attack is made
+Damage:  1D6 +1
+Damage type:  missile (piercing)
+Weight: 5
+Speed Factor: 4
+Proficiency Type:  Axe
+Type:  1-handed
+Requires: 4 Strength
+Not Usable By:
+ Cleric
+ Mage
+ Paladin
+ Ranger
+ Thief
+ Monk
+ Druid
+~
+
+SAY DESC
+~Hindra +5
+Hindra share much of its history with Sofn war hammer though chronicler do record that it was kept at least till DR1349 by clan whos Varg was leader. It is heavily enchanted just like Sofn and limited to use to dwarves.
+Further upgraded by command word you have received from Malzoth this axe have made this axe a truly a weapons suitable for gods.
+
+STATISTICS:
+
+Combat Abilities:
+   40% chance with each successful attack that the target is slowed (No Save)
+   25% chance each hit that target must make a saving throw vs death (-2 penalty) or be rendered unconscious.
+
+THAC0:  +5 bonus
+Damage:  1D6 +6
+Damage type (melee):  slashing
+Damage type (thrown):  missile (piercing)
+Special:  Returns to user's hand once thrown
+Weight: 1
+Speed Factor: 2
+Proficiency Type:  Axe
+Type:  1-handed
+Requires: 9 Strength
+Not Usable By:
+ Non-Dwarves
+ Cleric
+ Mage
+ Paladin
+ Ranger
+ Thief
+ Monk
+ Druid
+~
+
+// Throwing Axe ------------------------------ 20
+COPY ~grand_duke/itm/rqaxe03.itm~ ~override/rqaxe03.itm~
+/* Unidentified name */
+SAY NAME1 ~Throwing Axe~
+/* Identified name */
+SAY NAME2 ~Throwing Axe~
+
+SAY UNIDENTIFIED_DESC
+~Returning throwing axe
+The hand axe or throwing axe is also known as a hatchet.  The axe blade has a sharp steel tip, counterbalanced by a pointed fluke.  The short handle has a point on the bottom and the head may have a spike on the top.
+
+On first glance this appears to be an ordinary throwing axe but upon closer inspection you can notice symbol of Weissgaden family which is one of largest manufacturers of weapons in Faerun.
+
+STATISTICS:
+
+Damage:  1D6 +1
+Damage type:  missile (piercing)
+Weight: 5
+Speed Factor: 4
+Proficiency Type:  Axe
+Type:  1-handed
+Requires: 4 Strength
+Not Usable By:
+ Druid
+ Cleric
+ Mage
+ Thief~
+
+// Sofn +3 war hammer ------------------------------
+COPY ~grand_duke/itm/rqhamm03.itm~ ~override/rqhamm03.itm~
+/* Unidentified name */
+SAY NAME1 ~War Hammer~
+/* Identified name */
+SAY NAME2 ~Sofn +3~
+
+SAY UNIDENTIFIED_DESC
+~Mounted knights cannot effectively use long pole weapons while on horseback, and as a result, many weapons have been fitted with shorter shafts so they may be wielded with just one hand.  Maces and flails are two previous examples of this - the war hammer is another.  The horseman's war hammer is a descendant of the Lucerne hammer.  It is made entirely of steel, with rondels protecting and strengthening the grip.  Rondels are small disks of metal, often shaped into decorative designs.  The shaft is about 18 inches long.
+
+STATISTICS:
+
+Damage:  1D4 + 1
+Damage type:  crushing
+Weight: 6
+Speed Factor: 4
+Proficiency Type: War Hammer
+Type:  1-handed
+Requires: 10 Strength
+Not Usable By:
+ Druid
+ Mage
+ Thief~
+
+SAY DESC
+~Sofn +3
+Pvolmier was by DR1347 have become one of better known blacksmiths in his craft and so he captured attention of dwarwen noble Krustur who ordered a pair of weapons an one handed war hammer and throwing axe. Pvolmier have forged required axe and hammer quite fast but he had problems with sourcing enchanters who considered enhancing debilitating effects of crushing weapons impossible despite Pvolmier knowing it is doable and having accomplished such feat so he declared a public challenge. Krustur who ordered intended the weapons to be unremarkable as possible was unnerved by this challenge and canceled the order but on of his enemies a dwarven noble by the name of Varg has promised to supply an enchanter just to humiliate Krustur. Krustur also arrived but he came into blows and in resulting scuffle Varg killed Krustur with single blow. This is how Sofn came to existence. Chroniclers record that Varg was imprisoned after and had to sell the weapons or his family had sold the weapons but it doubtful they had fetched a very high price because Varg had insisted on placing enchantment that no non-dwarf can use this weapon.
+
+STATISTICS:
+
+Combat Abilities:
+   20% chance with each successful attack that the target is slowed for three rounds (No Save)
+   20% chance with each successful attack that the target is stunned for one round (No Save)
+   5% chance with each successful attack that the target is rendered for unconscious for one round (No Save)
+
+THAC0: +3 (+4 enchanted)
+Damage:  2D4 + 4
+Damage type:  crushing
+Weight: 2
+Speed Factor: 2
+Proficiency Type: War Hammer
+Type:  1-handed
+Requires: 10 Strength
+Not Usable By:
+ Non-Dwarves
+ Bard
+ Paladin
+ Ranger
+ Thief
+ Monk
+ Druid
+ Mage
+~
+
+// Sofn +5 war hammer ------------------------------
+COPY ~grand_duke/itm/rqhamm04.itm~ ~override/rqhamm04.itm~
+/* Unidentified name */
+SAY NAME1 ~War Hammer~
+/* Identified name */
+SAY NAME2 ~Sofn +5~
+
+SAY UNIDENTIFIED_DESC
+~Mounted knights cannot effectively use long pole weapons while on horseback, and as a result, many weapons have been fitted with shorter shafts so they may be wielded with just one hand.  Maces and flails are two previous examples of this - the war hammer is another.  The horseman's war hammer is a descendant of the Lucerne hammer.  It is made entirely of steel, with rondels protecting and strengthening the grip.  Rondels are small disks of metal, often shaped into decorative designs.  The shaft is about 18 inches long.
+
+STATISTICS:
+
+Damage:  1D4 + 1
+Damage type:  crushing
+Weight: 6
+Speed Factor: 2
+Proficiency Type: War Hammer
+Type:  1-handed
+Requires: 10 Strength
+Not Usable By:
+ Druid
+ Mage
+ Thief~
+
+SAY DESC
+~Sofn +5
+Pvolmier was by DR1347 have become one of better known blacksmiths in his craft and so he captured attention of dwarwen noble Krustur who ordered a pair of weapons an one handed war hammer and throwing axe. Pvolmier have forged required axe and hammer quite fast but he had problems with sourcing enchanters who considered enhancing debilitating effects of crushing weapons impossible despite Pvolmier knowing it is doable and having accomplished such feat so he declared a public challenge. Krustur who ordered intended the weapons to be unremarkable as possible was unnerved by this challenge and canceled the order but on of his enemies a dwarven noble by the name of Varg has promised to supply an enchanter just to humiliate Krustur. Krustur also arrived but he came into blows and in resulting scuffle Varg killed Krustur with single blow. This is how Sofn came to existence. Chroniclers record that Varg was imprisoned after and had to sell the weapons or his family had sold the weapons but it doubtful they had fetched a very high price because Varg had insisted on placing enchantment that no non-dwarf can use this weapon.
+
+STATISTICS:
+
+Combat Abilities:
+   33% chance with each successful attack that the target is slowed for three rounds (No Save)
+   25% chance with each successful attack that the target is stunned for one round (No Save)
+   5% chance with each successful attack that the target is rendered unconscious for one round (No Save)
+
+THAC0: +5
+Damage:  2D4 + 6
+Damage type:  crushing
+Weight: 2
+Speed Factor: 2
+Proficiency Type: War Hammer
+Type:  1-handed
+Requires: 10 Strength
+Not Usable By:
+ Non-Dwarves
+ Bard
+ Paladin
+ Ranger
+ Thief
+ Monk
+ Druid
+ Mage
+~
+
+// Korolnor Berserker Pouch -------------------- 15
+COPY ~grand_duke/itm/rqpotn60.itm~ ~override/rqpotn60.itm~
+/* Unidentified name */
+SAY NAME1 ~Pouch~
+/* Identified name */
+SAY NAME2 ~Korolnor Berserker Pouch~
+SAY UNIDENTIFIED_DESC
+~This small bag is ideally suited for holding gems.~
+SAY DESC
+~Korolnor Berserker Pouch
+It is said that some dwarves from Korolnor used herbs contained in these bags to induce berserker rage. Scholars have records of flasks that were magical and could restore their enrage ability each day, but these flasks have probably not survived to this day. This bag is not magical and contains only a limited amount of content before it is fully drained.
+The flask comes with some disadvantages: anyone who is not a dwarf will be unable to stomach the disgusting smell of the concoction, so its use is limited to dwarves. Even then, it is further restricted to only those dwarves with sufficiently high Constitution; otherwise, they would not be able to ingest this repulsive herbal mix.
+
+Special abilities:
+Consume one sip of the potion to enrage the user like a berserker would.
+
+The enraged state lasts for 60 seconds:
+- While enraged: +2 to hit, +2 damage, -2 AC
+- While enraged: immune to Charm, Confusion, Fear, Feeblemind, Hold, Imprisonment, Level Drain, Maze, Stun, and Sleep
+- While enraged: gains 15 hit points. These hit points are temporary and are taken away at the end of the berserk spree, possibly killing the berserker.
+Requires: 18 Constitution
+
+Not Usable By:
+Non-dwarves
+~
+
+// Baalzebul's Rejuvenator ------------------------------ 19
+COPY ~grand_duke/itm/rqtome02.itm~ ~override/rqtome02.itm~
+/* Unidentified name */
+SAY NAME1 ~Manual~
+/* Identified name */
+SAY NAME2 ~Baalzebul's Rejuvenator~
+
+SAY UNIDENTIFIED_DESC
+~Judging by the arcane symbols printed on its cover, it is clear that this book is imbued with magical properties of one sort or another. Until you attempt to either read or identify it, however, its precise nature will remain unknown to you.~
+
+SAY DESC
+~Baalzebul's Rejuvenation
+This tome was originally created for one of Baalzebul's lieutenants, who demanded a magical item that could be used to heal his subordinates. A devilish enchanter assigned to the task handled it quite easily. However, when he sent the tome, it was intercepted by a scheming devil named Ischameel, who longed to have Baalzebul's personal enchanter replaced by one of his own. It is generally assumed that Ischameel sold the artifact in Faerun. Using the tome imprisons the user for three rounds in an Abyssal pocket. In this pocket plane, there is only one object: a large version of this exact tome. To receive healing, the user must write their name in the book, and the tome will then record further details about them and sometimes even quite disturbing details about their past. All previous users have heard a soft wailing when they are freed from imprisonment, which leads scholars to believe that the book transfers life force of some unfortunate soul from multiverse to the user. Therefore, no one with good or neutral alignment can bring themselves to use this tome.
+
+Requires: 15 Constitution
+Requires: 9 Intelligence
+Requires: 9 Wisdom
+
+STATISTICS::
+Can move the user to an extra-dimensional space where they are fully healed, then return after three rounds. Usable three times per day.
+
+Not Usable By:
+  Good or Neutral alignment
+~
+
+// Charged Divination Gem ------------------------------ 12
+COPY ~grand_duke/itm/rqgem02.itm~ ~override/rqgem02.itm~
+/* Unidentified name */
+SAY NAME1 ~Emerald~
+/* Identified name */
+SAY NAME2 ~Lesser Divining Gem DIl & DIn & Cl~
+
+SAY UNIDENTIFIED_DESC
+~Tourmaline is a versatile, semi-transparent gemstone known for its wide range of vibrant colors, including striking blue varieties like indicolite, with a glass-like luster and good durability. Its unique crystal structure and range of hues make it a popular choice for jewelry.~
+
+SAY DESC
+~Lesser Divining Gem DIl & DIn & Cl
+Less powerful than the Greater Gem of Seeing, this gem was originally enchanted for bard Athelmas, whose frequent travels led him to complain to his friend, enchanter Myrtlym. When they met, Myrtlym gave Athelmas this very gem. Chroniclers agree that the next owner was necromancer Launner, who probably killed Athelmas for the gem, sensing its powerful divination magic. The last owner recorded by chroniclers was ogre mage Bolad. Some scholars strongly dispute the fanciful tale about Myrtlym and Athelmas and point to the standard size of tourmalines compared to other charged divination gems, as well as markings indicating which spells could be cast. All of which suggests an old, forgotten manufacturing guild which specialized in the production of charged divination gems.
+
+This gem bears inscriptions of the letters DIl, DIn, and Cl, which indicate the spells that can be cast. When fully charged, the brilliant green tourmaline is slightly warm to the touch and exhibits a perceptible luster to the eye. However, when its magic is spent, the gem loses its warmth and luster.
+Unlike the Greater Gem of Seeing, the Lesser Gem of Seeing can only disrupt lesser illusion spells, and only when the command word is invoked.
+
+STATISTICS:
+  Cast Detect Illusion once/day
+  Cast Detect Invisibility once/day
+  Cast Clairvoyance five times per day
+
+Not Usable By:
+Wizardslayer
+~
+
+// Charged Gem of Seeing ------------------------------ 21
+COPY ~grand_duke/itm/rqgem03.itm~ ~override/rqgem03.itm~
+/* Unidentified name */
+SAY NAME1 ~Emerald~
+/* Identified name */
+SAY NAME2 ~Lesser Divining Gem DIl & Cl~
+
+SAY UNIDENTIFIED_DESC
+~Tourmaline is a versatile, semi-transparent gemstone known for its wide range of vibrant colors, including striking blue varieties like indicolite, with a glass-like luster and good durability. Its unique crystal structure and range of hues make it a popular choice for jewelry.~
+
+SAY DESC
+~Lesser Divining Gem DIl & Cl
+This charged Lesser Divining Gem was originally created by the sorcerer Tverogun, who resided in Daerlun. It was enchanted within four days, as it was seen as a necessary tool for a band of adventurers hired to eliminate the illusionist Mergel, who was the leader of a raiding band threatening Daerlun. Chroniclers record that the band used the gem to dispel weaker illusions cast by Mergel but succumbed to more powerful illusions. Another notable instance in history involved conjurer Temryn, who used the gem against an illusionist and died as a result because the gem was unable to dispel the more powerful illusions. After this second misfortune, the gem greatly lost in value.
+Some scholars strongly dispute the fanciful tale about Tverogun creating the gem and point to the standard size of tourmalines compared to other charged divination gems, as well as markings indicating which spells could be cast. all of which suggests an old, forgotten manufacturing guild which specialized in the production of charged divination gems.
+When fully charged, the brilliant green tourmaline is slightly warm to the touch and has a perceptible luster. The letters "DIl & Cl" are inscribed at the top of the gem, likely indicating which spells can be cast. The gem when its magic is spent, it loses its warmth and luster. Unlike the greater Gem of Seeing, the Lesser Divining Gem can only disrupt lesser illusion spells and only when the command word is invoked.
+
+STATISTICS:
+  Cast Detect Illusion thrice/day
+  Cast Clairvoyance once/day~
+
+// Horologium Acidum ------------------------------ 22
+COPY ~grand_duke/itm/rqmisc01.itm~ ~override/rqmisc01.itm~
+/* Unidentified name */
+SAY NAME1 ~Hourglass~
+/* Identified name */
+SAY NAME2 ~Horologium Acidum~
+
+SAY UNIDENTIFIED_DESC
+~This instrument, made of two bulbs of glass joined by a narrow passage, tells time with a portion of sand that falls between the two bulbs. Hour glasses are a common time telling device throughout the Realms.~
+
+SAY DESC
+~Horologium Acidum
+This bizarre time-measuring device is not used for measuring time at all; in fact, it can be used to unleash a spell. Scholars do not have a sufficient understanding of it, and these creations have generated many competing theories about their origin. Probably the most well-known story is about Lich Ezgurdel, who supposedly used this or similar devices to punish his misbehaving servants or slaves. Another tale suggests that these were created for the Church of Mystra to keep time, but some hapless enchanter stole them and used them as enchanting targets to practice his skills. The least known and least fanciful theory is proposed by scholars from the War Wizards of Cormyr, who point to a now-lost parchment documenting an order from an old manufacturing guild that probably specialized in making charged magical devices.
+
+Whatever the case, this specific hourglass can unleash acid on your enemy once a day.
+
+STATISTICS:
+  Special Abilities (once per day): Casts acidic blob of spell power of 4th level targeting a single creature chosen by the user.
+  Damage: 8d6 (save vs. wands for half)
+  Range: 100 ft
+  Area: One creature~
+
+// Horologium Lumine ------------------------------ 23
+COPY ~grand_duke/itm/rqmisc02.itm~ ~override/rqmisc02.itm~
+/* Unidentified name */
+SAY NAME1 ~Hourglass~
+/* Identified name */
+SAY NAME2 ~Horologium Lumine~
+
+SAY UNIDENTIFIED_DESC
+~This instrument, made of two bulbs of glass joined by a narrow passage, tells time with a portion of sand that falls between the two bulbs. Hour glasses are a common time telling device throughout the Realms.~
+
+SAY DESC
+~Horologium Lumine
+This bizarre time-measuring device is not used for measuring time at all; in fact, it can be used to unleash a spell. Scholars do not have a sufficient understanding of it, and these creations have generated many competing theories about their origin. Probably the most well-known story is about Lich Ezgurdel, who supposedly used this or similar devices to punish his misbehaving servants or slaves. Another tale suggests that these were created for the Church of Mystra to keep time, but some hapless enchanter stole them and used them as enchanting targets to practice his skills. The least known and least fanciful theory is proposed by scholars from the War Wizards of Cormyr, who point to a now-lost parchment documenting an order from an old manufacturing guild that probably specialized in making charged magical devices.
+
+Whatever the case, this specific hourglass can unleash lightning bolt on your enemy once a day.
+
+STATISTICS:
+  Special Abilities (once per day): Casts an lightning bolt with spell power of 4th level targeting a single creature chosen by the user.
+  Damage: 8d6 (save vs. wands for half)
+  Range: 100 ft
+  Area: One creature~
+
+// Horologium Frigidum ------------------------------ 24
+COPY ~grand_duke/itm/rqmisc03.itm~ ~override/rqmisc03.itm~
+/* Unidentified name */
+SAY NAME1 ~Hourglass~
+/* Identified name */
+SAY NAME2 ~Horologium Frigidum~
+
+SAY UNIDENTIFIED_DESC
+~This instrument, made of two bulbs of glass joined by a narrow passage, tells time with a portion of sand that falls between the two bulbs. Hour glasses are a common time telling device throughout the Realms.~
+
+SAY DESC
+~Horologium Frigidum
+This bizarre time-measuring device is not used for measuring time at all; in fact, it can be used to unleash a spell. Scholars do not have a sufficient understanding of it, and these creations have generated many competing theories about their origin. Probably the most well-known story is about Lich Ezgurdel, who supposedly used this or similar devices to punish his misbehaving servants or slaves. Another tale suggests that these were created for the Church of Mystra to keep time, but some hapless enchanter stole them and used them as enchanting targets to practice his skills. The least known and least fanciful theory is proposed by scholars from the War Wizards of Cormyr, who point to a now-lost parchment documenting an order from an old manufacturing guild that probably specialized in making charged magical devices.
+
+Whatever the case, this specific hourglass can unleash cold arrow on your enemy.
+
+STATISTICS:
+  Special Abilities (once per day): Casts an cold arrow of spell power of 4th level targeting a single creature chosen by the user.
+  Damage: 8d6 (save vs. wands for half)
+  Range: 100 ft
+  Area: One creature~
+
+// Nebula Adapatio   --------------------
+COPY ~grand_duke/itm/rqmisc04.itm~ ~override/rqmisc04.itm~
+/* Unidentified name */
+SAY NAME1 ~Hourglass~
+/* Identified name */
+SAY NAME2 ~Nebula Adapatio~
+
+SAY UNIDENTIFIED_DESC
+~This instrument, made of two bulbs of glass joined by a narrow passage, tells time with a portion of sand that falls between the two bulbs. Hour glasses are a common time telling device throughout the Realms.~
+
+SAY DESC
+~Nebula Adapatio
+No one knows how this artifact came into existence, but if its similarity to Horologium timekeeping devices is any indication, it supports the War Wizards of Cormyr theory about a guild specializing in crafting charged magic artifacts. However, this hourglass is significantly more potent. Not only can it spawn a horrible acid fog, but it also allows the caster to choose who is affected and who is attacked by the acid, making this artifact much more useful for adventuring groups who value not harming their members or being hit by the fog. The latest writings about Nebula Adapatio by an unknown War Wizard who examined the artifact were astonished by its targeting capability of the acid, but they were unable to understand how exactly this ability was achieved without destroying the artifact. How exactly this artifact came into the possession of the drow who gave it to you is truly a mystery.
+
+STATISTICS:
+  Special Abilities (thrice per day): Can cast acidic fog centered on user to harm his enemies.
+  Nebula Adapatio (Evocation)
+  Level: 8
+  Duration: 1 turn
+  Area of Effect: 15-foot radius
+  Saving Throw: None
+
+The casting of a Nebula Adapatio spell creates an area of solid fog that has the additional property of being highly acidic. All enemies of the caster not immune to acid must roll a saving throw against breath weapons or suffer 12d8 points of damage if failing or 6d8 points of damage if succeeding for each round they are exposed to the vapors of the death fog.
+
+Not usable by:
+ Fighter
+ Cleric
+ Druid
+ Thief
+ Paladin
+ Ranger
+~
+
+// Horologium Debilitas --------------------
+COPY ~grand_duke/itm/rqmisc05.itm~ ~override/rqmisc05.itm~
+/* Unidentified name */
+SAY NAME1 ~Hourglass~
+/* Identified name */
+SAY NAME2 ~Horologium Debilitas~
+
+SAY UNIDENTIFIED_DESC
+~This instrument, made of two bulbs of glass joined by a narrow passage, tells time with a portion of sand that falls between the two bulbs. Hour glasses are a common time telling device throughout the Realms.~
+
+SAY DESC
+~Horologium Debilitas
+Yet another timekeeping device confirms the War Wizards of Cormyr theory about an old lost manufacturing guild for charged artifacts. This hourglass has "Merkahart" written on both the bottom and the top bulb cover. It is possible that Merkahart is the name of a long-lost guild, though no such marking is found on other hourglass artifacts.
+
+Regardless of its origins, this powerful artifact can cast a debilitating curse on your opponent.
+
+STATISTICS:
+
+Energy Drain (Necromancy)
+
+Level: 9
+Range: Touch
+Duration: Permanent
+Casting Time: 3
+Area of Effect: Target Creature
+Saving Throw: None
+The casting of this spell opens a channel between the caster's plane and the Negative Energy plane. The caster acts as a conduit between the two planes, sucking life from a victim and transferring it to the Negative Energy plane, draining the victim of 5 levels of experience. The target loses levels, Hit Dice, hit points, and abilities permanently. These levels can only be restored by a priest's restoration spell.
+
+Another effect of this artifact is that the victim will be enfeebled thus less strong, less agile, and less tough, with a reduction of 3 points in all mentioned attributes. This effect is not permanent and lasts for one turn.
+
+Not usable by:
+ Fighter
+ Cleric
+ Druid
+ Thief
+ Paladin
+ Ranger
+~
+
+// Demnar's Failure ------------------------------ 26
+COPY ~grand_duke/itm/rqdart01.itm~ ~override/rqdart01.itm~
+/* Unidentified name */
+SAY NAME1 ~Dart~
+/* Identified name */
+SAY NAME2 ~Demnar's Failure +4~
+
+SAY UNIDENTIFIED_DESC
+~The dart is a small, easily concealable missile weapon that is thrown rather than fired from a bow or other launcher.
+
+STATISTICS:
+
+Damage:  1D3
+Damage type:  missile (piercing)
+Weight: 0
+Speed Factor: 2
+Proficiency Type: Dart
+Type:  1-handed
+Not Usable By:
+ Cleric~
+
+SAY DESC
+~Demnar's Failure
+The history of Demnar's failed dart is not very clear, but historians link it to the siege of the city Hlath, which is undated but probably occurred around the 12th century DR. This powerful dart was made by blacksmith Eregiel and enchanted by mage Dezgyn Lefthanded, who sent a band of adventurers to either kill or bribe the captain of a crucial part of the besieging army. Since no one has mentioned this dart afterwards, it must have been lost during an expedition by the adventurers. Chroniclers assume that it was most likely lost during a fire that broke out in the earthworks built by the besieging army. While most scholars think that the current name of this dart comes from a failed adventurers foray, this is not true. Demnar's intention was to create an even more powerful version that would strike with all four elements, and yes, the resulting weapon does strike with four different types of damage, but they are mixed up: instead of acid, it strikes with poison; instead of cold, it strikes with pure magical damage. Therefore, Demnar regarded his order as a failure.
+
+STATISTICS:
+
+THAC0:  +4 bonus
+Damage:  1D3 +4, +1d2 fire damage, +1d2 magic damage, +1d2 electric damage, +1d2 poison damage
+Damage type:  missile (piercing)
+Weight: 0
+Speed Factor: 0
+Proficiency Type: Dart
+Type:  1-handed
+Not Usable By:
+ Cleric~
+
+
+
+/* Copy Creature Files into Override directory */
+
+// Ambushes
+// Act 1: First part until Votes are gathered.
+COPY ~grand_duke/cre/rqkrivy.cre~ ~override/rqkrivy.cre~
+  WRITE_ASCII 0x280 ~rqkrivy~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x2cc ~rqkrivy~ #8 // Dialogue file
+  WRITE_ASCII 0x248 ~INITDLG~ #8 // Override script
+  ADD_CRE_ITEM ~rqletkr1~ #0 #0 #0 ~UNSTEALABLE~ ~INV~
+  SAY NAME1 ~Krivy~
+  SAY NAME2 ~Krivy~
+
+COPY ~grand_duke/cre/rqrepr1.cre~ ~override/rqrepr1.cre~
+  WRITE_ASCII 0x280 ~rqrepr1~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x2cc ~rqrepr1~ #8 // Dialogue file
+  SAY NAME1 ~Talvin of Gelfiven~
+  SAY NAME2 ~Talvin of Gelfiven~
+
+COPY ~grand_duke/cre/rqrepr2.cre~ ~override/rqrepr2.cre~
+  WRITE_ASCII 0x280 ~rqrepr2~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x2cc ~rqrepr2~ #8 // Dialogue file
+  SAY NAME1 ~Gemerkan~
+  SAY NAME2 ~Gemerkan~
+
+COPY ~grand_duke/cre/rqrepr3.cre~ ~override/rqrepr3.cre~
+  WRITE_ASCII 0x280 ~rqrepr3~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x2cc ~rqrepr3~ #8 // Dialogue file
+  ADD_CRE_ITEM ~rqletre3~ #0 #0 #0 ~UNSTEALABLE~ ~INV~
+  SAY NAME1 ~Melwis~
+  SAY NAME2 ~Melwis~
+
+COPY ~grand_duke/cre/rqrepr4.cre~ ~override/rqrepr4.cre~
+  WRITE_ASCII 0x280 ~rqrepr4~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x2cc ~rqrepr4~ #8 // Dialogue file
+  SAY NAME1 ~Gvalas~
+  SAY NAME2 ~Gvalas~
+
+COPY ~grand_duke/cre/rqrepr5.cre~ ~override/rqrepr5.cre~
+  WRITE_ASCII 0x280 ~rqrepr5~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x2cc ~rqrepr5~ #8 // Dialogue file
+  SAY NAME1 ~Temur of Droliegen~
+  SAY NAME2 ~Temur of Droliegen~
+
+COPY ~grand_duke/cre/rqrepr6.cre~ ~override/rqrepr6.cre~
+  WRITE_ASCII 0x280 ~rqrepr6~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x2cc ~rqrepr6~ #8 // Dialogue file
+  SAY NAME1 ~Turpin of Milgerin~
+  SAY NAME2 ~Turpin of Milgerin~
+
+COPY ~grand_duke/cre/rqrepr7.cre~ ~override/rqrepr7.cre~
+  WRITE_ASCII 0x280 ~rqrepr7~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x2cc ~rqrepr7~ #8 // Dialogue file
+  SAY NAME1 ~Ivylla Donnerstrom~
+  SAY NAME2 ~Ivylla Donnerstrom~
+
+COPY ~grand_duke/cre/rqrepr8.cre~ ~override/rqrepr8.cre~
+  WRITE_ASCII 0x280 ~rqrepr8~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x2cc ~rqrepr8~ #8 // Dialogue file
+  SAY NAME1 ~Remelsen~
+  SAY NAME2 ~Remelsen~
+
+COPY ~grand_duke/cre/rqrepr9.cre~ ~override/rqrepr9.cre~
+  WRITE_ASCII 0x280 ~rqrepr9~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x2cc ~rqrepr9~ #8 // Dialogue file
+  SAY NAME1 ~Nestor~
+  SAY NAME2 ~Nestor~
+
+COPY ~grand_duke/cre/rqrepr10.cre~ ~override/rqrepr10.cre~
+  WRITE_ASCII 0x280 ~rqrepr10~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x2cc ~rqrepr10~ #8 // Dialogue file
+  SAY NAME1 ~Ioviis~
+  SAY NAME2 ~Ioviis~
+// Sirine Lighthouse
+COPY ~grand_duke/cre/rqsirine.cre~ ~override/rqsirine.cre~
+  WRITE_ASCII 0x280 ~rqsirine~ #32 // Script name aka Death Variable
+  ADD_CRE_ITEM ~rqsirine~ #0 #0 #0 ~UNSTEALABLE~ ~INV~
+  SAY NAME1 ~Wounded Sirine~
+  SAY NAME2 ~Wounded Sirine~
+// Merchelen Low Lantern
+COPY ~grand_duke/cre/rqmerch.cre~ ~override/rqmerch.cre~
+  WRITE_ASCII 0x280 ~rqmerch~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x2cc ~rqmerch~ #8 // Dialogue file
+  SAY NAME1 ~Merchelen~
+  SAY NAME2 ~Merchelen~
+// Bounty Officer Flaming Fist Citadel
+COPY ~grand_duke/cre/rqbofist.cre~ ~override/rqbofist.cre~
+  WRITE_ASCII 0x280 ~rqbofist~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x2cc ~rqbofist~ #8 // Dialogue file
+  SAY NAME1 ~Bounty Officer Grael~
+  SAY NAME2 ~Bounty Officer Grael~
+// Gro'Thuk
+COPY ~grand_duke/cre/rqgroth.cre~ ~override/rqgroth.cre~
+  WRITE_ASCII 0x280 ~rqgroth~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x2cc ~rqgroth~ #8 // Dialogue file
+  ADD_CRE_ITEM ~rqhead01~ #0 #0 #0 ~UNSTEALABLE~ ~INV~
+  SAY NAME1 ~Gro'Thuk~
+  SAY NAME2 ~Gro'Thuk~
+// Gro'Thuk Revenge party
+COPY ~grand_duke/cre/rqburth.cre~ ~override/rqburth.cre~
+  WRITE_ASCII 0x280 ~rqburth~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x2cc ~rqburth~ #8 // Dialogue file
+  SAY NAME1 ~Bur'Thuk~
+  SAY NAME2 ~Bur'Thuk~
+
+COPY ~grand_duke/cre/rqburgo1.cre~ ~override/rqburgo1.cre~
+  WRITE_ASCII 0x280 ~rqburgo1~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x2cc ~rqburgo1~ #8 // Dialogue file
+  SAY NAME1 ~Sur'Thuk~
+  SAY NAME2 ~Sur'Thuk~
+
+COPY ~grand_duke/cre/rqburgo2.cre~ ~override/rqburgo2.cre~
+  WRITE_ASCII 0x280 ~rqburgo2~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x2cc ~rqburgo2~ #8 // Dialogue file
+  WRITE_ASCII 0x248 ~SHOUTDLG~ #8 // Override script
+  SAY NAME1 ~Lur'Thuk~
+  SAY NAME2 ~Lur'Thuk~
+
+COPY ~grand_duke/cre/rqburgo3.cre~ ~override/rqburgo3.cre~
+  WRITE_ASCII 0x280 ~rqburgo3~ #32 // Script name aka Death Variable
+  SAY NAME1 ~Anbasa~
+  SAY NAME2 ~Anbasa~
+// Ogre Magi
+COPY ~grand_duke/cre/rqomagi1.cre~ ~override/rqomagi1.cre~
+  WRITE_ASCII 0x280 ~rqomagi1~ #32 // Script name aka Death Variable
+  SAY NAME1 ~Bolad~
+  SAY NAME2 ~Bolad~
+// Lerov belts spy
+COPY ~grand_duke/cre/rqlerov.cre~ ~override/rqlerov.cre~
+  WRITE_ASCII 0x280 ~rqlerov~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x248 ~rqlerov~ #8 // Override script
+  WRITE_ASCII 0x250 ~rqthief2~ #8 // Class script
+  WRITE_ASCII 0x2cc ~rqlerov~ #8 // Dialogue file
+  SAY NAME1 ~Lerov~
+  SAY NAME2 ~Lerov~
+// Lerov belts spy good
+COPY ~grand_duke/cre/rqlerovg.cre~ ~override/rqlerovg.cre~
+  WRITE_ASCII 0x280 ~rqlerovg~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x250 ~rqthief2~ #8 // Class script
+  WRITE_ASCII 0x2cc ~rqlerovg~ #8 // Dialogue file
+  SAY NAME1 ~Lerov~
+  SAY NAME2 ~Lerov~
+
+// Evil Nemean
+COPY ~grand_duke/cre/rqnemeae.cre~ ~override/rqnemeae.cre~
+  WRITE_ASCII 0x280 ~rqnemeae~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x248 ~rqnemeae~ #8 // Override script
+  ADD_CRE_ITEM ~rqletne1~ #0 #0 #0 ~UNSTEALABLE~ ~INV~
+  SAY NAME1 ~Nemean~
+  SAY NAME2 ~Nemean~
+// Good Nemean
+COPY ~grand_duke/cre/rqnemeag.cre~ ~override/rqnemeag.cre~
+  WRITE_ASCII 0x280 ~rqnemeag~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x248 ~rqnemeag~ #8 // Override script
+  ADD_CRE_ITEM ~rqnemjou~ #0 #0 #0 ~UNSTEALABLE~ ~INV~
+  SAY NAME1 ~Nemean~
+  SAY NAME2 ~Nemean~
+// Neutral Nemean
+COPY ~grand_duke/cre/rqnemean.cre~ ~override/rqnemean.cre~
+  WRITE_ASCII 0x280 ~rqnemean~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x248 ~rqnemean~ #8 // Override script
+  SAY NAME1 ~Nemean~
+  SAY NAME2 ~Nemean~
+// Nemeans Assassins
+COPY ~grand_duke/cre/rqfig9a1.cre~ ~override/rqfig9a1.cre~
+  WRITE_ASCII 0x280 ~rqfig9a1~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x250 ~rqgpuse~ #8 // Class script
+  SAY NAME1 ~Fighter~
+  SAY NAME2 ~Fighter~
+
+COPY ~grand_duke/cre/rqfig9b1.cre~ ~override/rqfig9b1.cre~
+  WRITE_ASCII 0x280 ~rqfig9b1~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x250 ~rqgpuse~ #8 // Class script
+  SAY NAME1 ~Fighter~
+  SAY NAME2 ~Fighter~
+
+COPY ~grand_duke/cre/rqthi8a1.cre~ ~override/rqthi8a1.cre~
+  WRITE_ASCII 0x280 ~rqthi8a1~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x250 ~rqgpuse~ #8 // Class script
+  SAY NAME1 ~Thief~
+  SAY NAME2 ~Thief~
+
+COPY ~grand_duke/cre/rqthi8b1.cre~ ~override/rqthi8b1.cre~
+  WRITE_ASCII 0x280 ~rqthi8b1~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x250 ~rqgpuse~ #8 // Class script
+  SAY NAME1 ~Thief~
+  SAY NAME2 ~Thief~
+
+COPY ~grand_duke/cre/rqfigc1.cre~ ~override/rqfigc1.cre~
+  WRITE_ASCII 0x280 ~rqfigc1~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x250 ~rqgpuse~ #8 // Class script
+  SAY NAME1 ~Archer~
+  SAY NAME2 ~Archer~
+
+COPY ~grand_duke/cre/rqfigc2.cre~ ~override/rqfigc2.cre~
+  WRITE_ASCII 0x280 ~rqfigc2~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x250 ~rqgpuse~ #8 // Class script
+  SAY NAME1 ~Archer~
+  SAY NAME2 ~Archer~
+
+COPY ~grand_duke/cre/rqfigc3.cre~ ~override/rqfigc3.cre~
+  WRITE_ASCII 0x280 ~rqfigc3~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x250 ~rqgpuse~ #8 // Class script
+  SAY NAME1 ~Archer~
+  SAY NAME2 ~Archer~
+
+COPY ~grand_duke/cre/rqcled1.cre~ ~override/rqcled1.cre~
+  WRITE_ASCII 0x280 ~rqcled1~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x250 ~PRIES14A~ #8 // Class script
+  WRITE_ASCII 0x258 ~rqgpuse~ #8 // Race script
+  SAY NAME1 ~Cleric~
+  SAY NAME2 ~Cleric~
+
+// Act 2: Neutral Path
+COPY ~grand_duke/cre/rqbelt.cre~ ~override/rqbelt.cre~
+  WRITE_ASCII 0x280 ~rqbelt~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x250 ~rqgpuse~ #8 // Class script
+  WRITE_ASCII 0x2cc ~rqbelt~ #8 // Dialogue file
+  SAY NAME1 ~Belt~
+  SAY NAME2 ~Belt~
+
+COPY ~grand_duke/cre/rqtrest.cre~ ~override/rqtrest.cre~
+  WRITE_ASCII 0x248 ~rqtrest~ #8 // Override script
+  WRITE_ASCII 0x280 ~rqtrest~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x2cc ~rqtrest~ #8 // Dialogue file
+  WRITE_ASCII 0x250 ~rqgpuse~ #8 // Class script
+  ADD_CRE_ITEM ~rqcrat01~ #0 #0 #0 ~UNSTEALABLE~ ~INV~
+  ADD_CRE_ITEM ~rqgprof5~ #0 #0 #0 ~UNSTEALABLE~ ~INV~
+  SAY NAME1 ~Trest~
+  SAY NAME2 ~Trest~
+
+COPY ~grand_duke/cre/rqlerus.cre~ ~override/rqlerus.cre~
+  WRITE_ASCII 0x280 ~rqlerus~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x2cc ~rqlerus~ #8 // Dialogue file
+  SAY NAME1 ~Lerus~
+  SAY NAME2 ~Lerus~
+
+COPY ~grand_duke/cre/rqstyr.cre~ ~override/rqstyr.cre~
+  WRITE_ASCII 0x280 ~rqstyr~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x2cc ~rqstyr~ #8 // Dialogue file
+  SAY NAME1 ~Styr~
+  SAY NAME2 ~Styr~
+
+COPY ~grand_duke/cre/rqmaxmil.cre~ ~override/rqmaxmil.cre~
+  WRITE_ASCII 0x280 ~rqmaxmil~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x2cc ~rqmaxmil~ #8 // Dialogue file
+  SAY NAME1 ~Maxmillion~
+  SAY NAME2 ~Maxmillion~
+
+COPY ~grand_duke/cre/rqkerb.cre~ ~override/rqkerb.cre~
+  WRITE_ASCII 0x248 ~SHOUTDLG~ #8 // Override script
+  WRITE_ASCII 0x250 ~rqgpuse~ #8 // Class script
+  WRITE_ASCII 0x280 ~rqkerb~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x2cc ~rqkerb~ #8 // Dialogue file
+  SAY NAME1 ~Kerboven~
+  SAY NAME2 ~Kerboven~
+
+// Krivys exit guards Flaming Fist Enforcers
+COPY ~grand_duke/cre/rqfisth1.cre~ ~override/rqfisth1.cre~
+  WRITE_ASCII 0x280 ~rqfisth1~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x2cc ~rqfisth1~ #8 // Dialogue file
+  WRITE_ASCII 0x250 ~rqgpuse~ #8 // Class script
+  SAY NAME1 ~Flaming Fist Enforcer~
+  SAY NAME2 ~Flaming Fist Enforcer~
+
+// Ending Flaming Fist Enforcer
+COPY ~grand_duke/cre/rqenfist.cre~ ~override/rqenfist.cre~
+  WRITE_ASCII 0x280 ~rqenfist~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x2cc ~rqenfist~ #8 // Dialogue file
+  WRITE_ASCII 0x248 ~rqenfist~ #8 // Override script
+  WRITE_ASCII 0x250 ~rqgpuse~ #8 // Class script
+  SAY NAME1 ~Flaming Fist Enforcer~
+  SAY NAME2 ~Flaming Fist Enforcer~
+
+COPY ~grand_duke/cre/rqfistl1.cre~ ~override/rqfistl1.cre~
+  WRITE_ASCII 0x280 ~rqfistl1~ #32 // Script name aka Death Variable
+  SAY NAME1 ~Flaming Fist Enforcer~
+  SAY NAME2 ~Flaming Fist Enforcer~
+
+COPY ~grand_duke/cre/rqfistl2.cre~ ~override/rqfistl2.cre~
+  WRITE_ASCII 0x280 ~rqfistl2~ #32 // Script name aka Death Variable
+  SAY NAME1 ~Flaming Fist Scout~
+  SAY NAME2 ~Flaming Fist Scout~
+
+COPY ~grand_duke/cre/rqfistl3.cre~ ~override/rqfistl3.cre~
+  WRITE_ASCII 0x280 ~rqfistl3~ #32 // Script name aka Death Variable
+  SAY NAME1 ~Flaming Fist Battle Wizard~
+  SAY NAME2 ~Flaming Fist Battle Wizard~
+
+// Stage 2 starting messenger neutral ???
+COPY ~grand_duke/cre/rqcoura1.cre~ ~override/rqcoura1.cre~
+  WRITE_ASCII 0x280 ~rqcoura1~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x2cc ~rqcoura1~ #8 // Dialogue file
+  ADD_CRE_ITEM ~rqletbe1~ #0 #0 #0 ~UNSTEALABLE~ ~INV~
+  SAY NAME1 ~Messenger~
+  SAY NAME2 ~Messenger~
+
+// Stage 2 starting messenger neutral ???
+COPY ~grand_duke/cre/rqcourb1.cre~ ~override/rqcourb1.cre~
+  WRITE_ASCII 0x280 ~rqcourb1~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x2cc ~rqcourb1~ #8 // Dialogue file
+  ADD_CRE_ITEM ~rqletbe1~ #0 #0 #0 ~UNSTEALABLE~ ~INV~
+  SAY NAME1 ~Messenger~
+  SAY NAME2 ~Messenger~
+
+// Stage 2 pre flaming fist ambush messenger
+COPY ~grand_duke/cre/rqcoura2.cre~ ~override/rqcoura2.cre~
+  WRITE_ASCII 0x280 ~rqcoura2~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x2cc ~rqcoura2~ #8 // Dialogue file
+//  ADD_CRE_ITEM ~rqletbn1~ #0 #0 #0 ~UNSTEALABLE~ ~INV~
+  SAY NAME1 ~Messenger~
+  SAY NAME2 ~Messenger~
+
+// Alvier in BG palace
+COPY ~grand_duke/cre/rqalvier.cre~ ~override/rqalvier.cre~
+  WRITE_ASCII 0x280 ~rqalvier~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x2cc ~rqalvier~ #8 // Dialogue file
+  SAY NAME1 ~Alvier~
+  SAY NAME2 ~Alvier~
+
+// Lerovs handler Flaming Fist Officer
+COPY ~grand_duke/cre/rqcofist.cre~ ~override/rqcofist.cre~
+  WRITE_ASCII 0x280 ~rqcofist~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x2cc ~rqcofist~ #8 // Dialogue file
+  SAY NAME1 ~Lezgyn Hawk~
+  SAY NAME2 ~Lezgyn Hawk~
+
+// Paladins in Shop of Silence
+COPY ~grand_duke/cre/rqpal1a.cre~ ~override/rqpal1a.cre~
+  WRITE_ASCII 0x280 ~rqpal1a~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x2cc ~rqpal1a~ #8 // Dialogue file
+  WRITE_ASCII 0x248 ~SHOUTDLG~ #8 // Override script
+  SAY NAME1 ~Sir Courtenay~
+  SAY NAME2 ~Sir Courtenay~
+
+COPY ~grand_duke/cre/rqcle1a.cre~ ~override/rqcle1a.cre~
+  WRITE_ASCII 0x280 ~rqcle1a~ #32 // Script name aka Death Variable
+  //WRITE_ASCII 0x250 ~rqgpuse~ #8 // Class script
+  SAY NAME1 ~Aerthemas~
+  SAY NAME2 ~Aerthemas~
+
+COPY ~grand_duke/cre/rqpal2a.cre~ ~override/rqpal2a.cre~
+  WRITE_ASCII 0x280 ~rqpal2a~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x250 ~rqpala7~ #8 // Class script
+  SAY NAME1 ~Knight~
+  SAY NAME2 ~Knight~
+
+COPY ~grand_duke/cre/rqpal3a.cre~ ~override/rqpal3a.cre~
+  WRITE_ASCII 0x280 ~rqpal3a~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x250 ~rqpala7~ #8 // Class script
+  SAY NAME1 ~Knight~
+  SAY NAME2 ~Knight~
+
+COPY ~grand_duke/cre/rqpal4a.cre~ ~override/rqpal4a.cre~
+  WRITE_ASCII 0x280 ~rqpal4a~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x250 ~rqpala7~ #8 // Class script
+  SAY NAME1 ~Knight~
+  SAY NAME2 ~Knight~
+
+COPY ~grand_duke/cre/rqpal5a.cre~ ~override/rqpal5a.cre~
+  WRITE_ASCII 0x280 ~rqpal5a~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x250 ~rqpala7~ #8 // Class script
+  SAY NAME1 ~Knight~
+  SAY NAME2 ~Knight~
+
+// Flaming Fist 1st floor
+COPY ~grand_duke/cre/rqfistd9.cre~ ~override/rqfistd9.cre~
+  WRITE_ASCII 0x280 ~rqfistd9~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x2cc ~rqfistd9~ #8 // Dialogue file
+  WRITE_ASCII 0x248 ~INITDLG~ #8 // Override script
+  SAY NAME1 ~Anastasov~
+  SAY NAME2 ~Anastasov~
+
+COPY ~grand_duke/cre/rqfiste0.cre~ ~override/rqfiste0.cre~
+  WRITE_ASCII 0x280 ~rqfiste0~ #32 // Script name aka Death Variable
+  SAY NAME1 ~Flaming Fist Mercenary~
+  SAY NAME2 ~Flaming Fist Mercenary~
+
+COPY ~grand_duke/cre/rqfiste1.cre~ ~override/rqfiste1.cre~
+  WRITE_ASCII 0x280 ~rqfiste1~ #32 // Script name aka Death Variable
+  ADD_CRE_ITEM ~MISC43~ #0 #0 #0 ~NONE~ ~INV~
+  SAY NAME1 ~Flaming Fist Mercenary~
+  SAY NAME2 ~Flaming Fist Mercenary~
+
+COPY ~grand_duke/cre/rqfiste2.cre~ ~override/rqfiste2.cre~
+  WRITE_ASCII 0x280 ~rqfiste2~ #32 // Script name aka Death Variable
+  SAY NAME1 ~Flaming Fist Mercenary~
+  SAY NAME2 ~Flaming Fist Mercenary~
+
+COPY ~grand_duke/cre/rqfiste3.cre~ ~override/rqfiste3.cre~
+  WRITE_ASCII 0x280 ~rqfiste3~ #32 // Script name aka Death Variable
+  SAY NAME1 ~Flaming Fist Mercenary~
+  SAY NAME2 ~Flaming Fist Mercenary~
+
+COPY ~grand_duke/cre/rqfisth4.cre~ ~override/rqfisth4.cre~
+  WRITE_ASCII 0x280 ~rqfisth4~ #32 // Script name aka Death Variable
+  SAY NAME1 ~Flaming Fist Scout~
+  SAY NAME2 ~Flaming Fist Scout~
+
+COPY ~grand_duke/cre/rqfisth5.cre~ ~override/rqfisth5.cre~
+  WRITE_ASCII 0x280 ~rqfisth5~ #32 // Script name aka Death Variable
+  SAY NAME1 ~Flaming Fist Scout~
+  SAY NAME2 ~Flaming Fist Scout~
+
+COPY ~grand_duke/cre/rqfisth6.cre~ ~override/rqfisth6.cre~
+  WRITE_ASCII 0x280 ~rqfisth6~ #32 // Script name aka Death Variable
+  SAY NAME1 ~Flaming Fist Scout~
+  SAY NAME2 ~Flaming Fist Scout~
+
+COPY ~grand_duke/cre/rqfisti7.cre~ ~override/rqfisti7.cre~
+  WRITE_ASCII 0x280 ~rqfisti7~ #32 // Script name aka Death Variable
+  SAY NAME2 ~Flaming Fist Battle Wizard~
+  SAY NAME2 ~Flaming Fist Battle Wizard~
+
+COPY ~grand_duke/cre/rqfisti8.cre~ ~override/rqfisti8.cre~
+  WRITE_ASCII 0x280 ~rqfisti8~ #32 // Script name aka Death Variable
+  SAY NAME2 ~Flaming Fist Battle Wizard~
+  SAY NAME2 ~Flaming Fist Battle Wizard~
+
+// Flaming Fist 2nd floor
+COPY ~grand_duke/cre/rqfistf1.cre~ ~override/rqfistf1.cre~
+  WRITE_ASCII 0x280 ~rqfistf1~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x248 ~SHOUT~ #8 // Override script
+  SAY NAME1 ~Flaming Fist Mercenary~
+  SAY NAME2 ~Flaming Fist Mercenary~
+
+COPY ~grand_duke/cre/rqfistf2.cre~ ~override/rqfistf2.cre~
+  WRITE_ASCII 0x280 ~rqfistf2~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x248 ~SHOUT~ #8 // Override script
+  SAY NAME1 ~Flaming Fist Mercenary~
+  SAY NAME2 ~Flaming Fist Mercenary~
+
+COPY ~grand_duke/cre/rqfistf3.cre~ ~override/rqfistf3.cre~
+  WRITE_ASCII 0x280 ~rqfistf3~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x248 ~SHOUT~ #8 // Override script
+  SAY NAME1 ~Flaming Fist Mercenary~
+  SAY NAME2 ~Flaming Fist Mercenary~
+
+COPY ~grand_duke/cre/rqfistk1.cre~ ~override/rqfistk1.cre~
+  WRITE_ASCII 0x280 ~rqfistk1~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x248 ~SHOUT~ #8 // Override script
+  SAY NAME1 ~Flaming Fist Mercenary~
+  SAY NAME2 ~Flaming Fist Mercenary~
+
+COPY ~grand_duke/cre/rqfistk2.cre~ ~override/rqfistk2.cre~
+  WRITE_ASCII 0x280 ~rqfistk2~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x248 ~SHOUT~ #8 // Override script
+  SAY NAME1 ~Flaming Fist Archer~
+  SAY NAME2 ~Flaming Fist Archer~
+
+COPY ~grand_duke/cre/rqfistk3.cre~ ~override/rqfistk3.cre~
+  WRITE_ASCII 0x280 ~rqfistk3~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x248 ~SHOUT~ #8 // Override script
+  SAY NAME1 ~Flaming Fist Captain~
+  SAY NAME2 ~Flaming Fist Captain~
+
+// Flaming Fist Citadel Thieves
+COPY ~grand_duke/cre/rqthi1a.cre~ ~override/rqthi1a.cre~
+  WRITE_ASCII 0x280 ~rqthi1a~ #32 // Script name aka Death Variable
+  SAY NAME1 ~Thief~
+  SAY NAME2 ~Thief~
+
+COPY ~grand_duke/cre/rqthi2a.cre~ ~override/rqthi2a.cre~
+  WRITE_ASCII 0x280 ~rqthi2a~ #32 // Script name aka Death Variable
+  SAY NAME1 ~Thief~
+  SAY NAME2 ~Thief~
+
+COPY ~grand_duke/cre/rqthi3a.cre~ ~override/rqthi3a.cre~
+  WRITE_ASCII 0x280 ~rqthi3a~ #32 // Script name aka Death Variable
+  SAY NAME1 ~Thief~
+  SAY NAME2 ~Thief~
+
+COPY ~grand_duke/cre/rqthi4a.cre~ ~override/rqthi4a.cre~
+  WRITE_ASCII 0x280 ~rqthi4a~ #32 // Script name aka Death Variable
+  SAY NAME1 ~Thief~
+  SAY NAME2 ~Thief~
+
+// Thieves Guild reinforcements
+COPY ~grand_duke/cre/rqfig9c1.cre~ ~override/rqfig9c1.cre~
+  WRITE_ASCII 0x280 ~rqfig9c1~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x250 ~rqgpuse~ #8 // Class script
+  WRITE_ASCII 0x248 ~SHOUT~ #8 // Override script
+  SAY NAME1 ~Mercenary Fighter~
+  SAY NAME1 ~Mercenary Fighter~
+
+COPY ~grand_duke/cre/rqarc7c1.cre~ ~override/rqarc7c1.cre~
+  WRITE_ASCII 0x280 ~rqarc7c1~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x250 ~rqgpuse~ #8 // Class script
+  WRITE_ASCII 0x248 ~SHOUT~ #8 // Override script
+  SAY NAME1 ~Mercenary Archer~
+  SAY NAME1 ~Mercenary Archer~
+
+COPY ~grand_duke/cre/rqthi8c1.cre~ ~override/rqthi8c1.cre~
+  WRITE_ASCII 0x280 ~rqthi8c1~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x248 ~SHOUT~ #8 // Override script
+  WRITE_ASCII 0x250 ~rqthief2~ #8 // Class script
+  SAY NAME1 ~Thief~
+  SAY NAME1 ~Thief~
+
+COPY ~grand_duke/cre/rqthi8c2.cre~ ~override/rqthi8c2.cre~
+  WRITE_ASCII 0x280 ~rqthi8c2~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x248 ~SHOUT~ #8 // Override script
+  WRITE_ASCII 0x250 ~rqthief2~ #8 // Class script
+  SAY NAME1 ~Thief~
+  SAY NAME1 ~Thief~
+
+COPY ~grand_duke/cre/rqthi8c3.cre~ ~override/rqthi8c3.cre~
+  WRITE_ASCII 0x280 ~rqthi8c3~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x248 ~SHOUT~ #8 // Override script
+  WRITE_ASCII 0x250 ~rqthief2~ #8 // Class script
+  SAY NAME1 ~Thief~
+  SAY NAME1 ~Thief~
+
+COPY ~grand_duke/cre/rqthi8c4.cre~ ~override/rqthi8c4.cre~
+  WRITE_ASCII 0x280 ~rqthi8c4~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x248 ~rqremyha~ #8 // Override script
+  WRITE_ASCII 0x250 ~rqthief2~ #8 // Class script
+  SAY NAME1 ~Remy Hawk~
+  SAY NAME1 ~Remy Hawk~
+
+COPY ~grand_duke/cre/rqcle7c1.cre~ ~override/rqcle7c1.cre~
+  WRITE_ASCII 0x280 ~rqcle7c1~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x248 ~SHOUT~ #8 // Override script
+  SAY NAME1 ~Mercenary Cleric~
+  SAY NAME1 ~Mercenary Cleric~
+
+COPY ~grand_duke/cre/rqmag8c1.cre~ ~override/rqmag8c1.cre~
+  WRITE_ASCII 0x280 ~rqmag8c1~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x250 ~MAGE8A~ #8 // Class script
+  WRITE_ASCII 0x248 ~SHOUT~ #8 // Override script
+  ADD_CRE_ITEM ~rqboot05~ #0 #0 #0 ~NONE~ ~BOOTS~
+  SAY NAME1 ~Mercenary Mage~
+  SAY NAME1 ~Mercenary Mage~
+// Evil path ending Thief
+COPY ~grand_duke/cre/rqthi8d1.cre~ ~override/rqthi8d1.cre~
+  WRITE_ASCII 0x280 ~rqthi8d1~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x250 ~rqthief2~ #8 // Class script
+  WRITE_ASCII 0x2cc ~rqspes~ #8 // Dialogue file
+  SAY NAME1 ~Spestyl~
+  SAY NAME1 ~Spestyl~
+
+COPY ~grand_duke/cre/rqthi8d2.cre~ ~override/rqthi8d2.cre~
+  WRITE_ASCII 0x280 ~rqthi8d2~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x250 ~rqthief2~ #8 // Class script
+  SAY NAME1 ~Shadow Thief~
+  SAY NAME1 ~Shadow Thief~
+
+COPY ~grand_duke/cre/rqthi8d3.cre~ ~override/rqthi8d3.cre~
+  WRITE_ASCII 0x280 ~rqthi8d3~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x250 ~rqthief2~ #8 // Class script
+  SAY NAME1 ~Shadow Thief~
+  SAY NAME1 ~Shadow Thief~
+
+COPY ~grand_duke/cre/rqthi8d4.cre~ ~override/rqthi8d4.cre~
+  WRITE_ASCII 0x280 ~rqthi8d4~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x250 ~rqthief2~ #8 // Class script
+  SAY NAME1 ~Shadow Thief~
+  SAY NAME1 ~Shadow Thief~
+
+/*
+COPY ~grand_duke/cre/rqthi8d4.cre~ ~override/rqthi8d4.cre~
+  WRITE_ASCII 0x280 ~rqthi8d4~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x250 ~gpthief~ #8 // Class script
+  SAY NAME1 ~Shadow Thief~
+  SAY NAME1 ~Shadow Thief~
+*/
+// Iachino
+  COPY ~grand_duke/cre/rqiachin.cre~ ~override/rqiachin.cre~
+  WRITE_ASCII 0x280 ~rqiachin~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x250 ~rqgpuse~ #8 // Class script
+  WRITE_ASCII 0x248 ~rqiachin~ #8 // Override script
+  WRITE_ASCII 0x2cc ~rqiachin~ #8 // Dialogue file
+  ADD_CRE_ITEM ~rqbrac04~ #0 #0 #0 ~UNSTEALABLE~ ~INV~
+  ADD_CRE_ITEM ~BOOK05~ #0 #0 #0 ~UNSTEALABLE~ ~INV~
+  ADD_CRE_ITEM ~rqbelt04~ #0 #0 #0 ~UNSTEALABLE~ ~INV~
+  SAY NAME1 ~Iachino~
+  SAY NAME2 ~Iachino~
+// Neutral Flaming Fist ambush near Blade and Stars
+COPY ~grand_duke/cre/rqfistg1.cre~ ~override/rqfistg1.cre~
+  WRITE_ASCII 0x280 ~rqfistg1~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x248 ~rqnebat5~ #8 // Override script
+  WRITE_ASCII 0x250 ~rqgpuse~ #8 // Class script
+  SAY NAME1 ~Flaming Fist Mercenary~
+  SAY NAME2 ~Flaming Fist Mercenary~
+
+COPY ~grand_duke/cre/rqfistg2.cre~ ~override/rqfistg2.cre~
+  WRITE_ASCII 0x280 ~rqfistg2~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x248 ~rqnebat5~ #8 // Override script
+  WRITE_ASCII 0x250 ~rqgpuse~ #8 // Class script
+  SAY NAME1 ~Flaming Fist Archer~
+  SAY NAME2 ~Flaming Fist Archer~
+
+COPY ~grand_duke/cre/rqfistg3.cre~ ~override/rqfistg3.cre~
+  WRITE_ASCII 0x280 ~rqfistg3~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x248 ~SHOUTDLG~ #8 // Override script
+  WRITE_ASCII 0x2cc ~rqfistg3~ #8 // Dialogue file
+  WRITE_ASCII 0x250 ~rqgpuse~ #8 // Class script
+  SAY NAME1 ~Flaming Fist Captain~
+  SAY NAME2 ~Flaming Fist Captain~
+
+// Gnoll Chieftain
+COPY ~grand_duke/cre/rqgnoll1.cre~ ~override/rqgnoll1.cre~
+  WRITE_ASCII 0x280 ~rqgnoll1~ #32 // Script name aka Death Variable
+  ADD_CRE_ITEM ~rqaxe01~ #0 #0 #0 ~UNSTEALABLE~ ~INV~
+  ADD_CRE_ITEM ~rqgem02~ #0 #0 #0 ~UNSTEALABLE~ ~INV~
+  SAY NAME1 ~Gnoll Chieftain~
+  SAY NAME2 ~Gnoll Chieftain~
+// Progunnos
+COPY ~grand_duke/cre/rqprog.cre~ ~override/rqprog.cre~
+  WRITE_ASCII 0x280 ~rqprog~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x2cc ~rqprog~ #8 // Dialogue file
+  ADD_CRE_ITEM ~rqbook2~ #0 #0 #0 ~UNSTEALABLE~ ~INV~
+  WRITE_ASCII 0x248 ~rqprog~ #8 // Override script
+  SAY NAME1 ~Progunnos~
+  SAY NAME2 ~Progunnos~
+// Nemaricus
+COPY ~grand_duke/cre/rqnemar.cre~ ~override/rqnemar.cre~
+  WRITE_ASCII 0x280 ~rqnemar~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x2cc ~rqnemar~ #8 // Dialogue file
+  SAY NAME1 ~Nemaricus~
+  SAY NAME2 ~Nemaricus~
+// Torl Bonechewer
+COPY ~grand_duke/cre/rqtorl.cre~ ~override/rqtorl.cre~
+  WRITE_ASCII 0x280 ~rqtorl~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x248 ~SHOUTDLG~ #8 // Override script
+  WRITE_ASCII 0x2cc ~rqtorl~ #8 // Dialogue file
+  SAY NAME1 ~Torl Bonechewer~
+  SAY NAME2 ~Torl Bonechewer~
+// Ruth
+COPY ~grand_duke/cre/rqruth.cre~ ~override/rqruth.cre~
+  WRITE_ASCII 0x280 ~rqruth~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x248 ~rqruth~ #8 // Override script
+  WRITE_ASCII 0x2cc ~rqruth~ #8 // Dialogue file
+  ADD_CRE_ITEM ~rqpotn60~ #3 #0 #0 ~UNSTEALABLE~ ~INV~
+  SAY NAME1 ~Ruth~
+  SAY NAME2 ~Ruth~
+// Ruth Troupe
+COPY ~grand_duke/cre/rqlevg1.cre~ ~override/rqlevg1.cre~
+  WRITE_ASCII 0x280 ~rqlevg1~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x250 ~rqgpuse~ #8 // Class script
+  SAY NAME1 ~Ruths Kinsman~
+  SAY NAME2 ~Ruths Kinsman~
+
+COPY ~grand_duke/cre/rqlevg2.cre~ ~override/rqlevg2.cre~
+  WRITE_ASCII 0x280 ~rqlevg2~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x250 ~rqgpuse~ #8 // Class script
+  SAY NAME1 ~Ruths Kinsman~
+  SAY NAME2 ~Ruths Kinsman~
+
+COPY ~grand_duke/cre/rqlevg3.cre~ ~override/rqlevg3.cre~
+  WRITE_ASCII 0x280 ~rqlevg3~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x250 ~rqgpuse~ #8 // Class script
+  SAY NAME1 ~Ruths Kinsman~
+  SAY NAME2 ~Ruths Kinsman~
+
+COPY ~grand_duke/cre/rqlevg4.cre~ ~override/rqlevg4.cre~
+  WRITE_ASCII 0x280 ~rqlevg4~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x250 ~rqgpuse~ #8 // Class script
+  SAY NAME1 ~Ruths Kinsman~
+  SAY NAME2 ~Ruths Kinsman~
+
+COPY ~grand_duke/cre/rqlevg5.cre~ ~override/rqlevg5.cre~
+  WRITE_ASCII 0x280 ~rqlevg5~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x250 ~rqgpuse~ #8 // Class script
+  SAY NAME1 ~Ruths Kinsman~
+  SAY NAME2 ~Ruths Kinsman~
+
+COPY ~grand_duke/cre/rqlevg6.cre~ ~override/rqlevg6.cre~
+  WRITE_ASCII 0x280 ~rqlevg6~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x250 ~rqgpuse~ #8 // Class script
+  SAY NAME1 ~Ruths Kinsman~
+  SAY NAME2 ~Ruths Kinsman~
+
+COPY ~grand_duke/cre/rqlev7cl.cre~ ~override/rqlev7cl.cre~
+  WRITE_ASCII 0x280 ~rqlev7cl~ #32 // Script name aka Death Variable
+// WRITE_ASCII 0x248 ~rqgpuse~ #8 // Override script
+// WRITE_ASCII 0x250 ~rqgpuse~ #8 // Class script
+  SAY NAME1 ~Dwarven Cleric~
+  SAY NAME2 ~Dwarven Cleric~
+// Azrammar Merchant
+COPY ~grand_duke/cre/rqazram.cre~ ~override/rqazram.cre~
+  WRITE_ASCII 0x280 ~rqazram~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x2cc ~rqazram~ #8 // Dialogue file
+  ADD_CRE_ITEM ~rqbelt03~ #0 #0 #0 ~UNSTEALABLE~ ~INV~
+  ADD_CRE_ITEM ~rqbook2~ #0 #0 #0 ~UNSTEALABLE~ ~INV~
+  SAY NAME1 ~Azrammar~
+  SAY NAME2 ~Azrammar~
+// Malik
+COPY ~grand_duke/cre/rqmalik.cre~ ~override/rqmalik.cre~
+  WRITE_ASCII 0x280 ~rqmalik~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x2cc ~rqmalik~ #8 // Dialogue file
+  ADD_CRE_ITEM ~rqwand02~ #17 #17 #17 ~UNSTEALABLE~ ~INV~
+  SAY NAME1 ~Malik~
+  SAY NAME2 ~Malik~
+// Aisha
+COPY ~grand_duke/cre/rqaisha.cre~ ~override/rqaisha.cre~
+  WRITE_ASCII 0x280 ~rqaisha~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x2cc ~rqaisha~ #8 // Dialogue file
+  SAY NAME1 ~Aisha~
+  SAY NAME2 ~Aisha~
+// Zelmira
+COPY ~grand_duke/cre/rqzelm.cre~ ~override/rqzelm.cre~
+  WRITE_ASCII 0x280 ~rqzelm~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x2cc ~rqzelm~ #8 // Dialogue file
+  WRITE_ASCII 0x248 ~INITDLG~ #8 // Override script
+  ADD_CRE_ITEM ~rqbelt05~ #0 #0 #0 ~UNSTEALABLE~ ~INV~
+  SAY NAME1 ~Zelmira~
+  SAY NAME2 ~Zelmira~
+// Zelmira Entourage
+COPY ~grand_duke/cre/rqzelg1.cre~ ~override/rqzelg1.cre~
+  WRITE_ASCII 0x280 ~rqzelg1~ #32 // Script name aka Death Variable
+  SAY NAME1 ~Nightshade of Shar~
+  SAY NAME2 ~Nightshade of Shar~
+
+COPY ~grand_duke/cre/rqzelg2.cre~ ~override/rqzelg2.cre~
+  WRITE_ASCII 0x280 ~rqzelg2~ #32 // Script name aka Death Variable
+  SAY NAME1 ~Nightshade of Shar~
+  SAY NAME2 ~Nightshade of Shar~
+
+COPY ~grand_duke/cre/rqzelg3.cre~ ~override/rqzelg3.cre~
+  WRITE_ASCII 0x280 ~rqzelg3~ #32 // Script name aka Death Variable
+  SAY NAME1 ~Nightshade of Shar~
+  SAY NAME2 ~Nightshade of Shar~
+
+COPY ~grand_duke/cre/rqzelg4.cre~ ~override/rqzelg4.cre~
+  WRITE_ASCII 0x280 ~rqzelg4~ #32 // Script name aka Death Variable
+  SAY NAME1 ~Nightshade of Shar~
+  SAY NAME2 ~Nightshade of Shar~
+
+// Merchant Friendly Arm Inn
+COPY ~grand_duke/cre/rqmerc01.cre~ ~override/rqmerc01.cre~
+  WRITE_ASCII 0x280 ~rqmerc01~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x2cc ~rqmerc01~ #8 // Dialogue file
+  SAY NAME1 ~Merchant~
+  SAY NAME2 ~Merchant~
+
+// Mithrest Inn Merchant
+COPY ~grand_duke/cre/rqmerc02.cre~ ~override/rqmerc02.cre~
+  WRITE_ASCII 0x280 ~rqmerc02~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x2cc ~rqmerc02~ #8 // Dialogue file
+  SAY NAME1 ~Merchant~
+  SAY NAME2 ~Merchant~
+
+// Brokkr Dwarf Fighter/Thief
+COPY ~grand_duke/cre/rqfith.cre~ ~override/rqfith.cre~
+  SAY NAME1 ~Brokkr~
+  SAY NAME2 ~Brokkr~
+  SAY BIO ~I aint got time to talk to ye bout' me past!~
+  SAY TIRED ~Bah! I'd rather be punchin' bums drunk than bein' worn out, ya hear?~
+  SAY HURT ~Wounds be deep, ya pitiful fool! Help me, or I'll feed yer bones to the rats!~
+  SAY TARGET_IMMUNE ~Bah! Not even a scratch! Gimme a better weapon, ye dolt!~
+  SAY INVENTORY_FULL ~Dropped yer lousy trinkets. Git lost, or get a new bag!~
+  SAY SPELL_DISRUPTED ~Hrrr! The spell's broken, blasted it!~
+  SAY SET_A_TRAP ~Heh heh heh! Watch the stoopid look on their face when this trap bites 'em!~
+
+// Brokkr Dwarf Fighter/Thief
+COPY ~grand_duke/cre/rqfith9.cre~ ~override/rqfith9.cre~
+  SAY NAME1 ~Brokkr~
+  SAY NAME2 ~Brokkr~
+  SAY BIO ~I aint got time to talk to ye bout' me past!~
+  SAY TIRED ~Bah! I'd rather be punchin' bums drunk than bein' worn out, ya hear?~
+  SAY HURT ~Wounds be deep, ya pitiful fool! Help me, or I'll feed yer bones to the rats!~
+  SAY TARGET_IMMUNE ~Bah! Not even a scratch! Gimme a better weapon, ye dolt!~
+  SAY INVENTORY_FULL ~Dropped yer lousy trinkets. Git lost, or get a new bag!~
+  SAY SPELL_DISRUPTED ~Hrrr! The spell's broken, blasted it!~
+  SAY SET_A_TRAP ~Heh heh heh! Watch the stoopid look on their face when this trap bites 'em!~
+
+// Brokkr Dwarf Fighter/Thief
+COPY ~grand_duke/cre/rqfith25.cre~ ~override/rqfith25.cre~
+  SAY NAME1 ~Brokkr~
+  SAY NAME2 ~Brokkr~
+  SAY BIO ~I aint got time to talk to ye bout' me past!~
+  SAY TIRED ~Bah! I'd rather be punchin' bums drunk than bein' worn out, ya hear?~
+  SAY HURT ~Wounds be deep, ya pitiful fool! Help me, or I'll feed yer bones to the rats!~
+  SAY TARGET_IMMUNE ~Bah! Not even a scratch! Gimme a better weapon, ye dolt!~
+  SAY INVENTORY_FULL ~Dropped yer lousy trinkets. Git lost, or get a new bag!~
+  SAY SPELL_DISRUPTED ~Hrrr! The spell's broken, blasted it!~
+  SAY SET_A_TRAP ~Heh heh heh! Watch the stoopid look on their face when this trap bites 'em!~
+
+// Adherent Reinforcements
+COPY ~grand_duke/cre/rqadher1.cre~ ~override/rqadher1.cre~
+  WRITE_ASCII 0x280 ~rqadher1~ #32 // Script name aka Death Variable
+  ADD_CRE_ITEM ~rqbelt03~ #0 #0 #0 ~UNSTEALABLE~ ~INV~
+  SAY NAME1 ~Adherent~
+  SAY NAME2 ~Adherent~
+
+COPY ~grand_duke/cre/rqadher2.cre~ ~override/rqadher2.cre~
+  WRITE_ASCII 0x280 ~rqadher2~ #32 // Script name aka Death Variable
+  SAY NAME1 ~Adherent~
+  SAY NAME2 ~Adherent~
+
+// Graveyard Ambush
+COPY ~grand_duke/cre/rqiacob.cre~ ~override/rqiacob.cre~
+  WRITE_ASCII 0x248 ~rqiacob~ #8 // Override script
+  WRITE_ASCII 0x280 ~rqiacob~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x2cc ~rqiacob~ #8 // Dialogue file
+  ADD_CRE_ITEM ~rqimun07~ #0 #0 #0 ~unstealable&undroppable~ ~RRING~
+  SAY NAME1 ~Iacobchon~
+  SAY NAME2 ~Iacobchon~
+
+COPY ~grand_duke/cre/rqavaram.cre~ ~override/rqavaram.cre~
+  WRITE_ASCII 0x280 ~rqavaram~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x248 ~rqavaram~ #8 // Override script
+  WRITE_ASCII 0x250 ~rqgpuse~ #8 // Class script
+  ADD_CRE_ITEM ~rqimun07~ #0 #0 #0 ~unstealable&undroppable~ ~RRING~
+  SAY NAME1 ~Avaram~
+  SAY NAME2 ~Avaram~
+
+COPY ~grand_duke/cre/rqgedeon.cre~ ~override/rqgedeon.cre~
+  WRITE_ASCII 0x280 ~rqgedeon~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x248 ~rqgedeon~ #8 // Override script
+  WRITE_ASCII 0x250 ~rqgpuse~ #8 // Class script
+  ADD_CRE_ITEM ~rqimun07~ #0 #0 #0 ~unstealable&undroppable~ ~RRING~
+  SAY NAME1 ~Gedeon~
+  SAY NAME2 ~Gedeon~
+
+COPY ~grand_duke/cre/rqelias.cre~ ~override/rqelias.cre~
+  WRITE_ASCII 0x280 ~rqelias~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x248 ~rqelias~ #8 // Override script
+  WRITE_ASCII 0x250 ~rqgpuse~ #8 // Class script
+  ADD_CRE_ITEM ~rqimun07~ #0 #0 #0 ~unstealable&undroppable~ ~RRING~
+  SAY NAME1 ~Eschiasson~
+  SAY NAME2 ~Eschiasson~
+
+COPY ~grand_duke/cre/rqiosias.cre~ ~override/rqiosias.cre~
+  WRITE_ASCII 0x280 ~rqiosias~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x248 ~rqiosias~ #8 // Override script
+  WRITE_ASCII 0x250 ~rqgpuse~ #8 // Class script
+  ADD_CRE_ITEM ~rqimun07~ #0 #0 #0 ~unstealable&undroppable~ ~RRING~
+  SAY NAME1 ~Iochisias~
+  SAY NAME2 ~Iochisias~
+
+COPY ~grand_duke/cre/rqmicha.cre~ ~override/rqmicha.cre~
+  WRITE_ASCII 0x280 ~rqmicha~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x248 ~rqmicha~ #8 // Override script
+  WRITE_ASCII 0x250 ~rqgpuse~ #8 // Class script
+  ADD_CRE_ITEM ~rqimun07~ #0 #0 #0 ~unstealable&undroppable~ ~RRING~
+  SAY NAME1 ~Michaael~
+  SAY NAME2 ~Michaael~
+
+COPY ~grand_duke/cre/rqdaniel.cre~ ~override/rqdaniel.cre~
+  WRITE_ASCII 0x280 ~rqdaniel~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x248 ~rqdaniel~ #8 // Override script
+  WRITE_ASCII 0x250 ~rqgpuse~ #8 // Class script
+  ADD_CRE_ITEM ~rqimun07~ #0 #0 #0 ~unstealable&undroppable~ ~RRING~
+  SAY NAME1 ~Damiell~
+  SAY NAME2 ~Damiell~
+// Tegwyn
+COPY ~grand_duke/cre/rqtegwyn.cre~ ~override/rqtegwyn.cre~
+  WRITE_ASCII 0x280 ~rqtegwyn~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x2cc ~rqtegwyn~ #8 // Dialogue file
+  SAY NAME1 ~Tegwyn~
+  SAY NAME2 ~Tegwyn~
+// Jergun Ermingsen
+COPY ~grand_duke/cre/rqjergun.cre~ ~override/rqjergun.cre~
+  WRITE_ASCII 0x280 ~rqjergun~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x2cc ~rqjergun~ #8 // Dialogue file
+  SAY NAME1 ~Jergun Ermingsen~
+  SAY NAME2 ~Jergun Ermingsen~
+// Joses
+COPY ~grand_duke/cre/rqjoses.cre~ ~override/rqjoses.cre~
+  WRITE_ASCII 0x280 ~rqjoses~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x2cc ~rqjoses~ #8 // Dialogue file
+  WRITE_ASCII 0x248 ~rqjoses~ #8 // Override script
+  SAY NAME1 ~Joses~
+  SAY NAME2 ~Joses~
+
+COPY ~grand_duke/cre/rqjoses2.cre~ ~override/rqjoses2.cre~
+  WRITE_ASCII 0x280 ~rqjoses2~ #32 // Script name aka Death Variable
+//  WRITE_ASCII 0x2cc ~rqjoses2~ #8 // Dialogue file
+//  WRITE_ASCII 0x248 ~rqjoses~ #8 // Override script
+  SAY NAME1 ~Joses~
+  SAY NAME2 ~Joses~
+// Abiyah
+COPY ~grand_duke/cre/rqabiyah.cre~ ~override/rqabiyah.cre~
+  WRITE_ASCII 0x280 ~rqabiyah~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x2cc ~rqabiyah~ #8 // Dialogue file
+  WRITE_ASCII 0x250 ~rqgpuse~ #8 // Class script
+  SAY NAME1 ~Abiyah~
+  SAY NAME2 ~Abiyah~
+// Lesme
+COPY ~grand_duke/cre/rqlesme.cre~ ~override/rqlesme.cre~
+  WRITE_ASCII 0x280 ~rqlesme~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x2cc ~rqlesme~ #8 // Dialogue file
+  SAY NAME1 ~Lesme~
+  SAY NAME2 ~Lesme~
+// Anton
+COPY ~grand_duke/cre/rqanton.cre~ ~override/rqanton.cre~
+  WRITE_ASCII 0x280 ~rqanton~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x2cc ~rqanton~ #8 // Dialogue file
+  WRITE_ASCII 0x248 ~rqanton~ #8 // Override script
+  ADD_CRE_ITEM ~rqring05~ #0 #0 #0 ~UNSTEALABLE~ ~INV~
+  SAY NAME1 ~Anton~
+  SAY NAME2 ~Anton~
+// Anton Werewolf Enemy version
+COPY ~grand_duke/cre/rqanton2.cre~ ~override/rqanton2.cre~
+  WRITE_ASCII 0x280 ~rqanton2~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x248 ~rqanton~ #8 // Override script
+  SAY NAME1 ~Anton~
+  SAY NAME2 ~Anton~
+// Neutral Anton
+COPY ~grand_duke/cre/rqantonn.cre~ ~override/rqantonn.cre~
+  WRITE_ASCII 0x280 ~rqantonn~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x2cc ~rqantonn~ #8 // Dialogue file
+  WRITE_ASCII 0x248 ~rqantonn~ #8 // Override script
+  SAY NAME1 ~Anton~
+  SAY NAME2 ~Anton~
+
+// Ch6 BG2 city courier working for drow
+COPY ~grand_duke/cre/rqcourbr.cre~ ~override/rqcourbr.cre~
+  WRITE_ASCII 0x280 ~rqcourbr~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x2cc ~rqcourbr~ #8 // Dialogue file
+  WRITE_ASCII 0x248 ~INITDLG~ #8 // Override script
+  SAY NAME1 ~Norbir~
+  SAY NAME2 ~Norbir~
+
+COPY ~grand_duke/cre/rqdwar01.cre~ ~override/rqdwar01.cre~
+  WRITE_ASCII 0x280 ~rqdwar01~ #32 // Script name aka Death Variable
+  SAY NAME1 ~Drow~
+  SAY NAME2 ~Drow~
+
+COPY ~grand_duke/cre/rqdwar02.cre~ ~override/rqdwar02.cre~
+  WRITE_ASCII 0x280 ~rqdwar02~ #32 // Script name aka Death Variable
+  SAY NAME1 ~Drow~
+  SAY NAME2 ~Drow~
+
+COPY ~grand_duke/cre/rqdwar03.cre~ ~override/rqdwar03.cre~
+  WRITE_ASCII 0x280 ~rqdwar03~ #32 // Script name aka Death Variable
+  SAY NAME1 ~Drow~
+  SAY NAME2 ~Drow~
+
+COPY ~grand_duke/cre/rqdken01.cre~ ~override/rqdken01.cre~
+  WRITE_ASCII 0x280 ~rqdken01~ #32 // Script name aka Death Variable
+  SAY NAME1 ~Drow~
+  SAY NAME2 ~Drow~
+
+COPY ~grand_duke/cre/rqdass01.cre~ ~override/rqdass01.cre~
+  WRITE_ASCII 0x280 ~rqdass01~ #32 // Script name aka Death Variable
+  SAY NAME1 ~Drow~
+  SAY NAME2 ~Drow~
+
+COPY ~grand_duke/cre/rqdass02.cre~ ~override/rqdass02.cre~
+  WRITE_ASCII 0x280 ~rqdass02~ #32 // Script name aka Death Variable
+  SAY NAME1 ~Drow~
+  SAY NAME2 ~Drow~
+
+COPY ~grand_duke/cre/rqdpri01.cre~ ~override/rqdpri01.cre~
+  WRITE_ASCII 0x280 ~rqdpri01~ #32 // Script name aka Death Variable
+  SAY NAME1 ~Drow~
+  SAY NAME2 ~Drow~
+
+COPY ~grand_duke/cre/rqdwiz01.cre~ ~override/rqdwiz01.cre~
+  WRITE_ASCII 0x280 ~rqdwiz01~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x2cc ~rqdwiz01~ #8 // Dialogue file
+  WRITE_ASCII 0x248 ~rqdwiz01~ #8 // Override script
+  SAY NAME1 ~Malzoth~
+  SAY NAME2 ~Malzoth~
+
+COPY ~grand_duke/cre/rqdwiz02.cre~ ~override/rqdwiz02.cre~
+  WRITE_ASCII 0x280 ~rqdwiz02~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x2cc ~rqdwiz02~ #8 // Dialogue file
+  ADD_CRE_ITEM ~rqletma~ #0 #0 #0 ~UNSTEALABLE~ ~INV~
+  ADD_CRE_ITEM ~rqmisc05~ #0 #0 #0 ~UNSTEALABLE~ ~INV~
+  ADD_CRE_ITEM ~rqmisc04~ #0 #0 #0 ~UNSTEALABLE~ ~INV~
+  SAY NAME1 ~Zhar'kyl Vhaeril~
+  SAY NAME2 ~Zhar'kyl Vhaeril~
+
+// Malzoths Imp Demin dead
+COPY ~grand_duke/cre/rqmalim1.cre~ ~override/rqmalim1.cre~
+  WRITE_ASCII 0x280 ~rqmalim1~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x248 ~rqmalimp~ #8 // Override script
+  WRITE_ASCII 0x2cc ~rqmalim1~ #8 // Dialogue file
+  ADD_CRE_ITEM ~rqaxe02~ #0 #0 #0 ~UNSTEALABLE~ ~INV~
+  ADD_CRE_ITEM ~rqletmal~ #0 #0 #0 ~UNSTEALABLE~ ~INV~
+  SAY NAME1 ~Malzoths Imp~
+  SAY NAME1 ~Malzoths Imp~
+// Malzoths Imp Only spying
+COPY ~grand_duke/cre/rqmalim2.cre~ ~override/rqmalim2.cre~
+  WRITE_ASCII 0x280 ~rqmalim2~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x248 ~rqmalimp~ #8 // Override script
+  WRITE_ASCII 0x2cc ~rqmalim2~ #8 // Dialogue file
+  ADD_CRE_ITEM ~rqhamm03~ #0 #0 #0 ~UNSTEALABLE~ ~INV~
+  ADD_CRE_ITEM ~rqaxe04~ #0 #0 #0 ~UNSTEALABLE~ ~INV~
+  ADD_CRE_ITEM ~rqletmal~ #0 #0 #0 ~UNSTEALABLE~ ~INV~
+  SAY NAME1 ~Malzoths Imp~
+  SAY NAME1 ~Malzoths Imp~
+
+
+// Add item to Demin
+COPY_EXISTING ~sudemin.cre~ ~override/sudemin.cre~
+    ADD_CRE_ITEM ~rqproof5~ #0 #0 #0 ~UNSTEALABLE~ ~AMULET~
+
+
+// Brokkr Dwarf Fighter/Thief ----- add NPC dialog references -----
+APPEND ~pdialog.2da~ // SOA append
+~rqbro           rqbroP               rqbroJ              rqbroD~
+UNLESS ~rqbro~ // somehow we are already there, skip it
+UNLESS ~25POST~ // means TOB is installed, skip it
+
+APPEND ~pdialog.2da~ // TOB append
+~rqbro         rqbroP               rqbroJ             rqbro25D         rqbro25P           rqbro25J           rqbro25D             rqbro25~
+UNLESS ~rqbro~ // we are already there, skip it
+IF     ~25POST~ // requires TOB to be installed
+
+APPEND ~interdia.2da~ // SOA append
+~rqbro         Brqbro~
+UNLESS ~rqbro~ // somehow we are already there, skip it
+UNLESS ~25POST~ // means TOB is installed, skip it
+
+APPEND ~interdia.2da~ // TOB append
+~rqbro         Brqbro          Brqbro25~
+UNLESS ~rqbro~ // we are already there, skip it
+IF     ~25POST~ // requires TOB to be installed
+
+// Elf Rhiviq Mage Diviner
+COPY ~grand_duke/cre/rqrhiv.cre~ ~override/rqrhiv.cre~
+  SAY NAME1 ~Rhiviq~
+  SAY NAME2 ~Rhiviq~
+  SAY BIO ~I am an orphan. I have no name, no family, nothing. How much more do you want to know, and how much more is there to tell about oneself?~
+SAY TIRED ~*Yawn* We should rest now; my mind grows weary.~
+SAY HURT ~My wounds are grave; help me!~
+SAY TARGET_IMMUNE ~Magic would be preferred here.~
+SAY INVENTORY_FULL ~My word, I cannot cope with all this stuff. I have dropped your item.~
+SAY SPELL_DISRUPTED ~I failed to foresee this magical failure.~
+SAY SET_A_TRAP ~Trap have I set.~
+
+// Elf Rhiviq Mage Diviner ----- add NPC dialog references -----
+APPEND ~pdialog.2da~ // SOA append
+~rqrhiv         rqrhivP               rqrhivJ              rqrhivD~
+UNLESS ~rqrhiv~ // somehow we are already there, skip it
+UNLESS ~25POST~ // means TOB is installed, skip it
+
+APPEND ~pdialog.2da~ // TOB append
+~rqrhiv         rqrhivP               rqrhivJ             rqrhiv25D         rqrhiv25P           rqrhiv25J           rqrhiv25D             rqrhiv25~
+UNLESS ~rqrhiv~ // we are already there, skip it
+IF     ~25POST~ // requires TOB to be installed
+
+APPEND ~interdia.2da~ // SOA append
+~rqrhiv         Brqrhiv~
+UNLESS ~rqrhiv~ // somehow we are already there, skip it
+UNLESS ~25POST~ // means TOB is installed, skip it
+
+APPEND ~interdia.2da~ // TOB append
+~rqrhiv         Brqrhiv          Brqrhiv25~
+UNLESS ~rqrhiv~ // we are already there, skip it
+IF     ~25POST~ // requires TOB to be installed
+
+BEGIN ~Change Rhiviqs kit from Diviner >>> to >>> Necromancer (Illegal for full Elves according to BG2 version of  AD&D rules)~
+SUBCOMPONENT ~Rhiviq's class~
+
+COPY ~grand_duke/cre/rqmane.cre~ ~override/rqrhiv.cre~
+  SAY NAME1 ~Rhiviq~
+  SAY NAME2 ~Rhiviq~
+  SAY BIO ~I am an orphan. I have no name, no family, nothing. How much more do you want to know, and how much more is there to tell about oneself?~
+  SAY TIRED ~*Yawn* We should rest now; my mind grows weary.~
+  SAY HURT ~My wounds are grave; help me!~
+  SAY TARGET_IMMUNE ~Magic would be preferred here.~
+  SAY INVENTORY_FULL ~My word, I cannot cope with all this stuff. I have dropped your item.~
+  SAY SPELL_DISRUPTED ~I failed to foresee this magical failure.~
+  SAY SET_A_TRAP ~Trap have I set.~
+
+
+BEGIN ~Change Rhiviqs kit from Diviner >>> to >>> Enchanter~
+SUBCOMPONENT ~Rhiviq's class~
+
+COPY ~grand_duke/cre/rqmaen.cre~ ~override/rqrhiv.cre~
+  SAY NAME1 ~Rhiviq~
+  SAY NAME2 ~Rhiviq~
+  SAY BIO ~I am an orphan. I have no name, no family, nothing. How much more do you want to know, and how much more is there to tell about oneself?~
+  SAY TIRED ~*Yawn* We should rest now; my mind grows weary.~
+  SAY HURT ~My wounds are grave; help me!~
+  SAY TARGET_IMMUNE ~Magic would be preferred here.~
+  SAY INVENTORY_FULL ~My word, I cannot cope with all this stuff. I have dropped your item.~
+  SAY SPELL_DISRUPTED ~I failed to foresee this magical failure.~
+  SAY SET_A_TRAP ~Trap have I set.~
+
+
+BEGIN ~Change Rhiviqs kit from Diviner >>> to >>> Invoker (Illegal for full Elves according to BG2 version of  AD&D rules)~
+SUBCOMPONENT ~Rhiviq's class~
+
+COPY ~grand_duke/cre/rqmain.cre~ ~override/rqrhiv.cre~
+  SAY NAME1 ~Rhiviq~
+  SAY NAME2 ~Rhiviq~
+  SAY BIO ~I am an orphan. I have no name, no family, nothing. How much more do you want to know, and how much more is there to tell about oneself?~
+  SAY TIRED ~*Yawn* We should rest now; my mind grows weary.~
+  SAY HURT ~My wounds are grave; help me!~
+  SAY TARGET_IMMUNE ~Magic would be preferred here.~
+  SAY INVENTORY_FULL ~My word, I cannot cope with all this stuff. I have dropped your item.~
+  SAY SPELL_DISRUPTED ~I failed to foresee this magical failure.~
+  SAY SET_A_TRAP ~Trap have I set.~
+
+/*
+// Testing Stuff --------------------------- TEST --------------------------- TEST -----------------------
+
+BEGIN ~rqtesting install~
+// Merchant Elfsong
+  COPY ~grand_duke/cre/rqmerc09.cre~ ~override/rqmerc09.cre~
+  WRITE_ASCII 0x280 ~rqmerc09~ #32 // Script name aka Death Variable
+  WRITE_ASCII 0x2cc ~rqmerc09~ #8 // Dialogue file
+  SAY NAME1 ~Merchant~
+  SAY NAME2 ~Merchant~
+// Testing Stuff -----
+// copy store files
+COPY ~grand_duke/sto/rqstor09.sto~ ~override/rqstor09.sto~
+
+// Ring of changed alignment 13
+COPY ~grand_duke/itm/rqring09.itm~ ~override/rqring09.itm~
+// Unidentified name
+SAY NAME1 ~Ring~
+// Identified name
+SAY NAME2 ~Ring of Neutral Alignment~
+
+SAY UNIDENTIFIED_DESC
+~A ring is a small band of precious metal that is used as jewelry.  Some rare rings have had enchantments placed upon them that confer various magical abilities.  These rings are highly sought after, especially by those of the adventuring profession.~
+
+SAY DESC
+~Ring of changed alignment to Lawful Neutral~
+
+// Ring of changed alignment 14
+COPY ~grand_duke/itm/rqring10.itm~ ~override/rqring10.itm~
+// Unidentified name
+SAY NAME1 ~Ring~
+// Identified name
+SAY NAME2 ~Ring of Neutral Good Alignment~
+
+SAY UNIDENTIFIED_DESC
+~A ring is a small band of precious metal that is used as jewelry.  Some rare rings have had enchantments placed upon them that confer various magical abilities.  These rings are highly sought after, especially by those of the adventuring profession.~
+
+SAY DESC
+~Ring of changed alignment to Neutral Good~
+*/

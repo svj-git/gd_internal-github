@@ -1,0 +1,27 @@
+// Slums
+IF
+    OR (2)
+        Global("rqGDGrothukDead","GLOBAL",1)
+        Dead("rqgroth")
+    Global("rqGDBG2BurThukAmbush","AR0400",0) // Slums
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDBG2BurThukAmbush","AR0400",1) // Slums
+        CreateCreature("rqburth",[1946.411],SE) // Bur'Thuk
+        CreateCreature("rqburgo1",[2000.452],SE) // Sur'Thuk
+        CreateCreature("rqburgo2",[2054.475],S) // Lur'Thuk
+        CreateCreature("rqburgo3",[2036.494],S) // Anabasa
+        Continue()
+END
+
+// Slums
+IF
+    Global("rqGDBG2BrokMurderers","GLOBAL",3)
+    Global("rqGDBG2SlumsJergunPlot","AR0400",0) // Slums
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDBG2SlumsJergunPlot","AR0400",1) // Slums
+        CreateCreature("rqlesme",[2064.537],SSW) // Lesme
+        CreateCreature("rqabiyah",[2032.593],SSW) // Abiyah
+        Continue()
+END

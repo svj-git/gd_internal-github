@@ -1,0 +1,9 @@
+// Temple of Bhaal
+IF
+    Global("ENDOFBG1","GLOBAL",1)
+    Global("rqGDBeltPalaceControl","GLOBAL",0)
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDBeltPalaceControl","GLOBAL",1) // Belt in Ducal Palace
+        Continue()
+END

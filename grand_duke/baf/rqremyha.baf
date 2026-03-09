@@ -1,0 +1,37 @@
+// Remy Hawk
+IF
+    Global("rqGDNeutralPathStep6","GLOBAL",1)
+    Global("rqGDThiefReinforce","GLOBAL",1)
+    See([PC])
+    Global("rqGDZZEnding","GLOBAL",0)
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDNeutralPathStep6","GLOBAL",2)
+        SetGlobal("rqGDZZEnding","GLOBAL",1)
+        DisplayStringHead(Myself,~Once I get through with you, there won't be a body left to bury!~) // Once I get through with you, there won't be a body left to bury!
+END
+
+IF
+    Global("rqGDGoodPathStep5","GLOBAL",1)
+    Global("BG_AttackedThieves","GLOBAL",1)
+    Global("rqGDThiefReinforce","GLOBAL",1)
+    Global("rqGDZZEnding","GLOBAL",0)
+    See([PC])
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDGoodPathStep5","GLOBAL",2)
+        SetGlobal("rqGDZZEnding","GLOBAL",1)
+        DisplayStringHead(Myself,~Fresh meat!~) // Fresh meat!
+END
+
+IF
+    Global("rqGDEvilPathStep4","GLOBAL",1)
+    Global("rqGDThiefReinforce","GLOBAL",1)
+    See([PC])
+    Global("rqGDZZEnding","GLOBAL",0)
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDEvilPathStep4","GLOBAL",2)
+        SetGlobal("rqGDZZEnding","GLOBAL",1)
+        DisplayStringHead(Myself,~Ill bite off something from you!~) // Ill bite off something from you!
+END

@@ -1,0 +1,9 @@
+// Anton override script
+IF
+    See([PC])
+    Dead("rqkrivy")
+    Global("rqGDGoodPathStep6","GLOBAL",2)
+THEN
+    RESPONSE #100
+        StartDialogueNoSet([PC])
+END

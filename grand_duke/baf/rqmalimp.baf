@@ -1,0 +1,10 @@
+// Anton override script
+IF
+    Detect("rqbro")
+    Allegiance(Myself,NEUTRAL)
+    !ActuallyInCombat()
+    NumTimesTalkedTo(0)
+THEN
+    RESPONSE #100
+        Dialogue("rqbro")
+END

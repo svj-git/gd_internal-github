@@ -1,0 +1,76 @@
+// Flaming Fist Citadel
+IF
+    Global("rqGDGrandDukeQuest","GLOBAL",1)
+    Global("rqGDRepreSpawn","AR7607",0) // Flaming Fist Citadel
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDRepreSpawn","AR7607",1) // Flaming Fist Citadel
+        CreateCreature("rqtrest",[1026.774],0) // Trest
+        CreateCreature("rqbofist",[838.624],0) // Bounty Officer
+        Continue()
+END
+
+IF
+    Global("rqGDNeutralPathStep5","GLOBAL",3)
+    Global("rqGDEndFistSpawn","AR7607",0) // Flaming Fist Citadel
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDEndFistSpawn","AR7607",1) // Flaming Fist Citadel
+        CreateCreature("rqenfist",[945.801],0) // Flaming Fist Enforcer
+        Continue()
+END
+
+IF
+    Global("rqGDEvilPath","GLOBAL",1)
+    Exists("rqtrest")  // Trest
+    InMyArea("rqtrest") // Trest
+THEN
+    RESPONSE #100
+        ActionOverride("rqtrest",EscapeArea()) // Trest
+        Continue()
+END
+
+IF
+    Global("rqGDEvilPathStep2","GLOBAL",2)
+    Global("rqGDFistSpawn","AR7607",0) // Flaming Fist Citadel
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDFistSpawn","AR7607",1) // Flaming Fist Citadel
+        CreateCreature("rqfistd9",[1300.940],S)  // Anastasov
+        CreateCreature("rqfiste0",[1030.657],S)  // Flaming Fist Mercenary
+        CreateCreature("rqfiste1",[903.719],S)  // Flaming Fist Mercenary
+        CreateCreature("rqfiste2",[814.821],S)  // Flaming Fist Mercenary
+        CreateCreature("rqfiste3",[947.817],S)  // Flaming Fist Mercenary
+        CreateCreature("rqfisth4",[964.915],S) // Flaming Fist Scout
+        CreateCreature("rqfisth5",[770.850],S) // Flaming Fist Scout
+        CreateCreature("rqfisth6",[745.774],S) // Flaming Fist Scout
+        CreateCreature("rqfisti7",[858.657],S)  // Flaming Fist Battle Wizard
+        CreateCreature("rqfisti8",[1070.931],S)  // Flaming Fist Battle Wizard
+        ActionOverride("DICKSMOK",Enemy()) // Dilos
+        ActionOverride("FERGUS",Enemy()) // Fergus
+        ActionOverride("rqbofist",Enemy()) // Bounty Officer
+        Continue()
+END
+
+IF
+    Global("rqGDEvilCitadelThieves","GLOBAL",0)
+    Dead("rqthi1a")
+    Dead("rqthi2a")
+    Dead("rqthi3a")
+    Dead("rqthi4a")
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDEvilCitadelThieves","GLOBAL",1)
+        Continue()
+END
+
+IF
+    Global("rqGDNeutralPathStep5","GLOBAL",3)
+    Exists("rqtrest")  // Trest
+    InMyArea("rqtrest") // Trest
+    InMyArea(Player1)
+THEN
+    RESPONSE #100
+        ActionOverride("rqtrest",Dialogue([PC])) // Trest
+        Continue()
+END

@@ -1,0 +1,36 @@
+// North Forest
+/*
+IF
+    Delay(10)
+    Dead("sudemin")
+    Global("rqGDBG2BrokSpying","GLOBAL",3)
+    Global("rqGDBG2SpawnImp2","AR6400",0)
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDBG2SpawnImp2","AR6400",1)
+        CreateCreatureDoor("rqmalim2",[217.1400],S)  // Malzoths Imp
+        Continue()
+END
+
+IF
+    Delay(10)
+    !Dead("sudemin")
+    Global("rqGDBG2BrokSpying","GLOBAL",3)
+    Global("rqGDBG2SpawnImp1","AR6400",0)
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDBG2SpawnImp1","AR6400",1)
+        CreateCreatureDoor("rqmalim1",[217.1400],S)  // Malzoths Imp
+        Continue()
+END
+*/
+IF
+    Delay(10)
+    Global("rqGDBG2BrokSpying","GLOBAL",3)
+    Global("rqGDBG2SpawnEnchanter","AR6400",0)
+THEN
+    RESPONSE #100
+        SetGlobal("rqGDBG2SpawnEnchanter","AR6400",1)
+        CreateCreatureDoor("rqdwiz02",[217.1400],S)
+        Continue()
+END

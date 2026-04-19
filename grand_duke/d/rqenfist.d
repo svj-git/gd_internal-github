@@ -28,13 +28,6 @@ IF ~True()~ THEN BEGIN Alarm
              TakePartyItemAll("SCRL3Z")  // Gorion's Scroll
              TakePartyItemAll("SCRLZHA")  // Scroll
              TakePartyItemAll("MISC78")  // Invitation
-             ActionOverride(Player1,LeaveAreaLUAPanic("ARAM00","",[10.960],S))
-             ActionOverride(Player1,LeaveAreaLUA("ARAM00","",[10.960],S))
-             ActionOverride(Player2,LeaveAreaLUA("ARAM00","",[10.960],S))
-             ActionOverride(Player3,LeaveAreaLUA("ARAM00","",[10.960],S))
-             ActionOverride(Player4,LeaveAreaLUA("ARAM00","",[10.960],S))
-             ActionOverride(Player5,LeaveAreaLUA("ARAM00","",[10.960],S))
-             ActionOverride(Player6,LeaveAreaLUA("ARAM00","",[10.960],S))
             EraseJournalEntry(~Duke of Baldur's Gate:
 
             I do not like to be used like a pawn. Yet I know that killing Alatos in the Eastern district will clear out a lot of fog.~)
@@ -257,6 +250,13 @@ IF ~True()~ THEN BEGIN Alarm
         EraseJournalEntry(~Duke of Baldur's Gate:
 
         I have taken this opportunity to get back into the good graces of Duke Belt. I think it would be much better for the city, and I have no wish to become like Sarevok.~)
-        %
+             ActionOverride(Player1,LeaveAreaLUAPanic("ARAM00","",[10.960],S))
+             ActionOverride(Player1,LeaveAreaLUA("ARAM00","",[10.960],S))
+             ActionOverride(Player2,LeaveAreaLUA("ARAM00","",[10.960],S))
+             ActionOverride(Player3,LeaveAreaLUA("ARAM00","",[10.960],S))
+             ActionOverride(Player4,LeaveAreaLUA("ARAM00","",[10.960],S))
+             ActionOverride(Player5,LeaveAreaLUA("ARAM00","",[10.960],S))
+             ActionOverride(Player6,LeaveAreaLUA("ARAM00","",[10.960],S))
+            %
         EXIT
 END

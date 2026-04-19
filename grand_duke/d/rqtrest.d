@@ -126,7 +126,7 @@ IF ~!Global("rqGDEvilPathStep2","GLOBAL",1) !Global("rqGDGoodPathStep3","GLOBAL"
 END
 
 // Trest Evil route
-IF ~Global("rqGDEvilPathStep2","GLOBAL",1) ReputationLT(LastTalkedToBy,3) AreaCheck("AR8000")~ THEN BEGIN LowReputation
+IF ~Global("rqGDEvilPathStep2","GLOBAL",1) ReputationLT(LastTalkedToBy,4) AreaCheck("AR8000")~ THEN BEGIN LowReputation
     SAY ~Flaming Fist, given your reputation, has reinforced their citadel. Therefore, if you wish this operation to succeed, you need to increase your reputation.~
     IF ~~ THEN EXIT
 END
